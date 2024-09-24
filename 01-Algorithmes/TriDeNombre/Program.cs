@@ -1,10 +1,4 @@
-﻿using System;
-					
-public class Program
-{
-	public static void Main()
-	{
-		 // Lire les trois nombres entiers
+﻿		 // Lire les trois nombres entiers
         Console.Write("Entrez le nombre A : ");
         int A = int.Parse(Console.ReadLine());
 
@@ -65,5 +59,3 @@ public class Program
         Console.WriteLine(min);
         Console.WriteLine(mid);
         Console.WriteLine(max);
-	}
-}
