@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlerLaSaisie", "ControlerLaSaisie.csproj", "{6A44AFAC-6273-4237-A830-06300895ADF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SaissieMotPass", "SaissieMotPass.csproj", "{D8E76CBC-B282-47BE-ABE8-E009FB3FA709}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{6A44AFAC-6273-4237-A830-06300895ADF7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6A44AFAC-6273-4237-A830-06300895ADF7}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6A44AFAC-6273-4237-A830-06300895ADF7}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6A44AFAC-6273-4237-A830-06300895ADF7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D8E76CBC-B282-47BE-ABE8-E009FB3FA709}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D8E76CBC-B282-47BE-ABE8-E009FB3FA709}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D8E76CBC-B282-47BE-ABE8-E009FB3FA709}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D8E76CBC-B282-47BE-ABE8-E009FB3FA709}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {522C0316-F46F-432C-962E-81F274F7D15E}
+		SolutionGuid = {DFFBECCF-5953-46CD-9910-4A94C20CB9BB}
 	EndGlobalSection
 EndGlobal
