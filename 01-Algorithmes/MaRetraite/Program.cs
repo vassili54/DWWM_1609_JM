@@ -44,4 +44,3 @@ else
 {
     Console.WriteLine("La valeur fournie n’est pas un âge valide.");
 }
-
