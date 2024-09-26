@@ -10,29 +10,28 @@ Note : Le bon mot de passe est formation
   */
 
 //VARIABLES
-const string bonMotPasse = "formation";
+const string BON_MOT_PASSE = "formation";
 int essai = 0;
+const int maxEssaie = 3;
 string saisie;
-Boolean estIdentifier = false;
 
 //TRAITEMENT
 
-while (essai < 3 && !estIdentifier)
+while (essai < maxEssaie)
 {
-    Console.WriteLine("Veuillez saisir votre mot passe");
+    Console.Write("Veuillez saisir votre mot passe : ");
     saisie = Console.ReadLine();
 
-    if (saisie == bonMotPasse)
+    if (saisie == BON_MOT_PASSE)
     {
         Console.WriteLine("Vous êtes connecté");
-        estIdentifier = true;
+        return;
     }
     else
     {
         essai++;
-        if (essai < 3)
-        {
-            Console.WriteLine("Mot de passe incorrect. Veuillez réessayer.");
-        }
+        Console.WriteLine("Mot de passe incorrect. Veuillez réesayer.");   
     }
 }
+
+Console.WriteLine("Votre compte est bloqué");
