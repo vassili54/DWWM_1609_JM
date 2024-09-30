@@ -2,11 +2,10 @@
 int age;
 string saisieUser;
 
-// Lecture de l'âge avec gestion des erreurs
+// Traitement
 Console.Write("Entrez votre âge : ");
 age = int.Parse(Console.ReadLine());
 
-// Traitement
 if (age < 0)
 {
     Console.WriteLine("Vous n'êtes pas encore né(e)");
