@@ -8,7 +8,7 @@ Un nombre premier n’est divisible que par 1 et par lui-même.
 int nombre;
 int i;
 bool estPremier;
-
+//TRAITEMENT
 Console.Write("Entrez un nombre entier : ");
 nombre = int.Parse(Console.ReadLine());
 
