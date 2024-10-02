@@ -12,12 +12,12 @@ Note : Le bon mot de passe est formation
 //VARIABLES
 const string BON_MOT_PASSE = "formation";
 int essai = 0;
-const int maxEssaie = 3;
+const int MAX_ESSAIE = 3;
 string saisie;
 
 //TRAITEMENT
 
-while (essai < maxEssaie)
+while (essai < MAX_ESSAIE)
 {
     Console.Write("Veuillez saisir votre mot passe : ");
     saisie = Console.ReadLine();

@@ -14,6 +14,19 @@ string prenom;
 
 //TRAITEMENT
 
+/*
+String formatPrenom = @"^[a-zA-Z]{2,32}$i";
+
+while (!Regex.IsMatch(prenom, formatPrenom, RegexOptions|IgnoreCase))
+{
+    Console.WriteLine("Saisissez un vrai prénom !");
+    prenom = Console.ReadLine();
+}
+ 
+Console.WriteLine("Bonjour " + prenom + " !");
+
+ */
+
 do
 {
     Console.Write("Veuillez saisir votre prénom (au moins 2 caractères) : ");
