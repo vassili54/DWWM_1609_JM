@@ -12,9 +12,9 @@ if (age < 0)
 }
 else if (age < 18)
 {
-    Console.WriteLine("Vous êtes mineur");
+    Console.WriteLine("Vous êtes mineur(e)");
 }
 else
 {
-    Console.WriteLine("Vous êtes majeur");
+    Console.WriteLine("Vous êtes majeur(e)");
 }

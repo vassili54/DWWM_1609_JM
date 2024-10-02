@@ -10,8 +10,29 @@ de chacune des lettres de l’alphabet.
 int[] lettrecount = new int[26];
 
 //VARIABLES
-string imput;
+string input;
+int i;
 
 Console.WriteLine("Veuillez entrer un texte d'au moins 120 caractères :");
-imput = Console.ReadLine();
+input = Console.ReadLine();
 
+//Verifier le texte contient 120 caractères
+while (input.Length < 120)
+{
+    Console.WriteLine("Le texte doit contenir au moins 120 caractères. Veuillez réessayer :");
+    input = Console.ReadLine();
+}
+
+//compter l'occurences de chaque lettre
+foreach (char c in input.ToLower())
+{
+    if (char.IsLetter(c))
+    {
+        lettrecount[c - 'a']++;
+    }
+}
+//Afficher les résultat
+for (i = 0; i < lettrecount.Length; i++)
+{
+    Console.WriteLine($"{(char)(i + 'a')} : {lettrecount[i]}");
+}

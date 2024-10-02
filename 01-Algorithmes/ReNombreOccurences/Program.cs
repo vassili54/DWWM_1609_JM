@@ -21,7 +21,7 @@ phrase = Console.ReadLine();
 
 if (string.IsNullOrEmpty(phrase) || phrase == ".") //Verifie si la chaine phrase est null ou vide
 { 
-    Console.WriteLine("La chaine est vide");
+    Console.WriteLine("La phrase est vide");
     return;
 }
 
