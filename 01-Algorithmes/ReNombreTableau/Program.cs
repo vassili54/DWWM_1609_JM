@@ -11,14 +11,14 @@ Sinon, afficher « Nombre non trouvé ».Rechercher un nombre dans un tableau
 //VARIABLES
 int[] tab = { 8, 16, 32, 64, 128, 256, 512 };
 int nombre;
-int i;
+int i; 
 Boolean trouve;
 
 Console.Write("Entrez le nombre à chercher : ");
 nombre = int.Parse(Console.ReadLine());
 
 trouve = false;
-for (i = 0; i < tab.Length; i++) 
+for (i = 0; i < tab.Length; i++)
 {
     if (tab[i] == nombre)
     {
@@ -28,7 +28,8 @@ for (i = 0; i < tab.Length; i++)
     }
 }
 
-if (!trouve) 
-{ 
+if (!trouve)
+{
     Console.WriteLine("nombre non trouvé.");
 }
+
