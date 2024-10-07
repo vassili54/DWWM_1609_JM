@@ -1,61 +1,34 @@
-﻿		 // Lire les trois nombres entiers
-        Console.Write("Entrez le nombre A : ");
-        int A = int.Parse(Console.ReadLine());
+﻿using MatzTools;
 
-        Console.Write("Entrez le nombre B : ");
-        int B = int.Parse(Console.ReadLine());
+//VARIABLES
+int A = ConsoleTools.DemanderNombreEntier("Entrer le nombre A");
+int B = ConsoleTools.DemanderNombreEntier("Entrer le nombre B");
+int C = ConsoleTools.DemanderNombreEntier("Entrer le nombre C");
+float D = ConsoleTools.DemanderNombreFlottant("Entrer le flottant D");
+int[] nombres;
 
-        Console.Write("Entrez le nombre C : ");
-        int C = int.Parse(Console.ReadLine());
 
-        // Trouver le plus petit, le moyen et le plus grand
-        int min, mid, max;
+/* Lire les trois nombres entiers
+Console.Write("Entrez le nombre A : ");
+int A = int.Parse(Console.ReadLine());
 
-        if (A <= B && A <= C)
-        {
-            min = A;
-            if (B <= C)
-            {
-                mid = B;
-                max = C;
-            }
-            else
-            {
-                mid = C;
-                max = B;
-            }
-        }
-        else if (B <= A && B <= C)
-        {
-            min = B;
-            if (A <= C)
-            {
-                mid = A;
-                max = C;
-            }
-            else
-            {
-                mid = C;
-                max = A;
-            }
-        }
-        else
-        {
-            min = C;
-            if (A <= B)
-            {
-                mid = A;
-                max = B;
-            }
-            else
-            {
-                mid = B;
-                max = A;
-            }
-        }
+Console.Write("Entrez le nombre B : ");
+int B = int.Parse(Console.ReadLine());
 
-        // Afficher les nombres dans l'ordre croissant
-        Console.WriteLine("Les nombres dans l'ordre croissant sont : ");
-        Console.WriteLine(min);
-        Console.WriteLine(mid);
-        Console.WriteLine(max);
+Console.Write("Entrez le nombre C : ");
+int C = int.Parse(Console.ReadLine());
+*/
+
+nombres = [A, B, C];
+
+Array.Sort(nombres);
+
+// AFFICHAGE
+for (int i = 0; i < nombres.Length; i++)
+{
+    Console.WriteLine(nombres[i]);
+}
+
+Console.WriteLine("Nombre flottant D: " + D);
+
+Console.ReadLine();

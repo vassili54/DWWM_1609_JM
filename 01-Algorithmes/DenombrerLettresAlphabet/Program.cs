@@ -6,33 +6,39 @@ Compter et afficher le nombre d’occurrences (d’apparitions)
 de chacune des lettres de l’alphabet.
 
  */
-//Initialiser un tableau pour compter les occurences des lettres
-int[] lettrecount = new int[26];
 
-//VARIABLES
-string input;
-int i;
+// Déclaration des variables
+string EntrerTexte;
+Dictionary < char, int> lettreCompteur = new Dictionary<char, int>();// Initialiser un dictionnaire pour compter les occurrences des lettres
 
-Console.WriteLine("Veuillez entrer un texte d'au moins 120 caractères :");
-input = Console.ReadLine();
+//TRAITEMENT
+Console.WriteLine("Entrer un texte d'au moins 120 caractères :");
+EntrerTexte = Console.ReadLine();
 
-//Verifier le texte contient 120 caractères
-while (input.Length < 120)
+while (EntrerTexte.Length < 120) // Vérifier que le texte contient au moins 120 caractères
 {
     Console.WriteLine("Le texte doit contenir au moins 120 caractères. Veuillez réessayer :");
-    input = Console.ReadLine();
+    EntrerTexte = Console.ReadLine();
 }
 
-//compter l'occurences de chaque lettre
-foreach (char c in input.ToLower())
+foreach (char c in EntrerTexte.ToLower()) // Compter les occurrences de chaque lettre
 {
     if (char.IsLetter(c))
     {
-        lettrecount[c - 'a']++;
+        if (lettreCompteur.ContainsKey(c))
+        {
+            lettreCompteur[c]++;
+        }
+        else
+        {
+            lettreCompteur[c] = 1;
+        }
     }
 }
-//Afficher les résultat
-for (i = 0; i < lettrecount.Length; i++)
+
+// Afficher les résultats
+Console.WriteLine("Nombre d'occurrences de chaque lettre :");
+foreach (KeyValuePair<char, int> entry in lettreCompteur)
 {
-    Console.WriteLine($"{(char)(i + 'a')} : {lettrecount[i]}");
+    Console.WriteLine($"{entry.Key} : {entry.Value}");
 }
