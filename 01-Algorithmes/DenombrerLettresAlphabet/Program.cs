@@ -9,7 +9,7 @@ de chacune des lettres de l’alphabet.
 
 // Déclaration des variables
 string EntrerTexte;
-Dictionary < char, int> lettreCompteur = new Dictionary<char, int>();// Initialiser un dictionnaire pour compter les occurrences des lettres
+Dictionary < char, int> dict = new Dictionary<char, int>();// Initialiser un dictionnaire pour compter les occurrences des lettres
 
 //TRAITEMENT
 Console.WriteLine("Entrer un texte d'au moins 120 caractères :");
@@ -25,20 +25,20 @@ foreach (char c in EntrerTexte.ToLower()) // Compter les occurrences de chaque l
 {
     if (char.IsLetter(c))
     {
-        if (lettreCompteur.ContainsKey(c))
+        if (dict.ContainsKey(c))
         {
-            lettreCompteur[c]++;
+            dict[c]++;
         }
         else
         {
-            lettreCompteur[c] = 1;
+            dict[c] = 1;
         }
     }
 }
 
 // Afficher les résultats
 Console.WriteLine("Nombre d'occurrences de chaque lettre :");
-foreach (KeyValuePair<char, int> entry in lettreCompteur)
+foreach (var (key, value) in dict)// Compter les occurrences de chaque lettre
 {
-    Console.WriteLine($"{entry.Key} : {entry.Value}");
+    Console.WriteLine(key + " : " + value);
 }
