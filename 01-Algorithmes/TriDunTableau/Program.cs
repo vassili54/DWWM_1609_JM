@@ -20,14 +20,14 @@ On cherche ensuite l’indice du plus petit des éléments a3, a4, …, aN etc�
  */
 
 //VARIABLES
-int[] tab = new int[] {128, 64, 8, 512, 16, 32, 256};
+int[] tab = new int[] { 128, 64, 8, 512, 16, 32, 256 };
 int indiceJ = 0;
 int temp;
 
 for (int i = 0; i < tab.Length - 1; i++)
 {
     indiceJ = i; // Trouver l'indice
-    for(int j = i + 1; j < tab.Length; j++)
+    for (int j = i + 1; j < tab.Length; j++)
     {
         if (tab[j] < tab[indiceJ])
         {
@@ -41,7 +41,7 @@ for (int i = 0; i < tab.Length - 1; i++)
 }
 
 //Affichage
-for(int j = 0; j < tab.Length; j++)
+for (int j = 0; j < tab.Length; j++)
 {
     Console.Write(tab[j] + " ");
 }
