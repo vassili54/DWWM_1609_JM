@@ -35,9 +35,13 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDeNombre", "..\TriDeNomb
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MatzTools", "MatzTools\MatzTools.csproj", "{8AC4C24C-1A76-4B90-A636-5ADC52ECD842}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriDunTableau", "..\TriDunTableau\TriDunTableau.csproj", "{28EA1803-10F6-4DC2-95B3-EB4A30100F2B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TriDunTableau", "..\TriDunTableau\TriDunTableau.csproj", "{28EA1803-10F6-4DC2-95B3-EB4A30100F2B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Palindrome", "..\Palindrome\Palindrome.csproj", "{8C5644C6-101A-431C-BAE3-C6E54C86FEE1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Palindrome", "..\Palindrome\Palindrome.csproj", "{8C5644C6-101A-431C-BAE3-C6E54C86FEE1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FruitsLegumes", "..\FruitsLegumes\FruitsLegumes.csproj", "{4D975093-F0FF-45AB-B32B-E4CBD3ACDE0E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CarteRepas", "..\CarteRepas\CarteRepas.csproj", "{1FC2EAE3-91B8-4AC0-AE47-6075887EDE64}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,6 +121,14 @@ Global
 		{8C5644C6-101A-431C-BAE3-C6E54C86FEE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8C5644C6-101A-431C-BAE3-C6E54C86FEE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8C5644C6-101A-431C-BAE3-C6E54C86FEE1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D975093-F0FF-45AB-B32B-E4CBD3ACDE0E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D975093-F0FF-45AB-B32B-E4CBD3ACDE0E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D975093-F0FF-45AB-B32B-E4CBD3ACDE0E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D975093-F0FF-45AB-B32B-E4CBD3ACDE0E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1FC2EAE3-91B8-4AC0-AE47-6075887EDE64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1FC2EAE3-91B8-4AC0-AE47-6075887EDE64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1FC2EAE3-91B8-4AC0-AE47-6075887EDE64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1FC2EAE3-91B8-4AC0-AE47-6075887EDE64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
