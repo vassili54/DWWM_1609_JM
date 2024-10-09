@@ -22,7 +22,7 @@ On cherche ensuite l’indice du plus petit des éléments a3, a4, …, aN etc�
 //VARIABLES
 int[] tab = new int[] { 128, 64, 8, 512, 16, 32, 256 };
 int indiceJ = 0;
-int temp;
+int temp;//Variable temporaire
 
 for (int i = 0; i < tab.Length - 1; i++)
 {
