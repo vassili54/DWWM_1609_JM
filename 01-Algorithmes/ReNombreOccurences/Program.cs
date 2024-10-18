@@ -26,7 +26,7 @@ if (string.IsNullOrEmpty(phrase) || phrase == ".") //Verifie si la chaine phrase
 }
 
 Console.WriteLine("Entrez la lettre à chercher :");
-lettre = Console.ReadLine()[0];
+lettre = Console.ReadKey().KeyChar;
 
 count = 0;
 foreach (char c in phrase) //boucle foreach itérer une collection d'éléments comme un tableau
@@ -35,5 +35,13 @@ foreach (char c in phrase) //boucle foreach itérer une collection d'éléments 
     {
         count++;
     }
+
 }
-Console.WriteLine("Le nombre d'occurances de " + lettre + " est : " + count + " ");
+if (count > 0)
+{
+    Console.WriteLine("\nLe nombre d'occurances de " + lettre + " est : " + count + " ");
+}
+else 
+{
+    Console.WriteLine("\nLa lettre n'est pas présente");
+}

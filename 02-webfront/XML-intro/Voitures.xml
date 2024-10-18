@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Car>
+    <0>
+        <Car ID>342</Car ID>
+        <Car Name>Mazda RX-7 GS</Car Name>
+        <Car Model>1980</Car Model>
+        <Car Cylinders>3</Car Cylinders>
+        <Car Horsepower>100</Car Horsepower>
+        <Car Weight>2420</Car Weight>
+        <Car Origin>JP</Car Origin>
+        </0>
+    <1>
+        <Car ID>251</Car ID>
+        <Car Name>Mazda RX-4</Car Name>
+        <Car Model>1977</Car Model>
+        <Car Cylinders>3</Car Cylinders>
+        <Car Horsepower>100</Car Horsepower>
+        <Car Weight>2720</Car Weight>
+        <Car Origin>JP</Car Origin>
+    </1>
+    <2>
+        <Car ID>119</Car ID>
+        <Car Name>Mazda RX3</Car Name>
+        <Car Model>1973</Car Model>
+        <Car Cylinders>3</Car Cylinders>
+        <Car Horsepower>90</Car Horsepower>
+        <Car Weight>2124</Car Weight>
+        <Car Origin>JP</Car Origin>
+    </2>
+    <3>
+        <Car ID>79</Car ID>
+        <Car Name>Mazda RX2 Coupé</Car Name>
+        <Car Model>1972</Car Model>
+        <Car Cylinders>3</Car Cylinders>
+        <Car Horsepower>97</Car Horsepower>
+        <Car Weight>2330</Car Weight>
+        <Car Origin>JP</Car Origin>
+    </3>
+    <4>
+        <Car ID>388</Car ID>
+        <Car Name>Mercury Lynx 1</Car Name>
+        <Car Model>1982</Car Model>
+        <Car Cylinders>4</Car Cylinders>
+        <Car Horsepower>70</Car Horsepower>
+        <Car Weight>2125</Car Weight>
+        <Car Origin>US</Car Origin>
+    </4>
+    <5>
+        <Car ID>387</Car ID>
+        <Car Name>Plymouth Horizon Miser</Car Name>
+        <Car Model>1982</Car Model>
+        <Car Cylinders>4</Car Cylinders>
+        <Car Horsepower>63</Car Horsepower>
+        <Car Weight>2125</Car Weight>
+        <Car Origin>US</Car Origin>
+    </5>
+    <6>
+        <Car ID>404</Car ID>
+        <Car Name>Dodge Rampage</Car Name>
+        <Car Model>1982</Car Model>
+        <Car Cylinders>4</Car Cylinders>
+        <Car Horsepower>84</Car Horsepower>
+        <Car Weight>2295</Car Weight>
+        <Car Origin>US</Car Origin>
+    </6>
+</car>

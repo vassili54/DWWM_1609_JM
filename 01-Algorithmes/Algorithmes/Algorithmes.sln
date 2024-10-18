@@ -45,7 +45,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CarteRepas", "..\CarteRepas
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Exo_collections", "Exo_collections\Exo_collections.csproj", "{E48A4C42-4AEB-4E82-A7C1-BC1ED502F7CB}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JeuDu0_2", "..\JeuDu0_2\JeuDu0_2.csproj", "{080C0750-360B-4128-8F01-8D8ED94848F0}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "JeuDu0_2", "..\JeuDu0_2\JeuDu0_2.csproj", "{080C0750-360B-4128-8F01-8D8ED94848F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Utlisateur", "Utlisateur\Utlisateur.csproj", "{4C349047-3EE9-4C9E-9D87-63C7AEB57A2F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -141,6 +143,10 @@ Global
 		{080C0750-360B-4128-8F01-8D8ED94848F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{080C0750-360B-4128-8F01-8D8ED94848F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{080C0750-360B-4128-8F01-8D8ED94848F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4C349047-3EE9-4C9E-9D87-63C7AEB57A2F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4C349047-3EE9-4C9E-9D87-63C7AEB57A2F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4C349047-3EE9-4C9E-9D87-63C7AEB57A2F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4C349047-3EE9-4C9E-9D87-63C7AEB57A2F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

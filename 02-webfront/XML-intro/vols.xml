@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<vols>
+    <compagnie>Air France</compagnie>
+    <aeroport>Orly</aeroport>
+    <vols_prochains>
+        <vol>
+            <numero>AF1234</numero>
+            <destination>Nice</destination>
+            <date>2024-10-20</date>
+            <heure>14:30</heure>
+            <status>À l'heure</status>
+        </vol>
+        <vol>
+            <numero>AF5678</numero>
+            <destination>Lyon</destination>
+            <date>2024-10-20</date>
+            <heure>15:45</heure>
+            <status>À l'heure</status>
+        </vol>
+        <vol>
+            <numero>AF9101</numero>
+            <destination>Bordeaux</destination>
+            <date>2024-10-20</date>
+            <heure>16:15</heure>
+            <status>Retardé</status>
+        </vol>
+        <vol>
+            <numero>AF1122</numero>
+            <destination>Marseille</destination>
+            <date>2024-10-20</date>
+            <heure>17:00</heure>
+            <status>À l'heure</status>
+        </vol>
+    </vols_prochains>
+</vols>

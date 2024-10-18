@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BankAccounts>
+    <Account>
+        <bank><![CDATA[Toto & Titi]]></bank>
+        <exemple>
+            <![CDATA[<script>alert('titi');</script><div>toto</div>]]>
+        </exemple>
+    </Account>
+</BankAccounts>
