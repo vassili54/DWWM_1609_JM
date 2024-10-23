@@ -1,0 +1,33 @@
+body {
+    padding: 0;
+
+    font-family: 'Verdana';
+ 
+    background: #7D8CC4;
+    width: 1000px;
+    margin: 0 auto; /* Centre le contenu */
+  }
+  
+  /* Couleurs */
+  h1 {
+    color: #726da8;
+    text-align: center;
+  }
+  main {
+    background: #fff;
+    padding: 15px 10px;
+
+  }
+h2 {
+    color: #726da8;
+}
+p, 
+ol {
+    color: #b8336a;
+}
+footer {
+    color: #A0D2DB;
+    text-align: center;
+    padding: 20px; /* Ajoute de l'espace à l'intérieur du footer */
+    font-size: 1.2em; /* Agrandit le texte */
+}
