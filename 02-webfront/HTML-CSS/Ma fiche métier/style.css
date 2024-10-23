@@ -1,0 +1,40 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+
+}
+header, footer {
+    padding: 20px;
+    text-align: center;
+}
+main {
+    padding: 20px;
+}
+h1, h2 {
+    text-align: center; /* Centre tout le texte dans le main */
+}
+p {
+    margin: 50px;
+    padding: 5px;
+    line-height: 1.6;
+    text-align: center;
+}
+ul {
+    list-style-type: none; /* Supprime les puces */
+    padding: 0;
+    text-align: left; /* Aligne la liste à gauche */
+    margin: 0 auto; /* Centre la liste tout en gardant les éléments à gauche */
+    width: fit-content; /* Ajuste la largeur de la liste */
+}
+
+ul li {
+    margin: 5px 0;
+    padding: 5px;
+    border-radius: 5px;
+
+}    
+
+section {
+    margin-bottom: 20px;
+}

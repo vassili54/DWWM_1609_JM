@@ -13,7 +13,7 @@ Exemple :
 Légume le moins cher au kilo : poireaux
  */
 
-/*
+
 List<(string Nom, double Prix)> legumes = new List<(string, double)>();
 string input;
 
@@ -55,8 +55,9 @@ if (legumeMoinsCher != null)
 {
     Console.WriteLine($"Légume le moins cher au kilo : " + legumeMoinsCher +" ");
 }
-*/
 
+
+/*
 string légume = "";
 double prixLégume = 0;
 string légumeMoinsCher = "";
@@ -92,3 +93,4 @@ if (!string.IsNullOrEmpty(légumeMoinsCher))
 {
     Console.WriteLine($"Légume le moins cher au kilo : " + légumeMoinsCher + " ");
 }
+*/

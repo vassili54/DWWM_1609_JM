@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<union_europeenne> 
+    <Pays>
+        <nom>Allemagne</nom>
+        <code>DE</code>
+        <capital>Berlin</capital>
+    </Pays>
+    <Pays>
+        <nom>Belgique</nom>
+        <code>BE</code>
+        <capital>Bruxelles</capital>
+    </Pays><Pays>
+        <nom>France</nom>
+        <code>FR</code>
+        <capital>Paris</capital>
+    </Pays><Pays>
+        <nom>Finlande</nom>
+        <code>FI</code>
+        <capital>Helinski</capital>
+    </Pays>
+    <Pays>
+        <nom>Irlande</nom>
+        <code>IE</code>
+        <capital>Dublin</capital>
+    </Pays>
+</union_europeenne>

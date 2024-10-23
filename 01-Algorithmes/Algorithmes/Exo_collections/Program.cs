@@ -90,13 +90,13 @@ List<string> utilisateurs = new List<string>();
 List<string> utilisateurs = new List<string>();
 string addUtilisateurs;
 
+// Variables
+string nom, prenom, dateNaissanceString, favoriteCouleur;
+DateTime dateNaissance;
+int age;
+
 do
 {
-    // Variables
-    string nom, prenom, dateNaissanceString, favoriteCouleur;
-    DateTime dateNaissance;
-    int age;
-
     // Demander le nom
     Console.WriteLine("Veuillez saisir le nom:");
     nom = Console.ReadLine();
@@ -133,9 +133,9 @@ do
 
 // Affichage
 Console.WriteLine("Liste des utilisateurs enregistrés:");
-foreach (var user in utilisateurs)
+foreach (var utilisateur in utilisateurs)
 {
-    Console.WriteLine(user);
+    Console.WriteLine(utilisateur);
 }
 
 

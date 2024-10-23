@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Users>
+    <User id="1">
+        <username>jeje</username>
+        <lastname>matz</lastname>
+        <firstname>jerome</firstname>
+        <birthday format="yyyy-mm-dd">1977-12-24</birthday>
+    </User>
+    <User id="2">
+        <username>coco</username>
+        <lastname>hunber</lastname>
+        <firstname>frederic</firstname>
+        <birthday format="yyyy-mm-dd">1970-10-02</birthday>
+    </User>
+    <User id="3">
+        <username>punisher</username>
+        <lastname>james</lastname>
+        <firstname>thomas</firstname>
+        <birthday format="yyyy-mm-dd">1966-02-12</birthday>
+    </User>
+    <User id="4">
+        <username>boby</username>
+        <lastname>lapointe</lastname>
+        <firstname>robert</firstname>
+        <birthday format="yyyy-mm-dd">1922-04-16</birthday>
+    </User>
+    <User id="5">
+        <username>pierre_manuel</username>
+        <lastname>sechan</lastname>
+        <firstname>renaud</firstname>
+        <birthday format="yyyy-mm-dd">1952-05-11</birthday>
+    </User>
+</Users>
