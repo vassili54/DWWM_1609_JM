@@ -37,7 +37,53 @@ a {
 footer {
     text-align: center;
 }
-img {
+header img {
     width: 100px;
 }
+.table-container {
+    background-color: white; /* Fond blanc pour la partie tableau */
+    border: 2px solid black; /* Encadrement noir */
+    padding: 20px;
+    margin: 20px auto;
+    width: 90%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    color: black; /* Texte en noir*/
+}
+
+th {
+    background-color: #d3d3d3;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+.gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 20px auto;
+    width: 90%;
+}
+
+.gallery img {
+    width: 230px;
+    height: 150px;
    
+    border: 1px solid black;
+}
+
+.gallery div {
+    flex: 1 1 21%; /* Ajuste la largeur des images pour qu'elles tiennent sur 2 lignes de 4 images */
+    margin: 10px;
+    text-align: center;
+}
