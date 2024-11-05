@@ -1,0 +1,73 @@
+body {
+    font-family: Arial, sans-serif; /* Utilisation de la police Arial */
+    display: grid; /* Mise en place d'un layout en grille */
+    grid-template-rows: 100px 1fr 100px; /* Trois lignes : header, contenu principal, footer */
+    height: calc(100vh - 16px); /* Hauteur totale de la page ajustée pour tenir compte des marges */
+    grid-template-columns: 21em 1fr; /* Deux colonnes : navigation et contenu principal */
+    gap: 8px; /* Espacement de 8px entre les éléments de la grille */
+}
+
+header {
+    display: grid; /* Utilisation de la grille pour le header */
+    grid-column: 1 / -1; /* Le header occupe toute la largeur de la grille */
+    padding-left: 0px; /* Pas de padding à gauche */
+    gap: 8px; /* Espacement de 8px entre les éléments internes */
+    
+    *{
+        background-color: skyblue;  /* Fond bleu ciel pour tous les éléments du header */
+    }
+    
+    h1 {
+        grid-column: 1 / 6; /* Le titre occupe les colonnes 1 à 6 */
+        margin: 0px; /* Pas de marge */
+        padding-left: 20px; /* Padding à gauche de 20px */
+        padding-top: 20px; /* Padding en haut de 20px */
+    }
+    
+    aside {
+        grid-column: 6 / 7; /* L'aside occupe la colonne 6 */
+        padding-left: 20px; /* Padding à gauche de 20px */
+        padding-top: 20px; /* Padding en haut de 20px */
+    }  
+}
+
+nav {
+    background-color: skyblue; /* Fond bleu ciel pour la navigation */
+    grid-row: 2 / 4; /* La navigation occupe les lignes 2 à 4 de la grille */
+    padding-left: 20px; /* Padding à gauche de 20px */
+    padding-top: 20px; /* Padding en haut de 20px */
+}
+
+main {
+    background-color: skyblue; /* Fond bleu ciel pour le contenu principal */
+    grid-column: 2 / -1; /* Le contenu principal occupe les colonnes 2 à la fin de la grille */
+}
+
+footer {
+    background-color: skyblue; /* Fond bleu ciel pour le footer */
+    grid-column: 2 / -1; /* Le footer occupe les colonnes 2 à la fin de la grille */
+    padding-left: 20px; /* Padding à gauche de 20px */
+    padding-top: 20px; /* Padding en haut de 20px */
+}
+
+.principal {
+    display: flex; /* Utilisation de Flexbox pour l'article principal */
+    flex-wrap: wrap; /* Permet de passer à la ligne suivante */
+    gap: 8px; /* Espace entre les éléments */
+    padding: 20px; /* Padding interne de 20px */
+    justify-content: flex-end; /* Alignement des éléments à la fin sur l'axe principal */
+    align-content: flex-end; /* Alignement des éléments à la fin sur l'axe transversal */
+}
+
+.principal h2 {
+    width: 100%; /* Le titre prend toute la largeur */
+    height: 50px; /* Hauteur du titre */
+
+}
+   
+.principal section {
+    background-color: white; /* Fond blanc pour les sections */
+    padding: 20px; /* Padding interne de 20px */
+    width: calc(43% - 10px); /* Deux colonnes avec espace entre les sections */
+    
+}

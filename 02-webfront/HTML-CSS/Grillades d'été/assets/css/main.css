@@ -1,0 +1,78 @@
+body, html {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white; /* Fond blanc */
+}
+
+.principal {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: auto repeat(5, 1fr);
+    gap: 10px; /* Espacement entre les rectangles */
+    width: 90%;
+    height: 90%;
+    background-color: #CCCC33; /* Fond jaune */
+    padding: 10px; /* Espacement autour des rectangles */
+}
+
+.principal section {
+    background-color: white; /* Couleur blanche pour les rectangles */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    border: 2px solid #CCCC33; /* Bordure jaune autour des rectangles */
+}
+
+/* Disposition des sections */
+#s1 {
+    grid-column: span 2; /* Occupe les 2 colonnes */
+}
+
+#s2 {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+#s3 {
+    grid-column: 2;
+    grid-row: 2;
+}
+
+#s4 {
+    grid-column: 2;
+    grid-row: 3;
+}
+
+#s5 {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+#s6 {
+    grid-column: 2;
+    grid-row: 4;
+}
+
+#s7 {
+    grid-column: 1;
+    grid-row: 4;
+}
+
+#s8 {
+    grid-column: 2;
+    grid-row: 5;
+}
+
+#s9 {
+    grid-column: 2;
+    grid-row: 6;
+}
+
+#s10 {
+    grid-column: 1;
+    grid-row: 5;
+}
