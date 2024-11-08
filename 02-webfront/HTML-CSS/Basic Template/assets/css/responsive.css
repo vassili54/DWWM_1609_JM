@@ -1,0 +1,24 @@
+/* Responsive - Adaptation en fonction de la taille de l'écran */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr; /* Une seule colonne sur les petits écrans */
+        grid-template-rows: 150px auto;
+    }
+
+    .principal {
+        justify-content: center;
+    }
+
+    .principal section {
+        flex: 1 1 100%; /* Les sections prennent toute la largeur */
+    }
+
+    aside {
+        grid-column: 1 / -1; /* L'aside prend toute la largeur en mobile */
+        padding: 10px;
+    }
+
+    nav {
+        padding: 10px; /* Réduction du padding pour mobile */
+    }
+}

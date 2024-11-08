@@ -1,6 +1,6 @@
 /* Media queries pour les petits écrans */
 
-@media (min-width: 800px) {
+@media (max-width: 800px) {
     body {
         grid-template-columns: 1fr;
         grid-template-rows: auto;
