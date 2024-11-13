@@ -1,0 +1,43 @@
+html {
+    height: 100vh;
+}
+
+body { 
+    font-family: Arial, sans-serif; 
+    background-color: #fff; 
+    margin: 0; 
+    padding: 0; 
+}
+.navbar { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    padding: 20px 0; 
+}
+.navbar img.logo { 
+    margin-right: 30px; 
+    height: 50px; /* Adjust the height as needed */
+}
+.navbar div { 
+    margin-right: 30px; 
+    font-weight: bold; 
+    cursor: pointer; 
+}
+.navbar div:last-child { 
+    margin-right: 0; 
+}
+.navbar .promo { 
+    color: #1F87C4; /* Sky blue color */
+}
+.product-container { 
+    text-align: center; 
+    padding: 60px 0; 
+}
+.product-container img { 
+    max-width: 100%; 
+    height: auto; 
+}
+.product-container h1 { 
+    margin-top: 20px; 
+    font-size: 40px; 
+}
