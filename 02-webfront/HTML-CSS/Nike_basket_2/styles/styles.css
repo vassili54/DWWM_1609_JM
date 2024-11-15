@@ -24,6 +24,7 @@ header {
 nav {
     display: flex;
     gap: 90px;
+    align-items: center; /* Centrer les éléments verticalement dans le nav */
 }
 nav h1 {
     font-size: 3em; /* Agrandit le texte */
@@ -32,28 +33,36 @@ nav h1 {
 
 nav ul {
     display: flex;
-    align-self: center;
+    justify-content: center; /* Centrer les éléments de la liste horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
     gap: 4em;
+    list-style: none;
 }
 
 nav ul li {
-    list-style: none;
     font-size: 1.5em; /* Agrandit le texte */
     font-weight: bold;
+    margin-top: 0.2em; /* Descendre légèrement l'élément "Promo Hiver" et l'icône */
 }
 
 nav ul li a {
     text-decoration: none;
     color: black;
+    
 }
 
 .icon {
-    width: 50px; /* Ajuste la taille selon tes besoins */
-    height: 50px;
-    margin-right: 0.4em; /* Espace entre l'icône et le texte */
+    width: 40px; /* Ajuste la taille selon tes besoins */
+    height: 40px;
+    margin-right: -0.3em; /* Espace entre l'icône et le texte */
     vertical-align: middle; /* Aligne l'icône avec le texte */
 }
 
+/* Déplacer les icônes "Caddie" et "Utilisateur" légèrement vers la droite */
+nav ul li:nth-last-child(2) a, /* Sélectionne le caddie */
+nav ul li:nth-last-child(1) a { /* Sélectionne l'utilisateur */
+    margin-left: 1.5em; /* Ajoute de l'espace à gauche de l'icône */
+}
 
 nav ul li:nth-child(4) a {
     color: rgb(50, 187, 241) !important;
