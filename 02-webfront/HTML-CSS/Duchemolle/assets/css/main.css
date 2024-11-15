@@ -25,6 +25,7 @@ h1 {
     text-align: center;
     color: white; /* Ajout d'une couleur pour le titre */
     font-size: 2rem; /* Ajustement de la taille du texte pour mieux s'adapter */
+    margin-top: -1px; /* Décale légèrement le titre vers le haut */
 }
 h2 {
     font-size: 1.5em;
@@ -131,32 +132,35 @@ h5 {
         font-size: 1.2rem
     }
 }
-/* Principal des articles */
 
+/* Principal des articles */
 .principal {
     display: flex;
     flex-wrap: wrap;
-    gap: 0 120px;
-    padding: 5px 120px 0px;
-    align-content: space-evenly; /* Changement de align-content à justify-content */
-    /*background-color: #CCCCCC;*/
-}
+    gap: 0 120px; /* Espacement entre les sections */
+    padding: 15px 120px 0; /* Espacement autour du contenu */
+    justify-content: space-between; /* Distribution des sections sur 2 colonnes */
 
-.principal h3 {
-    width: 100%; /* Le titre prend toute la largeur */
-    height: 40px; /* Hauteur du titre */
-    /*text-align: left;*/
-    
-   
+    h3 {
+        /* width: 100%; /* Le titre prend toute la largeur */
+        /* height: 40px; /* Hauteur du titre */
+        margin-top: 0; /* Supprime tout espace au-dessus du titre */
+        padding-top: 0; /* Supprime tout padding supérieur inutile */
+        font-size: 1.2rem; /* Ajuste la taille du titre */
+        font-weight: 400; /* Poids de police plus léger */
+    }
+
 }
 
 .principal section {
-    
-    padding: 0px;
+    display: flex;
+    flex-direction: column; /* Permet aux éléments internes de s'empiler verticalement */
+    justify-content: flex-start; /* Aligne le contenu vers le haut de la section */
+    padding: 2px 20px 60px 2px; /* Agrandit l'espace interne des sections */
     margin: 10px;
-    flex: 1 1 calc(43% - 10px);
-    /*box-sizing: border-box; /* Assure que le padding et margin n'affectent pas la taille totale */
+    flex: 1 1 calc(42% - 20px); /* Utilise environ 50% de la largeur moins l'espacement */
     background-color: #bebebe;
+    box-sizing: border-box; /* Prend en compte le padding et les marges dans la largeur */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -170,14 +174,52 @@ h5 {
     }
 
     nav {
-        background-color: #09BCE044;
+        background-color: #212121;
+
+        h2 {
+            background-color: #303030;
+            color: white;
+        }
+
+        ul li a {
+            background-color: #303030;
+            color: #09BCE0;
+        }
+
     }
 
-    main article {
-        background-color: #333333;
+
+
+    main {
+        background-color: #111111;
     }
 
     aside {
-        background-color: #085E8F44;
+        background-color: #212121;
+        color: white;
+
+        h4 {
+            background-color: #303030;
+            color: #09BCE0;
+        }
+
+        h5 {
+            background-color: #09BCE0;
+            
+            a {
+                color: black;
+            }
+        }
+
+    }
+
+    .menu-item h2 {
+        background-color: #212121;
+        color: white;
+    }
+
+    .principal section {
+        background-color: #212121;
+        color: white;
     }
 }

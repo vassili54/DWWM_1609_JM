@@ -1,0 +1,139 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    height: 5em;
+    text-transform: uppercase;
+    padding-left: 1em
+}
+
+#wrapper {
+    display: flex;
+    justify-content: flex-start;
+}
+
+nav {
+    display: flex;
+    gap: 90px;
+}
+nav h1 {
+    font-size: 3em; /* Agrandit le texte */
+    margin-right: auto; /* Pousse les autres éléments vers la droite */
+}
+
+nav ul {
+    display: flex;
+    align-self: center;
+    gap: 4em;
+}
+
+nav ul li {
+    list-style: none;
+    font-size: 1.5em; /* Agrandit le texte */
+    font-weight: bold;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+}
+
+.icon {
+    width: 50px; /* Ajuste la taille selon tes besoins */
+    height: 50px;
+    margin-right: 0.4em; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+}
+
+
+nav ul li:nth-child(4) a {
+    color: rgb(50, 187, 241) !important;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2em;
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+#container img {
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+}
+
+#container h2 {
+    font-size: 2em;
+    margin: 0.5em 0;
+}
+
+#container .price {
+    font-size: 1.5em;
+    color: #333;
+    margin: 0.5em 0;
+}
+
+#container .options {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: 1em 0;
+}
+
+#container .options div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#container .options select {
+    padding: 0.5em;
+    margin-top: 0.5em;
+}
+
+#container .add-to-cart {
+    background-color: rgb(50, 187, 241);
+    color: white;
+    padding: 1em 2em;
+    border: none;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: 1em;
+}
+
+#container .add-to-cart:hover {
+    background-color: rgb(30, 167, 221);
+}
+
+#container .features {
+    margin-top: 2em;
+    text-align: left;
+}
+
+#container .features h3 {
+    font-size: 1.5em;
+    margin-bottom: 0.5em;
+}
+
+#container .features p {
+    margin-bottom: 0.5em;
+}
