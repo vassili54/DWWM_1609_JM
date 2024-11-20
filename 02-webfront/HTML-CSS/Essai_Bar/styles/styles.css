@@ -1,0 +1,130 @@
+
+:root {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+}
+
+.container {
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    height: 100%;
+}
+
+header {
+    margin: 0;
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    height: 80px;
+}
+
+ul {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    align-content: center;
+    display: block;
+    text-decoration: none;
+    font-weight: bold;
+    color: black;
+    height: 100%;
+}
+
+.brand {
+    font-weight: bold;
+    font-size: 2.6rem;
+    text-shadow: 0 4px 4px rgb(160, 160, 160);
+    padding: 0 0 0 2rem;
+}
+
+.promo a, .profilCart a {
+    color: #31a9ee;
+    text-wrap: nowrap;
+    display: flex;
+    align-items: center;
+    img {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+.profilCart {
+    display: flex;
+    gap: 2rem;
+    padding: 0 2rem 0 0;
+    align-self: center;
+    img {
+        width: 25px;
+        height: 25px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.label-hamburger, #hamburger {
+    display: none;
+    align-self: center;
+    font-weight: bold;
+    font-size: 2rem;
+}
+
+@media(max-width: 950px) {
+    body {
+        min-width: 360px;
+    }
+    .container {
+        display: block;
+    }
+    
+
+    nav ul {
+        display: block;
+        position: absolute;
+        top: 80px;
+        background-color: #fff;
+        width: 100%;
+        padding: 0;
+    }
+    nav ul li {
+        display: none;
+        line-height: 2.2rem;
+        padding-left: 2rem;
+        border-bottom: 1px solid #000;
+    }
+
+    nav ul a {
+        transition: transform 0.3s ease;
+        width: 90%;
+    }
+    
+    nav ul a:hover {
+        transform: translateX(10%);
+    }
+
+    #hamburger:checked ~ ul li {
+        display: block;
+    }    
+}
