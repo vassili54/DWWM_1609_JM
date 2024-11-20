@@ -7,13 +7,16 @@ body {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+
 header {
+    position: relative;  /* Permet de positionner les éléments enfants de manière absolue */
     display: flex;
     align-items: center;
     justify-content: flex-start;
     height: 5em;
     text-transform: uppercase;
-    padding-left: 1em
+    margin-top: 15px;
+    padding-left: 1em;
 }
 
 #wrapper {
@@ -25,6 +28,7 @@ nav {
     display: flex;
     gap: 90px;
     align-items: center; /* Centrer les éléments verticalement dans le nav */
+    justify-content: flex-start;  /* Pour s'assurer que les éléments restent bien alignés */
 }
 nav h1 {
     font-size: 3em; /* Agrandit le texte */
@@ -56,93 +60,188 @@ nav ul li a {
     height: 40px;
     margin-right: -0.3em; /* Espace entre l'icône et le texte */
     vertical-align: middle; /* Aligne l'icône avec le texte */
+    margin-top: 5px;
 }
 
-/* Déplacer les icônes "Caddie" et "Utilisateur" légèrement vers la droite */
-nav ul li:nth-last-child(2) a, /* Sélectionne le caddie */
-nav ul li:nth-last-child(1) a { /* Sélectionne l'utilisateur */
-    margin-left: 1.5em; /* Ajoute de l'espace à gauche de l'icône */
+/* Déplacer les icônes "Caddie" et "Utilisateur" en haut à droite */
+nav ul li:nth-last-child(2) a, /* Caddie */
+nav ul li:nth-last-child(1) a { /* Utilisateur */
+    position: absolute;
+    top: 15px; /* Espacement en haut */
+    margin-top: 8px;
 }
 
+/* Caddie */
+nav ul li:nth-last-child(2) a {
+    right: 160px; /* Espacement à droite (ajuste cette valeur selon ton besoin) */
+
+}
+
+/* Utilisateur */
+nav ul li:nth-last-child(1) a {
+    right: 80px; /* Espacement à droite (ajuste cette valeur pour éviter le chevauchement) */
+}
+
+nav ul li:nth-last-child(2) a, 
+nav ul li:nth-last-child(1) a {
+    z-index: 10; /* Place les icônes caddie et utilisateur au-dessus des autres éléments */
+}
+
+/* texte PROMO HIVER */
 nav ul li:nth-child(4) a {
-    color: rgb(50, 187, 241) !important;
-}
 
+    color: rgb(50, 187, 241) !important;
+    
+}
 main {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 2em;
+    justify-content: center;
+    align-items: flex-start;
+    height: 81vh;
+    padding-top: 80px;
+
+}
+.flex-container {
+    display: flex;
+    align-items: flex-start; /* Aligne les éléments au début verticalement */
+    gap: 20px; /* Espace entre les conteneurs */
+}
+
+.image-container {
+    flex: 1; /* Prend l'espace nécessaire pour l'image */
+}
+
+.text-container {
+    flex: 2; /* Prend plus d'espace pour le texte */
+}
+
+h1, h2, h3 {
+    margin: 0;
 }
 
 #container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    max-width: 600px;
-    margin: 0 auto;
+    justify-content: space-between; /* Espacement entre l'image et le texte */
+    padding: 20px;
+    margin: 20px;
+    max-width: 1200px; /* Ajustez selon vos besoins */
+    width: 100%; /* Assure que le conteneur ne dépasse pas la largeur maximale */
 }
 
-#container img {
-    width: 100%;
-    max-width: 400px;
-    height: auto;
+.product-image-container {
+    flex: 1; /* L'image prend une largeur flexible */
+    margin-right: 20px; /* Un peu d'espace entre l'image et les infos */
 }
 
-#container h2 {
-    font-size: 2em;
-    margin: 0.5em 0;
+.product-image {
+    max-width: 100%;
+    height: 80%;
+    /*width: 100%;*/
 }
 
-#container .price {
-    font-size: 1.5em;
-    color: #333;
-    margin: 0.5em 0;
+.product-info-container {
+    flex: 1; /* Le texte prend plus de place */
+
+    h2{
+        font-size: 29px;
+    }
+    
 }
 
-#container .options {
+.tag {
+    display: flex;                 /* Active Flexbox */
+    justify-content: center;       /* Centre horizontalement */
+    align-items: center;           /* Centre verticalement */
+    background-color: #c8f0c8;     /* Couleur verte */
+    color: green;                  /* Couleur du texte */
+    font-size: 18px;               /* Taille du texte */
+    font-weight: bold;             /* Met le texte en gras */
+    text-align: center;            /* Alignement du texte */
+    margin-top: 16px;              /* Espacement au-dessus */
+    padding: 0;                    /* Supprime le padding pour éviter de déborder */
+    border-radius: 5px;            /* Coins arrondis */
+    margin-bottom: 2px;            /* Espacement sous le tag */
+    width: 40px;                   /* Largeur fixe */
+    height: 30px;                  /* Hauteur fixe */
+}
+
+.price {
+    font-size: 56px;
+    /*margin-top: 50Px;*/
+    margin-bottom: 50px;
+    color: black;
+    font-weight: bold;
+     sup{
+        font-size: 29px;
+     }
+}
+
+.options {
     display: flex;
-    justify-content: space-between;
-    width: 100%;
-    margin: 1em 0;
+    justify-content: space-between; /* Espace entre les options */
+    margin-top: 10px;
+    gap: 20px; /* Espace entre les options */
+
+    div {
+        display: flex;
+        flex-direction: column; /* Aligne les labels et les sélecteurs verticalement */
+        flex: 1;
+    }
+
+    select{
+        margin-top: 12px;
+    }
+
 }
 
-#container .options div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+label, select {
+    font-size: 1.2em;
 }
 
-#container .options select {
-    padding: 0.5em;
-    margin-top: 0.5em;
+select, button {
+    padding: 10px 20px;
+    border-radius: 5px;
 }
 
-#container .add-to-cart {
-    background-color: rgb(50, 187, 241);
+
+.add-to-cart {
+    background-color: black;
     color: white;
-    padding: 1em 2em;
     border: none;
+    
+    font-size: 16px;
     cursor: pointer;
-    text-transform: uppercase;
-    margin-top: 1em;
+    margin-top: 10px;
+    width: 100%;
 }
 
-#container .add-to-cart:hover {
-    background-color: rgb(30, 167, 221);
+button.add-to-cart:hover {
+    background-color: #32BBF1;
 }
 
-#container .features {
-    margin-top: 2em;
-    text-align: left;
-}
+.features {
+    margin-top: 20px;
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de l'encadré */
+    border: 1px solid #000; /* Ajoute une bordure noire de 2px */
+    border-radius: 10px; /* Arrondit les coins de l'encadré */
+    background-color: #f9f9f9; /* Optionnel : ajoute une couleur de fond */
 
-#container .features h3 {
-    font-size: 1.5em;
-    margin-bottom: 0.5em;
-}
+    h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Place le texte à gauche et l'icône à droite */
+        margin-bottom: 15px;
+        /*padding-bottom: 5px;*/
+        font-size: 1.2em;
+        /*border-bottom: 2px solid #32BBF1;*/
+        color: #333;
+        font-weight: bold; /* Met le titre en gras */
 
-#container .features p {
-    margin-bottom: 0.5em;
+        i {
+            font-size: 0.9em;
+            color: black;
+        }
+
+    }
+
 }

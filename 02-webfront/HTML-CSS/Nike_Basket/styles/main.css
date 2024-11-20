@@ -1,43 +1,226 @@
-html {
-    height: 100vh;
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
 }
 
-body { 
-    font-family: Arial, sans-serif; 
-    background-color: #fff; 
-    margin: 0; 
-    padding: 0; 
+
+header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: auto;
+    height: 5em;
+    text-transform: uppercase;
+    margin-top: 15px;
+    margin-left: 20px;
 }
-.navbar { 
-    display: flex; 
-    justify-content: center; 
-    align-items: center; 
-    padding: 20px 0; 
+
+
+
+nav {
+    display: flex;
+    gap: 5rem;
+    align-items: center; /* Centrer les éléments verticalement dans le nav */
+    justify-content: space-between;  /* Pour s'assurer que les éléments restent bien alignés */
 }
-.navbar img.logo { 
-    margin-right: 30px; 
-    height: 50px; /* Adjust the height as needed */
+nav h1 {
+    font-size: 3em; /* Agrandit le texte */
+    margin-right: auto; /* Pousse les autres éléments vers la droite */
 }
-.navbar div { 
-    margin-right: 30px; 
-    font-weight: bold; 
-    cursor: pointer; 
+
+nav ul {
+    padding: 0;
+    display: flex;
+    justify-content: space-between; /* Centrer les éléments de la liste horizontalement */
+    align-items: center; /* Centrer les éléments verticalement */
+    gap: 1.5em;
+    list-style: none;
 }
-.navbar div:last-child { 
-    margin-right: 0; 
+
+nav ul li {
+    font-size: 1.2em; /* Agrandit le texte */
+    font-weight: bold;
+    margin-top: 0.2em; /* Descendre légèrement l'élément "Promo Hiver" et l'icône */
 }
-.navbar .promo { 
-    color: #1F87C4; /* Sky blue color */
+
+nav ul li a {
+    text-decoration: none;
+    color: black;
+    
 }
-.product-container { 
-    text-align: center; 
-    padding: 60px 0; 
+
+.profil-caddie {
+    display: flex;
+    gap: 2em;
+    font-size: 1.4em;
+
+    a {
+        color: black;
+    }
+
 }
-.product-container img { 
-    max-width: 100%; 
-    height: auto; 
+
+.icon {
+    width: 40px; /* Ajuste la taille selon tes besoins */
+    height: 40px;
+    margin-right: -0.3em; /* Espace entre l'icône et le texte */
+    vertical-align: middle; /* Aligne l'icône avec le texte */
+    margin-top: 5px;
+    
+ 
 }
-.product-container h1 { 
-    margin-top: 20px; 
-    font-size: 40px; 
+
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 81vh;
+    padding-top: 80px;
+
+}
+.flex-container {
+    display: flex;
+    align-items: flex-start; /* Aligne les éléments au début verticalement */
+    gap: 20px; /* Espace entre les conteneurs */
+}
+
+.image-container {
+    flex: 1; /* Prend l'espace nécessaire pour l'image */
+}
+
+.text-container {
+    flex: 2; /* Prend plus d'espace pour le texte */
+}
+
+h1, h2, h3 {
+    margin: 0;
+}
+
+#container {
+    display: flex;
+    justify-content: space-between; /* Espacement entre l'image et le texte */
+    padding: 20px;
+    margin: 20px;
+    max-width: 1200px; /* Ajustez selon vos besoins */
+    width: 100%; /* Assure que le conteneur ne dépasse pas la largeur maximale */
+}
+
+.product-image-container {
+    flex: 1; /* L'image prend une largeur flexible */
+    margin-right: 20px; /* Un peu d'espace entre l'image et les infos */
+}
+
+.product-image {
+    max-width: 100%;
+    height: 80%;
+    /*width: 100%;*/
+}
+
+.product-info-container {
+    flex: 1; /* Le texte prend plus de place */
+
+    h2{
+        font-size: 29px;
+    }
+    
+}
+
+.tag {
+    display: flex;                 /* Active Flexbox */
+    justify-content: center;       /* Centre horizontalement */
+    align-items: center;           /* Centre verticalement */
+    background-color: #c8f0c8;     /* Couleur verte */
+    color: green;                  /* Couleur du texte */
+    font-size: 18px;               /* Taille du texte */
+    font-weight: bold;             /* Met le texte en gras */
+    text-align: center;            /* Alignement du texte */
+    margin-top: 16px;              /* Espacement au-dessus */
+    padding: 0;                    /* Supprime le padding pour éviter de déborder */
+    border-radius: 5px;            /* Coins arrondis */
+    margin-bottom: 2px;            /* Espacement sous le tag */
+    width: 40px;                   /* Largeur fixe */
+    height: 30px;                  /* Hauteur fixe */
+}
+
+.price {
+    font-size: 56px;
+    /*margin-top: 50Px;*/
+    margin-bottom: 50px;
+    color: black;
+    font-weight: bold;
+     sup{
+        font-size: 29px;
+     }
+}
+
+.options {
+    display: flex;
+    justify-content: space-between; /* Espace entre les options */
+    margin-top: 10px;
+    gap: 20px; /* Espace entre les options */
+
+    div {
+        display: flex;
+        flex-direction: column; /* Aligne les labels et les sélecteurs verticalement */
+        flex: 1;
+    }
+
+    select{
+        margin-top: 12px;
+    }
+
+}
+
+label, select {
+    font-size: 1.2em;
+}
+
+select, button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+
+.add-to-cart {
+    background-color: black;
+    color: white;
+    border: none;
+    
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button.add-to-cart:hover {
+    background-color: #32BBF1;
+}
+
+.features {
+    margin-top: 20px;
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de l'encadré */
+    border: 1px solid #000; /* Ajoute une bordure noire de 2px */
+    border-radius: 10px; /* Arrondit les coins de l'encadré */
+    background-color: #f9f9f9; /* Optionnel : ajoute une couleur de fond */
+
+    h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Place le texte à gauche et l'icône à droite */
+        margin-bottom: 15px;
+        /*padding-bottom: 5px;*/
+        font-size: 1.2em;
+        /*border-bottom: 2px solid #32BBF1;*/
+        color: #333;
+        font-weight: bold; /* Met le titre en gras */
+
+        i {
+            font-size: 0.9em;
+            color: black;
+        }
+
+    }
+
 }

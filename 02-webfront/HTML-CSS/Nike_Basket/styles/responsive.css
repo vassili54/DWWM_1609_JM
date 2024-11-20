@@ -1,0 +1,156 @@
+
+/* Style pour le menu burger */
+.menu-icon {
+    display: none;
+    font-size: 2em;
+    cursor: pointer;
+    position: absolute;
+    right: 20px;
+    top: 15px;
+    z-index: 20;
+}
+
+#menu-toggle {
+    display: none; /* Cache la checkbox */
+}
+
+/* Pour les écrans <= 768px */
+@media screen and (max-width: 768px) {
+    /* Réorganiser la navigation en menu vertical */
+    .menu-icon {
+        display: block; /* Affiche le bouton menu */
+    }
+
+    nav ul {
+        display: none; /* Cache le menu par défaut */
+        flex-direction: column; /* Menu vertical */
+        position: absolute; /* Menu flottant */
+        top: 70px;
+        right: 0;
+        background-color: white;
+        width: 100%;
+        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        padding: 20px 0;
+        z-index: 10;
+        transition: all 0.3s ease-in-out;
+    }
+    
+    .profil-caddie {
+        display: none;
+    }
+
+    nav ul li {
+        font-size: 1.2em; /* Réduire encore la taille du texte pour petits écrans */
+        text-align: center;
+        padding: 15px 0;
+    }
+
+    /* Affiche le menu si la checkbox est cochée */
+    #menu-toggle:checked ~ nav ul {
+        display: flex; /* Affiche le menu */
+    }
+
+    .icon {
+        width: 30px;
+        height: 30px;
+    }
+
+
+
+    
+
+
+    #container {
+        flex-direction: column; /* Passer en disposition verticale */
+        align-items: center;
+    }
+
+    .product-image-container,
+    .product-info-container {
+        flex: none;
+        max-width: 100%;
+    }
+
+    .product-info-container {
+        margin-top: 20px;
+        max-width: 100%;
+        /*padding: 0 15px; /* Ajoute du padding si nécessaire */
+    }
+
+    .price {
+        font-size: 36px;
+        margin-bottom: 10px;
+    }
+
+    .options select {
+        font-size: 1em;
+    }
+
+    .add-to-cart {
+        font-size: 14px; /* Réduire la taille du texte du bouton */
+        padding: 10px;
+    }
+
+    .features h3 {
+        font-size: 1.1em;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    /* Adaptation pour très petits écrans (smartphones) */
+    header {
+        padding-left: 0.5em;
+        margin-top: 10px;
+        height: 3.5em;
+    }
+
+    nav h1 {
+        font-size: 2em; /* Réduire encore la taille du titre */
+    }
+
+    nav ul li {
+        font-size: 1.1em; /* Réduire la taille des éléments du menu */
+    }
+
+    .product-image-container {
+        max-width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .product-info-container {
+        max-width: 100%;
+        margin-top: 20px;
+    }
+
+    .product-image {
+        width: 100%;
+        height: auto;
+    }
+
+    .price {
+        font-size: 30px;
+        margin-bottom: 10px;
+    }
+
+    .options select {
+        font-size: 0.9em; /* Réduire un peu la taille de police */
+    }
+
+    .add-to-cart {
+        font-size: 13px;
+        padding: 8px;
+    }
+
+    .features h3 {
+        font-size: 1em;
+    }
+
+    .features p {
+        font-size: 14px; /* Réduire la taille de police des descriptions */
+    }
+
+    .icon {
+        width: 25px; /* Réduire encore la taille de l'icône */
+        height: 25px;
+    }
+}

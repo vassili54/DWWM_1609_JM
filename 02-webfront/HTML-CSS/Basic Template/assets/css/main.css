@@ -1,8 +1,6 @@
-/* Mise en page globale */
 html {
-    height: 100%;
+    height: 100vh;
 }
-
 body {
     font-family: Arial, sans-serif;
     display: grid;
@@ -12,7 +10,7 @@ body {
     margin: 0;
     
 }
-/* En-tête */
+
 header {
     background-image: url(../img/basic-template-banner.png);
     background-size: cover;  /* L'image s'ajuste à l'espace */
@@ -20,8 +18,6 @@ header {
     grid-column: 1 / -1;
     display: flex;
     justify-content: center;
-    position: relative;
-    background-color: var(--header-bg);
     padding: 20px 0; /* Un peu de padding pour le header */
 }
 
@@ -29,191 +25,201 @@ h1 {
     text-align: center;
     color: white; /* Ajout d'une couleur pour le titre */
     font-size: 2rem; /* Ajustement de la taille du texte pour mieux s'adapter */
+    margin-top: -1px; /* Décale légèrement le titre vers le haut */
 }
+h2 {
+    font-size: 1.5em;
+    padding: 15px; 
+    margin: 0;
+}
+
 /* Menu de navigation */
 nav {
-    background-color: var(--nav-bg); /* Couleur du fond du menu */
+    background-color: #bebebe;
+    
     
 }
+
 
 nav h2 {
-    color: var(--text-color);
-    font-size: 1.5em;
-    line-height: .8em;
-    margin-bottom: 10px;
-    padding: 0 5PX;
+    color: black; /* Couleur du texte du titre */    
+    width: 100%; /* Assure que l'encadré prend toute la largeur du nav */
+    box-sizing: border-box; /* Inclut le padding dans la largeur totale */
+    background-color: #b1b1b1;
 }
 
-/* Liste de menu sans puces */
 nav ul {
     list-style-type: none;
-    padding: 0;
-    
+    padding: 12px 0;
+    margin: 0;
 }
 
-/* Élément de menu avec bordure */
 nav li {
-    margin-bottom: 10px;
-    background-color: var(--border-color);
-    /*border: 2px solid var(--border-color); /* Bordure des éléments de menu */
-    border-radius: 4px; /* Coins arrondis */
-    width: 100%;
-    padding: 10px 5px;
+    margin-bottom: 10px; /* Espacement entre les éléments */
 }
 
-/* Liens du menu */
 nav a {
     display: block;
     text-decoration: none;
-    color: white; /* Couleur du texte par défaut */
+    padding: 10px 15px;
     font-size: 1.2em;
-    
+    color: #085E8F;
+    background-color: #b1b1b1; /* Fond clair pour les liens */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Transition douce */
 }
 
-/* Effet de survol : Changer la couleur du texte et la bordure */
 nav a:hover {
-    color: #ff9800; /* Changer la couleur du texte au survol */
-    background-color: #555; /* Fond plus clair au survol */
-    border-color: #ff9800; /* Bordure orange au survol */
+    background-color: #085e8f; /* Changement de fond au survol */
+    color: white; /* Texte blanc au survol */
 }
 
-/* Ajouter une bordure et un fond plus sombre au survol des éléments de menu */
-nav li:hover {
-    border-color: #ff9800; /* Bordure orange au survol */
-    background-color: #444; /* Fond légèrement plus sombre */
+nav a:active {
+    background-color: #063d57; /* Fond plus foncé quand on clique */
 }
+
 /* Contenu principal */
 main {
-    grid-row: 2;
-    grid-column: 2;
-    padding: 0px;
-    background-color: var(--main-bg);
+    background-color: #CCCCCC;
 }
-main h3 {
-    color: var(--text-color);
-    font-size: 1.5em;
-    line-height: .8em;
-    margin-bottom: 10px;
-    padding: 0 5px;
+main h2 {
+    background-color: #bebebe;  
+    width: 100%;
 }
 /* Section aside avec Flexbox */
 aside {
-    grid-row: 2;
-    grid-column: 3;
     padding: 0px;
-    background-color: var(--aside-bg);
-    color: var(--text-color);
-    border-left: 2px solid var(--border-color); /* Légère bordure à gauche */
     display: flex; /* Utilisation de Flexbox */
     flex-direction: column; /* Organise les éléments verticalement */
-    gap: 5px; /* Espacement entre les éléments enfants */
+    gap: 1px; /* Espacement entre les éléments enfants */
     align-items: center; /* Centrer les éléments enfants horizontalement */
+    background-color: #bebebe;
 }
 
 /* Titre h4 (Publicité) prend toute la largeur sans encadré */
 h4 {
     text-align: center;
-    color: var(--header-bg);
-    background-color: transparent; /* Retirer l'arrière-plan du titre Publicité */
-    padding: 9px 0;
+    color: #085E8F;
+    background-color: #b1b1b1;
+    padding: 12px 0px 12px;
     margin: 0; /* Retirer les marges */
     border: none; /* Supprimer la bordure */
     width: 100%; /* Prend toute la largeur */
+    font-size: 1.2rem; /* Agrandir la taille du texte */
 }
 
 /* L'image prend toute la largeur de aside, sans bordure */
 aside img {
     width: 100%; /* Prend toute la largeur du conteneur */
-    height: auto; /* Garde le ratio d'aspect de l'image */
+    /*height: auto; /* Garde le ratio d'aspect de l'image */
     margin-bottom: 0px; /* Espacement sous l'image */
     border: none; /* Retirer toute bordure éventuelle */
 }
-
+aside p {
+    margin: 9px 9px 9px 9px;
+    font-size: 0.9rem
+}
 /* Encadré autour de h5 (titre "J'achète!") */
 h5 {
     text-align: center;
-    color: var(--button-text-light);
-    background-color: var(--header-bg); /* Couleur de fond pour le mode clair */
+    background-color: #085E8F;
     padding: 9px 0;
     width: 95%; /* S'assure que le titre prend toute la largeur de aside */
     margin: 0; /* Supprime les marges pour éviter les décalages */
-    border-top: 2px solid var(--border-color); /* Bordure supérieure */
-    border-bottom: 2px solid var(--border-color); /* Bordure inférieure pour séparer du contenu */
+
     a {
-        color: var(--aside-bg);
+        color: #bebebe;
         text-decoration: none;
+        font-size: 1.2rem
     }
 }
 
 /* Principal des articles */
-.menu-item {
-    background-color: var(--nav-bg); /* Fond dynamique selon le mode */
-    color: var(--text-color); /* Couleur dynamique pour le texte */
-    width: 100%; /* Prend la même largeur que le contenu principal */
-    margin: 0; /* Pas de marge */
-    line-height: 40px; /* Centrer verticalement le texte */
-    grid-column: 2; /* Aligner le titre dans la colonne centrale (comme main) */
-
-    h3 {
-        padding: .8em;
-        margin: 0px;
-        background-color: var(--nav-div-bg);
-    }
-}
-
-
 .principal {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
-    padding: 0px;
-    justify-content: space-evenly; /* Changement de align-content à justify-content */
-}
+    gap: 0 120px; /* Espacement entre les sections */
+    padding: 15px 120px 0; /* Espacement autour du contenu */
+    justify-content: space-between; /* Distribution des sections sur 2 colonnes */
 
-.principal h3 {
-    width: 100%; /* Le titre prend toute la largeur */
-    height: 40px; /* Hauteur du titre */
-    text-align: center;
-    color: var(--text-color);
+    h3 {
+        /* width: 100%; /* Le titre prend toute la largeur */
+        /* height: 40px; /* Hauteur du titre */
+        margin-top: 0; /* Supprime tout espace au-dessus du titre */
+        padding-top: 0; /* Supprime tout padding supérieur inutile */
+        font-size: 1.2rem; /* Ajuste la taille du titre */
+        font-weight: 400; /* Poids de police plus léger */
+    }
+
 }
 
 .principal section {
-    background-color: var(--section-bg);
-    border: var(--section-be);
-    padding: 10px;
-    margin: 0px;
-    flex: 1 1 calc(43% - 10px);
-    box-sizing: border-box; /* Assure que le padding et margin n'affectent pas la taille totale */
+    display: flex;
+    flex-direction: column; /* Permet aux éléments internes de s'empiler verticalement */
+    justify-content: flex-start; /* Aligne le contenu vers le haut de la section */
+    padding: 2px 20px 60px 2px; /* Agrandit l'espace interne des sections */
+    margin: 10px;
+    flex: 1 1 calc(42% - 20px); /* Utilise environ 50% de la largeur moins l'espacement */
+    background-color: #bebebe;
+    box-sizing: border-box; /* Prend en compte le padding et les marges dans la largeur */
 }
 
-/* Mode clair */
-
-:root {
-    --header-bg: #085e8f;
-    --nav-bg: #bebebe; /* Fond du menu clair */
-    --border-color: #b1b1b1; /* Bordure des éléments du menu en mode clair */
-    --main-bg: white;
-    --aside-bg: #b1b1b1;
-    --section-bg: #bebebe;
-    --section-be: #cccccc;
-    --text-color: black; /* Couleur par défaut pour le texte */
-    --div-bg: #bebebe
-    --button-text-light: #b1b1b1;  /* Fond clair pour "J'achète!" */
-    --button-text-dark: #303030;  /* Fond sombre pour "J'achète!" */
-}
-
-/* Mode sombre */
 @media (prefers-color-scheme: dark) {
-    :root {
-        --header-bg: #111111;
-        --nav-bg: #212121;
-        --border-color: #303030; /* Bordure des éléments du menu en mode sombre */
-        --main-bg: #111111;
-        --aside-bg: #303030;
-        --section-bg: #CCCCCC;
-        --section-be: #111111
-        --text-color: white; /* Couleur du texte en mode sombre */
-        --div-bg: #212121
-        --button-text-light #303030; /* Fond sombre pour "J'achète!" en mode sombre */
+    body {
+        background-color: #111111;
+        color: #CCCCCC;
+    }
+
+    header {
+        background-color: #09BCE0;
+    }
+
+    nav {
+        background-color: #212121;
+
+        h2 {
+            background-color: #303030;
+            color: white;
+        }
+
+        ul li a {
+            background-color: #303030;
+            color: #09BCE0;
+        }
+
+    }
+
+
+
+    main {
+        background-color: #111111;
+    }
+
+    aside {
+        background-color: #212121;
+        color: white;
+
+        h4 {
+            background-color: #303030;
+            color: #09BCE0;
+        }
+
+        h5 {
+            background-color: #09BCE0;
+            
+            a {
+                color: black;
+            }
+        }
+
+    }
+
+    .menu-item h2 {
+        background-color: #212121;
+        color: white;
+    }
+
+    .principal section {
+        background-color: #212121;
+        color: white;
     }
 }
