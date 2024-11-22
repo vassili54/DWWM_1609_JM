@@ -1,12 +1,5 @@
 /* Afficher le menu burger seulement sur des écrans de taille inférieure (tablette/portable) */
 @media (max-width: 768px) {
-    
-     /* Réduire la taille du titre h1 (Trenders) */
-     header h1 {
-        font-size: 2.5rem; /* Taille plus petite pour mobile */
-        margin-left: 20px; /* Réduire légèrement la marge gauche pour plus d'espace */
-    }
-    
     /* Afficher uniquement l'icône burger */
     .menu-icon {
         display: block; /* Icône visible sur mobile */
@@ -18,7 +11,7 @@
     /* Cacher le menu par défaut */
     header ul {
         position: absolute; /* Superpose le menu */
-        top: 80px; /* Position en dessous du header */
+        top: 120px; /* Position en dessous du header */
         left: 0;
         width: 100%; /* Prend toute la largeur */
         background-color: pink; /* Fond du menu */
@@ -53,22 +46,11 @@
         height: auto; /* Permet à l'en-tête de s'étendre avec le menu */
     }
 
-    /* S'assurer que Trenders et profil-caddie restent visibles et bien positionnés */
+    /* S'assurer que Trenders et profil-caddie restent visibles */
     header h1,
     .profil-caddie {
-        z-index: 10; /* Priorité visuelle pour éviter que le menu le couvre */
-        position: relative; /* S'assurer que ces éléments restent visibles */
-    }
-
-    /* Ajuster l'alignement des icônes de profil et caddie sur mobile */
-    .profil-caddie {
-        display: flex;
-        align-items: center; /* Alignement horizontal des icônes */
-        gap: 15px; /* Espacement entre les icônes */
-    }
-
-    .profil-caddie a {
-        font-size: 2rem; /* Ajuster la taille des icônes */
+        z-index: 10; /* Priorité sur le menu */
+        position: relative; /* S'assurer qu'ils restent visibles */
     }
 
 }

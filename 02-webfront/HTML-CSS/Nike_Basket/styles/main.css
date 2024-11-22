@@ -1,74 +1,92 @@
-body {
+
+:root {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    
+}
+
+body {
     margin: 0;
     padding: 0;
+    height: 100%;
 }
 
 
+
+#contenair {
+    display: grid;
+    grid-template-rows: 80px 1fr;
+    height: 100%;
+ 
+}
+/* Header général */
 header {
+    
+    background-color: pink;
+    color: black;
+    text-transform: uppercase;
+}
+
+header nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px;
+    padding: 0;
+}
+
+header h1 {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    margin: auto;
-    height: 5em;
-    text-transform: uppercase;
-    margin-top: 15px;
-    margin-left: 20px;
+    font-size: 4rem;
+    margin: 0;
+    margin-left: 15px;
 }
 
-
-
-nav {
+header ul {
     display: flex;
-    gap: 5rem;
-    align-items: center; /* Centrer les éléments verticalement dans le nav */
-    justify-content: space-between;  /* Pour s'assurer que les éléments restent bien alignés */
-}
-nav h1 {
-    font-size: 3em; /* Agrandit le texte */
-    margin-right: auto; /* Pousse les autres éléments vers la droite */
-}
-
-nav ul {
-    padding: 0;
-    display: flex;
-    justify-content: space-between; /* Centrer les éléments de la liste horizontalement */
-    align-items: center; /* Centrer les éléments verticalement */
-    gap: 1.5em;
-    list-style: none;
+    flex-direction: row;  /* Affiche les éléments du menu en ligne */
+    
+    align-items: center;
+    gap: 15px;  /* Espacement entre les éléments du menu */
+    list-style: none;  /* Supprimer les puces de la liste */
+    padding: 0;  /* Supprimer le padding de la liste */
+    margin: 0;  /* Supprimer la marge autour de la liste */
 }
 
-nav ul li {
-    font-size: 1.2em; /* Agrandit le texte */
-    font-weight: bold;
-    margin-top: 0.2em; /* Descendre légèrement l'élément "Promo Hiver" et l'icône */
+header ul li a {
+    display: flex;  /* Flexbox sur chaque lien pour aligner l'icône et le texte */
+    align-items: center;  /* Alignement vertical de l'icône et du texte */
+    gap: 5px;  /* Un petit espace entre l'icône et le texte */
+    text-decoration: none;  /* Supprimer le soulignement */
+    color: black;  /* Couleur du texte */
+    font-size: 2rem;
 }
 
-nav ul li a {
-    text-decoration: none;
-    color: black;
+header ul li a img.icon {
+    width: 38px; /* Ajuste la largeur (par exemple 16px) */
+    height: auto; /* Garde le ratio d'aspect */
     
 }
 
+/* Section des icônes Profil et Caddie */
 .profil-caddie {
     display: flex;
-    gap: 2em;
-    font-size: 1.4em;
-
-    a {
-        color: black;
-    }
-
+    align-items: center;  /* Aligne les icônes horizontalement */
+    gap: 20px;  /* Espacement entre les icônes */
+    margin-right: 19px;
 }
 
-.icon {
-    width: 40px; /* Ajuste la taille selon tes besoins */
-    height: 40px;
-    margin-right: -0.3em; /* Espace entre l'icône et le texte */
-    vertical-align: middle; /* Aligne l'icône avec le texte */
-    margin-top: 5px;
-    
- 
+/* Style pour chaque icône de profil et caddie */
+.profil-caddie a {
+    font-size: 2rem;  /* Taille des icônes */
+    color: black;  /* Couleur noire pour les icônes */
+    text-decoration: none;  /* Supprimer le soulignement */
+}
+
+/* Par défaut, masquer le menu-toggle */
+#menu-toggle,
+.menu-icon {
+    display: none; /* Cacher le toggle et l'icône */
 }
 
 
@@ -94,18 +112,10 @@ main {
     flex: 2; /* Prend plus d'espace pour le texte */
 }
 
-h1, h2, h3 {
+h2, h3 {
     margin: 0;
 }
 
-#container {
-    display: flex;
-    justify-content: space-between; /* Espacement entre l'image et le texte */
-    padding: 20px;
-    margin: 20px;
-    max-width: 1200px; /* Ajustez selon vos besoins */
-    width: 100%; /* Assure que le conteneur ne dépasse pas la largeur maximale */
-}
 
 .product-image-container {
     flex: 1; /* L'image prend une largeur flexible */

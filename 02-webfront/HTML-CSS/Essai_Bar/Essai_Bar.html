@@ -4,30 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="./styles/responsive.css">
     <title>TRENDERS</title>
 </head>
 <body>
-    <div class="container">
+    <div id="container">
         <header>
             <nav>
-                <div class="brand"><a href="">TRENDERS</a></div>
-                <label for="hamburger" class="label-hamburger" aria-label="Ouvrir le menu">&#9776;</label>
-                <input type="checkbox" name="hamburger" id="hamburger">
+                <h1>Trenders</h1>
+                <label for="menu-toggle" class="menu-icon"><i class="fa-solid fa-bars"></i></label>
+                <input type="checkbox" id="menu-toggle">
                 <ul>
                     <li><a href="#">Vêtement</a></li>
                     <li><a href="#">Chaussures</a></li>
                     <li><a href="#">Accessoires</a></li>
-                    <li class="promo"><a href=""><img src="./img/flocon-de-neige 1.png" alt="">Promo Hiver</a></li>
+                    <li><a href="#"><img src="img/flocon-de-neige 1.png" alt="flocon-de-neige" class="icon"> Promo Hiver</a></li>
                 </ul>
-                <div class="profilCart">
-                    <a href="" alt=""><img src="./img/Icon.png" alt=""></a> 
-                    <a href="" alt=""><img src="./img/icon2.png" alt=""></a>
+                <div class="profil-caddie">
+                    <a href="#"><i class="fa-solid fa-cart-shopping"></i></a>
+                    <a href="#"><i class="fa-regular fa-circle-user"></i></a>
                 </div>
-            </nav>
+            </nav>        
         </header>
-        <main>
-            
-        </main>
+
+    <main>
+        <div class="product-image-container">
+            <div>
+                <img src="./img/Icon Button.png" alt="Favoris" class="icon-button">
+            </div>
+            <img src="./img/Chaussure.jpg" alt="Chaussure Nike modèle 2024 avec design moderne" class="product-image">
+        </div>
+        <div class="product-info-container">
+            <h2>Nike Sneakers</h2>
+            <div class="tag">Tag</div>
+            <div class="price"><sup>€</sup>127</div>
+            <div class="options">
+                <div>
+                    <label for="size">Taille</label>
+                    <select id="size">
+                        <option value="42">42</option>
+                        <option value="43">43</option>
+                        <option value="44">44</option>
+                        <option value="45">45</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="color">Couleur</label>
+                    <select id="color">
+                        <option value="blue">Bleu</option>
+                        <option value="red">Rouge</option>
+                        <option value="black">Noir</option>
+                    </select>
+                </div>
+            </div>
+            <button class="add-to-cart">Ajouter au panier</button>
+            <div class="features">
+                <h3>Caractéristique <i class="fa-solid fa-chevron-up"></i></h3>
+                <p>Découvrez cette sneaker alliant confort et style, idéale pour les amateurs de mode urbaine. Conçue avec une empeigne en cuir de haute qualité et des empiècements en maille respirante, cette chaussure assure à la fois performance et élégance pour vos aventures quotidiennes.</p>
+            </div>
+        </div>
+    </main>
     </div>
+    <footer></footer>
 </body>
 </html>
