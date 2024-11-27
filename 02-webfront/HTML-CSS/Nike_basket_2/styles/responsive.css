@@ -1,152 +1,170 @@
-/* Style pour le menu burger */
-.menu-icon {
-    display: none;
-    font-size: 2em;
-    cursor: pointer;
-    position: absolute;
-    right: 20px;
-    top: 15px;
-    z-index: 20;
-}
-
-#menu-toggle {
-    display: none; /* Cache la checkbox */
-}
-
-/* Pour les écrans <= 768px */
-@media screen and (max-width: 768px) {
-    /* Réorganiser la navigation en menu vertical */
+@media (max-width: 768px) {
+    /* Afficher uniquement l'icône burger */
+   
     .menu-icon {
-        display: block; /* Affiche le bouton menu */
+        display: block; /* Icône visible sur mobile */
+        font-size: 2.5rem; /* Taille adaptée */
+        cursor: pointer; /* Ajout d'un curseur pour indiquer l'interaction */
+        z-index: 10; /* Priorité pour l'icône */
+        position: absolute; /* Pour positionner précisément */
+        top: 37px; /* Ajuster la distance depuis le haut */
+        left: 65%; /* Centre horizontalement */
+        transform: translateX(-50%); /* Ajustement pour centrer */
+        
     }
 
-    nav ul {
-        display: none; /* Cache le menu par défaut */
-        flex-direction: column; /* Menu vertical */
-        position: absolute; /* Menu flottant */
-        top: 70px;
-        right: 0;
+        /* S'assurer que Trenders et profil-caddie restent visibles */
+    header h1,
+    .profil-caddie {
+        z-index: 10; /* Priorité sur le menu */
+        position: relative; /* S'assurer qu'ils restent visibles */
+    }
+     
+    header h1 {
+        font-size: 2rem; /* Taille réduite pour mobile */
+        margin-left: 10px; /* Réduction de la marge gauche */
+    }
+    
+    /* Cacher le menu par défaut */
+    header ul {
+        position: absolute; /* Superpose le menu */
+        top: 120px; /* Position en dessous du header */
+        left: 0;
+        width: 100%; /* Prend toute la largeur */
+        /*background-color: pink; /* Fond du menu */
+        display: none; /* Cacher le menu initialement */
+        flex-direction: column; /* Disposer les liens verticalement */
+        padding: 10px 0; /* Espacement interne */
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Ajout d'une ombre pour style */
+        z-index: 5; /* Priorité visuelle */
+    }
+
+    /* Liens du menu centrés */
+    header ul li {
+        text-align: center; /* Aligner le texte au centre */
+        padding: 10px 0; /* Espacement vertical */
+    }
+
+    /* Afficher le menu lorsque le menu-toggle est activé */
+    #menu-toggle:checked + ul {
+        display: flex; /* Afficher le menu */
         background-color: white;
-        width: 100%;
-        box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-        padding: 20px 0;
-        z-index: 10;
-        transition: all 0.3s ease-in-out;
     }
 
-    nav ul li {
-        font-size: 1.2em; /* Réduire encore la taille du texte pour petits écrans */
-        text-align: center;
-        padding: 15px 0;
+    /* Taille et style des liens */
+    header ul li a {
+        font-size: 1.5rem; /* Taille adaptée au mobile */
+        text-decoration: none; /* Retirer le soulignement */
+        color: black; /* Couleur du texte */
     }
 
-    /* Affiche le menu si la checkbox est cochée */
-    #menu-toggle:checked ~ nav ul {
-        display: flex; /* Affiche le menu */
+    /* Dynamique : ajuster la hauteur de l'en-tête avec le menu actif */
+    #menu-toggle:checked ~ nav {
+        height: auto; /* Permet à l'en-tête de s'étendre avec le menu */
     }
 
-    .icon {
-        width: 30px;
-        height: 30px;
+    main {
+        flex-direction: column; /* Change l'orientation des colonnes en verticale */
+        align-items: center; /* Centre les éléments horizontalement */
+        gap: 20px; /* Ajoute un espacement entre les deux conteneurs */
+        padding: 10px; /* Ajoute un léger padding pour l'affichage */
+        height: auto; /* Laisse la hauteur s'adapter au contenu */
+        overflow-y: auto; /* Active le défilement vertical si nécessaire */
+        box-sizing: border-box; /* Inclut les bordures et padding dans la largeur totale */
     }
 
     .product-image-container,
     .product-info-container {
-        flex: none;
-        max-width: 100%;
+        max-width: 90%; /* Largeur maximale pour s'adapter à l'écran */
+        width: 100%; /* Prend toute la largeur disponible */
+        padding: 0 10px; /* Padding latéral pour un espacement interne */
+        margin: 0; /* Supprime les marges externes inutiles */
     }
 
-    #container {
-        flex-direction: column; /* Passer en disposition verticale */
-        align-items: center;
+    .product-image-container {
+        align-items: flex-start; /* Aligne à gauche si nécessaire */
+    }
+
+    .product-image {
+        max-width: 100%; /* L'image occupe toute la largeur disponible */
+        height: auto; /* Garde les proportions */
+        display: block; /* Supprime tout comportement inline-block */
     }
 
     .product-info-container {
-        margin-top: 20px;
-        max-width: 100%;
-        /*padding: 0 15px; /* Ajoute du padding si nécessaire */
+        text-align: center; /* Centre le texte pour mobile */
+        margin-bottom: 20px; /* Ajoute un espace sous le conteneur */
     }
 
-    .price {
-        font-size: 36px;
-        margin-bottom: 10px;
+    .product-info-container h2 {
+        font-size: 25px; /* Taille du titre */
+        margin: 0; /* Supprime les marges */
+        padding: 0; /* Supprime le padding interne */
+        text-align: left; /* Aligne le texte à gauche */
+        color: black; /* Couleur du texte */
+    }
+
+    body {
+        overflow-y: auto; /* Permet un défilement global sur mobile */
+        max-height: 100vh; /* Empêche tout débordement vertical */
+        box-sizing: border-box; /* Inclut padding et bordures dans la hauteur totale */
     }
 
     .options {
         display: block;
+
+        div {
+            margin: 10px 0 10px;
+        }
+    }
+    
+    .options label {
+        font-size: 1em; /* Taille du texte */
+        margin: 0; /* Supprime les marges */
+        padding: 0; /* Supprime le padding */
+        text-align: left; /* Aligne le texte à gauche */
+        color: black; /* Couleur du texte */
+       
         
-    }
-
-    .options select {
-        font-size: 1em;
-        
-    }
-
-    .add-to-cart {
-        font-size: 14px; /* Réduire la taille du texte du bouton */
-        padding: 10px;
-    }
-
-    .features h3 {
-        font-size: 1.1em;
-    }
-}
-
-@media screen and (max-width: 480px) {
-    /* Adaptation pour très petits écrans (smartphones) */
-    header {
-        padding-left: 0.5em;
-        margin-top: 10px;
-        height: 3.5em;
-    }
-
-    nav h1 {
-        font-size: 2em; /* Réduire encore la taille du titre */
-    }
-
-    nav ul li {
-        font-size: 1.1em; /* Réduire la taille des éléments du menu */
-    }
-
-    .product-image-container {
-        max-width: 100%;
-        margin-bottom: 20px;
-    }
-
-    .product-info-container {
-        max-width: 100%;
-        margin-top: 20px;
-    }
-
-    .product-image {
-        width: 100%;
-        height: auto;
     }
 
     .price {
-        font-size: 30px;
-        margin-bottom: 10px;
+        font-size: 50px;
+        margin: 0; /* Supprime toutes les marges */
+        padding: 0; /* Supprime tout padding interne */
+        color: black;
+        font-weight: bold;
+        text-align: left; /* Aligne le texte à gauche */
     }
 
-    .options select {
-        font-size: 0.9em; /* Réduire un peu la taille de police */
+    .features {
+        margin-top: 20px; /* Espace au-dessus */
+        margin-bottom: 20px; /* Ajoute un espace en dessous */
+        padding: 10px; /* Réduit le padding interne */
+        border: 1px solid #000; /* Bordure noire */
+        border-radius: 10px; /* Coins arrondis */
+        background-color: #f9f9f9; /* Couleur de fond */
+        max-height: 200px; /* Limite la hauteur maximale */
+        overflow: hidden; /* Cache le contenu débordant, si nécessaire */
     }
-
-    .add-to-cart {
-        font-size: 13px;
-        padding: 8px;
-    }
-
+    
     .features h3 {
-        font-size: 1em;
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Place le texte à gauche et l'icône à droite */
+        margin-bottom: 10px; /* Espacement réduit sous le titre */
+        font-size: 1.2em;
+        color: #333;
+        font-weight: bold; /* Met le titre en gras */
     }
-
+    
     .features p {
-        font-size: 14px; /* Réduire la taille de police des descriptions */
+        font-size: 0.9em; /* Réduit légèrement la taille du texte */
+        line-height: 1.4; /* Ajuste l'espacement entre les lignes */
+        margin: 0; /* Supprime les marges internes */
     }
+    
 
-    .icon {
-        width: 25px; /* Réduire encore la taille de l'icône */
-        height: 25px;
-    }
 }
+
+

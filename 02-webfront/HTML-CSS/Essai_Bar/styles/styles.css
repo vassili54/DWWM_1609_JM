@@ -21,7 +21,7 @@ body {
 /* Header général */
 header {
     
-    background-color: pink;
+    /*background-color: pink;*/
     color: black;
     text-transform: uppercase;
 }
@@ -36,7 +36,7 @@ header nav {
 header h1 {
     display: flex;
     align-items: center;
-    font-size: 4rem;
+    font-size: 3.5rem;
     margin: 0;
     margin-left: 30px;
 }
@@ -46,7 +46,7 @@ header ul {
     flex-direction: row;  /* Affiche les éléments du menu en ligne */
     
     align-items: center;
-    gap: 15px;  /* Espacement entre les éléments du menu */
+    gap: 37px;  /* Espacement entre les éléments du menu */
     list-style: none;  /* Supprimer les puces de la liste */
     padding: 0;  /* Supprimer le padding de la liste */
     margin: 0;  /* Supprimer la marge autour de la liste */
@@ -91,8 +91,155 @@ header ul li a img.icon {
 
 /* Main Section */
 main {
+    display: flex; /* Active le modèle Flexbox */
+    align-items: center; /* Étend les enfants pour remplir la hauteur du parent */
+    justify-content: center; /* Ajoute de l'espace entre les deux colonnes */
+    gap: 20px; /* Espace entre l'image et les informations */
+    height: 87vh; /* Occupe toute la hauteur de la fenêtre (ou ajustez selon vos besoins) */
+    /* padding: 20px; */
+    
+    /*background-color: blue;*/
+}
+
+.product-image-container {
+    position: relative; /* Permet de positionner l'icône par rapport à ce conteneur */
+    max-width: 100%; /* Le conteneur occupe toute la largeur disponible */
     display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: blue;
+    flex-direction: column; /* Organise les éléments verticalement */
+    align-items: flex-start; /* Place les éléments à gauche */
+}
+
+.icon-button {
+    margin-bottom: 10px; /* Espacement entre l'icône et l'image */
+    width: 40px; /* Taille de l'icône */
+    height: 40px;
+    object-fit: contain; /* Conserve le ratio de l'icône */
+    cursor: pointer; /* Ajoute une interaction visuelle */
+    margin-left: 10px; /* Décalage vers la gauche */
+}
+
+.product-image {
+    width: 100%; /* L'image prend toute la largeur disponible */
+    max-width: 500px; /* Limite la taille maximale */
+    height: auto; /* Garde les proportions */
+    display: block; /* Supprime les comportements inline par défaut */
+}
+
+
+.product-info-container {
+    max-width: 40%; /* Réduit la largeur maximale à 40% */
+    width: 100%; /* Occupe tout l'espace disponible jusqu'à max-width */
+    display: flex;
+    flex-direction: column; /* Organise les éléments en colonne */
+    /*gap: 20px; /* Espace entre les sections */
+    padding: 10px; /* Ajoute un peu de respiration interne */
+    /*justify-content: center; /* Centre verticalement les informations */
+    /*margin-right: 10px; /* Espacement à droite pour recentrer */
+    /*background-color: yellow; /* Pour mieux voir le conteneur (optionnel) */
+
+    h2 {
+        font-size: 29px;
+        padding-top: 10px;
+    }
+
+}
+
+.tag {
+    display: flex;                 /* Active Flexbox */
+    justify-content: center;       /* Centre horizontalement */
+    align-items: center;           /* Centre verticalement */
+    background-color: #c8f0c8;     /* Couleur verte */
+    color: green;                  /* Couleur du texte */
+    font-size: 18px;               /* Taille du texte */
+    font-weight: bold;             /* Met le texte en gras */
+    text-align: center;            /* Alignement du texte */
+    margin-top: 16px;              /* Espacement au-dessus */
+    padding: 0;                    /* Supprime le padding pour éviter de déborder */
+    border-radius: 5px;            /* Coins arrondis */
+    margin-bottom: 2px;            /* Espacement sous le tag */
+    width: 40px;                   /* Largeur fixe */
+    height: 30px;                  /* Hauteur fixe */
+}
+
+
+.price {
+    font-size: 56px;
+    /*margin-top: 50Px;*/
+    margin-bottom: 50px;
+    color: black;
+    font-weight: bold;
+     sup{
+        font-size: 29px;
+     }
+}
+
+.options {
+    display: flex;
+    justify-content: space-between; /* Espace entre les options */
+    margin-top: 10px;
+    gap: 20px; /* Espace entre les options */
+
+    div {
+        display: flex;
+        flex-direction: column; /* Aligne les labels et les sélecteurs verticalement */
+        flex: 1;
+    }
+
+    select{
+        margin-top: 12px;
+    }
+
+}
+
+label, select {
+    font-size: 1.2em;
+}
+
+select, button {
+    padding: 10px 20px;
+    border-radius: 5px;
+}
+
+.add-to-cart {
+    background-color: black;
+    color: white;
+    border: none;
+    
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+button.add-to-cart:hover {
+    background-color: #32BBF1;
+    color: black;
+}
+
+.features {
+    margin-top: 20px;
+    padding: 20px; /* Ajoute de l'espace à l'intérieur de l'encadré */
+    border: 1px solid #000; /* Ajoute une bordure noire de 2px */
+    border-radius: 10px; /* Arrondit les coins de l'encadré */
+    background-color: #f9f9f9; /* Optionnel : ajoute une couleur de fond */
+    
+    h3 {
+        display: flex;
+        align-items: center;
+        justify-content: space-between; /* Place le texte à gauche et l'icône à droite */
+        margin-bottom: 15px;
+        /*padding-bottom: 5px;*/
+        font-size: 1.2em;
+        /*border-bottom: 2px solid #32BBF1;*/
+        color: #333;
+        font-weight: bold; /* Met le titre en gras */
+
+        i {
+            font-size: 0.9em;
+            color: black;
+        }
+
+    }
+    
+
 }
