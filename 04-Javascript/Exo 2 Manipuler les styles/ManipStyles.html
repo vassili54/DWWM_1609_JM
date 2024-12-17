@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <title>Manipuler les styles</title>
+</head>
+<body>
+    <h1>Changer la taille du texte</h1> 
+    <button onclick="increaseTextSize()">Augmenter la taille du texte</button> 
+    <button onclick="decreaseTextSize()">Diminuer la taille du texte</button> 
+    <input type="number" id="textSizeInput" min="8" max="48" value="16" onchange="setTextSize()"> 
+    <span id="currentSize">Taille actuelle : 16 px</span>
+    <p id="text">Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+        Distinctio consectetur voluptates nobis. 
+        Deserunt a laborum dignissimos ullam eos eveniet qui consectetur. 
+        Dicta quibusdam id voluptas suscipit modi doloribus. 
+        Corrupti, earum?</p>
+
+    <script>
+        let currentSize = 16;
+        function increaseTextSize() {
+            if (currentSize < 48) {
+                currentSize++;
+            } else {
+                currentSize = 16;
+            }
+            updateTextSize();
+        }
+
+        function decreaseTextSize() {
+            if (currentSize > 8) {
+                currentSize--;
+            } else {
+                currentSize = 16;
+            }
+            updateTextSize();
+        }
+        
+        function setTextSize() {
+            let inputSize = parseInt(document.getElementById('textSizeImput').value);
+            if (inputSize >= 8 && inputSize <= 48) {
+                currentSize = inputSize;
+            } else {
+                currentSize = 16;
+            }
+            updateTextSize();
+        }
+
+        function updateTextSize() {
+            document.getElementById('text').style.fontSize = currentSize + 'px';
+            document.getElementById('currentSize').innerText = 'Taille actuelle : ' + currentSize + 'px';
+        }
+    </script>
+
+</body>
+</html>
