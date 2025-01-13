@@ -13,7 +13,7 @@ FROM questions
 WHERE user_id = 2;
 
 -- 4 Sélectionner les questions (date, intitulé, réponse, identifiant utilisateur) de l’utilisateur Eva Satiti.
-SELECT question_date, question_label, question_response, question.user_id
+SELECT question_date, question_label, question_response, questions.user_id
 FROM questions
 JOIN users ON questions.user_id = users.user_id
 WHERE user_firstname = 'Eva' AND user_lastname = 'Satiti';
@@ -26,10 +26,10 @@ ORDER BY question_label DESC;
 
 -- 6 Sélectionner les catégories (nom, description) sans question associée.
 
-SELECT category_name, category_description
-FROM categories
-LEFT JOIN categories_questions ON  categories.category_name = category_questions.category_name
-WHERE categories_questions.question_id IS NULL;
+SELECT c.category_name, c.category_description
+FROM categories c
+LEFT JOIN categories_questions cq ON  c.category_name = cq.category_name
+WHERE cq.question_id IS NULL;
 -- sous-requêtes
 /*
 SELECT category_name, category_description
@@ -47,6 +47,13 @@ SELECT c.category_name, COUNT(cq.question_id) AS 'Nombre de questions associées
 FROM categories c
 LEFT JOIN categories_questions cq ON c.category_name = cq.category_name
 GROUP BY c.category_name;
+/*
+SELECT categories.category_name, COUNT(categories_questions.question_id) FROM categories
+INNER JOIN categories_questions ON categories.category_name = categories_questions.category_name
+GROUP BY categories_questions.category_name;
+*/
+
+
 /*
 Explications supplémentaires :
 Les tables sont reliées via des clés primaires et étrangères pour respecter les relations spécifiées dans les règles de gestion.
