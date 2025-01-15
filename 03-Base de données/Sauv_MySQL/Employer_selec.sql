@@ -165,41 +165,115 @@ FROM vue_employes_projet
 ORDER BY MON_DEPARTEMENT, NOM_PROJET;
 
 -- 22. Donner le nom du projet associé à chaque manager
+SELECT M.ENAME AS MANAGER_NAME, P.NOM_PROJ AS PROJECT_NAME, P.BUDGET_PROJ AS PROJECT_BUDGET
+FROM EMP M
+JOIN PROJET P ON M.NUM_PROJ = P.NUM_PROJ
+WHERE M.JOB = 'MANAGER';
+
+
 
 -- Deuxième partie
+
 -- 1. Afficher la liste des managers des départements 20 et 30
 SELECT E.ENAME AS NOM_MANAGER, E.JOB AS POSTE, D.DNAME AS DEPARTEMENT
 FROM EMP E 
 JOIN DEPT D ON D.DEPTNO = D.DEPTNO
 WHERE E.JOB = 'MANAGER' AND (D.DEPTNO = 20 OR D.DEPTNO = 30);
 
+-- 2. Afficher la liste des employés qui ne sont pas manager et qui ont été embauchés en 81
+SELECT ENAME, JOB, HIREDATE
+FROM EMP
+WHERE JOB != 'manager' AND year(HIREDATE) =1981;
+
+-- 3. Afficher la liste des employés ayant une commission
+SELECT ENAME, JOB, COMM
+FROM EMP 
+WHERE COMM IS NOT NULL;
+
+-- 4. Afficher la liste des noms, numéros de département, jobs et date d'embauche triés par Numero de Département et JOB les derniers embauches d'abord.
+SELECT ENAME, DEPTNO, JOB, HIREDATE
+FROM EMP 
+ORDER BY DEPTNO, JOB, HIREDATE DESC;
+
+-- 5. Afficher la liste des employés travaillant à DALLAS
+SELECT E.ENAME, E.DEPTNO, D.LOC
+FROM EMP E
+JOIN  DEPT D ON D.DEPTNO = E.DEPTNO
+WHERE D.LOC sounds like 'DALASs';
+
+
+-- 6. Afficher les noms et dates d'embauche des employés embauchés avant leur manager, avec le nom et date d'embauche du manager.
+SELECT E.ENAME AS employee_name, E.HIREDATE AS employee_hire_date, M.ENAME AS manager_name, M.HIREDATE AS manager_hire_date
+FROM EMP E 
+JOIN EMP M ON E.MGR = M.EMPNO
+WHERE E.HIREDATE < M.HIREDATE;
+
+-- 7. Lister les numéros des employés n'ayant pas de subordonné.
+SELECT EMPNO, JOB
+FROM EMP 
+WHERE EMPNO NOT IN 
+(SELECT DISTINCT MGR
+FROM EMP
+WHERE MGR IS NOT NULL);
 
 
 
+-- 8. Afficher les noms et dates d'embauche des employés embauchés avant BLAKE.
+SELECT ENAME, HIREDATE, ( SELECT HIREDATE 
+FROM EMP 
+WHERE ENAME = 'BLAKE') as "embauche blake"
+FROM EMP 
+WHERE HIREDATE < 
+(SELECT HIREDATE 
+FROM EMP 
+WHERE ENAME sounds like 'BLAc');
+
+-- 9. Afficher les employés embauchés le même jour que FORD.
+SELECT ENAME, HIREDATE
+FROM EMP 
+WHERE HIREDATE =
+(SELECT HIREDATE
+FROM EMP 
+WHERE ENAME = 'FORD');
+
+-- 10. Lister les employés ayant le même manager que CLARK. 
+SELECT EMPNO, ENAME, JOB, MGR
+FROM EMP 
+WHERE MGR = (SELECT MGR FROM EMP WHERE ENAME = 'CLARK');
+
+
+SELECT E1.EMPNO, E1.ENAME, E1.JOB, E1.MGR 
+FROM EMP E1
+JOIN EMP E2 ON E1.MGR = E2.MGR
+WHERE E2.ENAME = 'CLARK';
+
+-- 11. Lister les employés ayant même job et même manager que TURNER.
+
+
+
+
+
+
+-- 12. Lister les employés du département RESEARCH embauchés le même jour que quelqu'un du département SALES.
+
+-- 13. Lister le nom des employés et également le nom du jour de la semaine correspondant à leur dated'embauche.
+
+-- 14. Donner, pour chaque employé, le nombre de mois qui s'est écoulé entre leur date d'embauche et ladate actuelle.
+
+
+
+-- 15. Afficher la liste des employés ayant un M et un A dans leur nom.
+SELECT *
+FROM EMP 
+WHERE ENAME LIKE "%M%A%"  OR ename like "%A%M%";
+
+-- 16. Afficher la liste des employés ayant deux 'A' dans leur nom.
+SELECT *
+FROM emp
+WHERE ENAME LIKE "%A%A%";
 
 /*
 
-2. Afficher la liste des employés qui ne sont pas manager et qui ont été embauchés en 81
-3. Afficher la liste des employés ayant une commission
-4. Afficher la liste des noms, numéros de département, jobs et date d'embauche triés par Numero de 
-Département et JOB les derniers embauches d'abord.
-5. Afficher la liste des employés travaillant à DALLAS
-6. Afficher les noms et dates d'embauche des employés embauchés avant leur manager, avec le nom et
-date d'embauche du manager.
-7. Lister les numéros des employés n'ayant pas de subordonné.
-8. Afficher les noms et dates d'embauche des employés embauchés avant BLAKE.
-9. Afficher les employés embauchés le même jour que FORD.
-10. Lister les employés ayant le même manager que CLARK.
-11. Lister les employés ayant même job et même manager que TURNER.
-12. Lister les employés du département RESEARCH embauchés le même jour que quelqu'un du 
-département SALES.
-
-13. Lister le nom des employés et également le nom du jour de la semaine correspondant à leur date
-d'embauche.
-14. Donner, pour chaque employé, le nombre de mois qui s'est écoulé entre leur date d'embauche et la
-date actuelle.
-15. Afficher la liste des employés ayant un M et un A dans leur nom.
-16. Afficher la liste des employés ayant deux 'A' dans leur nom.
 17. Afficher les employés embauchés avant tous les employés du département 10.
 18. Sélectionner le métier où le salaire moyen est le plus faible.
 19. Sélectionner le département ayant le plus d'employés.
