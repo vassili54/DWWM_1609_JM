@@ -1,0 +1,167 @@
+1. Donner nom, job, numéro et salaire de tous les employés, puis seulement des employés du département 10.
+{} : Cette partie définit le filtre de recherche. Dans ce cas, nous avons un objet vide {}, 
+ce qui signifie que nous voulons tous les documents dans la collection, 
+sans filtrer sur un champ particulier.
+
+
+
+db.employees.find({}, {ename: 1, job: 1, sal: 1})
+
+db.employees.find({deptno: 10}, {ename: 1, job: 1, sal: 1})
+
+
+
+2. Donner nom, job et salaire des employés de type MANAGER dont le salaire est supérieur à 2800.
+"$gt" Correspond aux valeurs supérieures à une valeur spécifiée.
+
+db.employees.find({ job: "MANAGER", sal: { $gt: 2800 } }, {_id: 0, ename: 1, job: 1, sal: 1})
+
+
+
+
+3. Donner la liste des MANAGER n'appartenant pas au département 30.
+"$ne" Correspond à toutes les valeurs qui ne sont pas égales à une valeur spécifiée.
+
+db.employees.find({ job: "MANAGER", deptno: { $ne:30 }})
+
+
+
+4. Liste des employés de salaire compris entre 1200 et 1400.
+"$gte" Correspond aux valeurs supérieures ou égales à une valeur spécifiée.
+"$lte" Correspond aux valeurs inférieures ou égales à une valeur spécifiée.
+
+db.employees.find({ sal: { $gte: 1200, $lte: 1400 } })
+
+
+5. Liste des employés des départements 10 et 30 classés dans l'ordre alphabétique.
+ "$in" Cette condition filtre les employés appartenant aux départements 10 et 30.
+"sort" Cette partie de la requête trie les résultats par le champ ename (nom de l'employé) dans l'ordre croissant
+
+db.employees.find({ deptno: { $in: [10, 30] } }).sort({ emame: 1})
+
+
+6. Liste des employés du département 30 classés dans l'ordre des salaires croissants.
+
+db.employees.find({deptno: 30}, {_id: 0, ename: 1, sal: 1}).sort({ sal: 1})
+
+(version Décroissant)
+db.employees.find({deptno: 30}).sort({ sal: -1})
+
+
+7. Liste de tous les employés classés par emploi et salaires décroissants.
+
+db.employees.find().sort({ job: 1, sal: -1 })
+
+
+
+8. Liste des différents emplois
+"distinct" Nom de la collection à interroger pour des valeurs distinctes.
+
+db.employees.distinct("job")
+
+
+
+9. Donner le nom du département où travaille ALLEN.
+
+db.employees.find({ ename: "ALLEN"}, { dname: 1, _id: 0})
+
+
+
+10. Liste des employés avec nom du département, nom, job, salaire classés par noms de départements et par salaires décroissants.
+
+db.employees.find({}, { ename: 1, job: 1, sal: 1, dname: 1, _id: 0 }).sort({ dname: 1, sal: -1 })
+
+
+
+11. Liste des employés vendeurs (SALESMAN) avec affichage de nom, salaire, commissions, salaire + commissions.
+total: { $add: ["$sal", "$comm"] } : Utilise l'opérateur $add pour calculer la somme du salaire et des commissions et affiche ce total dans un champ total.
+total: Cette expression crée un nouveau champ, ici appelé total, qui contient la somme du salaire (sal) et des commissions (comm) pour chaque employé.
+
+
+db.employees.find({ job: 'SALESMAN'}, { ename: 1, sal: 1, comm: 1, total: { $add: ["$sal",  "$comm"] }, _id: 0} )
+
+
+
+12. Donner le salaire le plus élevé par département
+utiliser l'agrégation avec les étapes suivantes
+Utiliser l'opérateur $max pour obtenir le salaire le plus élevé dans chaque groupe
+$group : Cette étape permet de regrouper les documents en fonction d'un champ
+maxSalary: { $max: "$sal" } : Cela permet d'extraire le salaire le plus élevé dans chaque groupe de documents (chaque département)
+
+db.employees.aggregate([{ $group: { _id: "$dname", maxSalary: { $max: "$sal" }}} ])
+
+ ou
+ 
+db.employees.aggregate([{ $group: { _id: { $toLower: "$dname" }, maxSalary: { $max: "$sal" } } }, { $project: { dname: "$_id", maxSalary: 1, _id: 0 } }])
+
+
+
+13. Donner département par département masse salariale, nombre d'employés, salaire moyen par type d'emploi.
+
+
+
+db.employees.aggregate([
+{$group: {
+
+_id: {Départment: "$dname", Job: "$job"},
+
+"Salaries":{$sum: "$sal"},
+
+"Commissions": {$sum: "$comm"},
+
+"Nombre d'employés": {$sum:1},
+
+"SALM": {$avg: "$sal"},
+
+}},
+
+{$project:{
+
+_id:0,
+
+"Informations service": "$_id",
+
+"Masse salariale": {$add: ["$Salaires", "$Commissions"]},
+
+"Nombre d'employés":1,
+
+"Salaire moyen": {$round: ["$SALM", 2]}
+
+}}
+
+])
+
+
+
+ou
+
+
+
+db.employees.aggregate([
+  {
+    $group: {
+      _id: { dname: { $toLower: "$dname" }, job: "$job" }, 
+      totalSal: { $sum: "$sal" },  
+      nombEmployees: { $sum: 1 },     
+      moyenSal: { $avg: "$sal" }    
+    }
+  },
+  {
+    $project: {
+      dname: "$_id.dname",      
+      job: "$_id.job",          
+      totalSal: 1,           
+      nombEmployees: 1,         
+      moyenSal: {              
+        $round: ["$moyenSal", 2]
+      },
+      _id: 0                    
+    }
+  },
+  {
+    $sort: {                 
+      dname: 1,
+      job: 1
+    }
+  }
+])
