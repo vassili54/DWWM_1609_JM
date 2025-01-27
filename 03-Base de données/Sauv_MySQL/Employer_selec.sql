@@ -110,13 +110,11 @@ FROM EMP E
 WHERE E.SAL > (SELECT AVG(SAL) FROM EMP)
 ORDER BY E.SAL DESC;
 
-/*
- 18. Création d'une table PROJET avec comme colonnes numéro de projet (3 chiffres), nom de projet(5 caractères), budget. Entrez les valeurs suivantes:
- 
-	101, ALPHA,96000
-	102, BETA,82000
-	103, GAMMA,15000 
- */   
+
+-- 18. Création d'une table PROJET avec comme colonnes numéro de projet (3 chiffres), nom de projet(5 caractères), budget. Entrez les valeurs suivantes:
+-- 101, ALPHA,96000
+-- 102, BETA,82000
+-- 103, GAMMA,15000 
 
 CREATE TABLE projet (
 num_proj SMALLINT AUTO_INCREMENT,
@@ -237,11 +235,12 @@ FROM EMP
 WHERE ENAME = 'FORD');
 
 -- 10. Lister les employés ayant le même manager que CLARK. 
+-- sous requête
 SELECT EMPNO, ENAME, JOB, MGR
 FROM EMP 
 WHERE MGR = (SELECT MGR FROM EMP WHERE ENAME = 'CLARK');
 
-
+-- self join avec alias
 SELECT E1.EMPNO, E1.ENAME, E1.JOB, E1.MGR 
 FROM EMP E1
 JOIN EMP E2 ON E1.MGR = E2.MGR
@@ -249,17 +248,42 @@ WHERE E2.ENAME = 'CLARK';
 
 -- 11. Lister les employés ayant même job et même manager que TURNER.
 
-
-
-
+SELECT ENAME, JOB, MGR
+FROM EMP 
+WHERE (JOB, MGR) = (SELECT JOB, MGR FROM EMP WHERE ENAME = 'TURNER');
 
 
 -- 12. Lister les employés du département RESEARCH embauchés le même jour que quelqu'un du département SALES.
 
+SELECT ENAME, HIREDATE
+FROM EMP 
+WHERE DEPTNO = 20 -- RESEARCH
+AND HIREDATE IN (
+SELECT HIREDATE
+FROM EMP 
+WHERE DEPTNO = 30 -- SALES
+);
+
+SELECT E1.ENAME AS research_employee, E1.HIREDATE AS research_hire_date
+FROM EMP E1
+WHERE E1.DEPTNO = 20 -- RESEARCH
+AND E1.HIREDATE in (
+SELECT E2.HIREDATE 
+FROM EMP E2
+WHERE E2.DEPTNO = 30 -- SALES
+);
+
 -- 13. Lister le nom des employés et également le nom du jour de la semaine correspondant à leur dated'embauche.
+SET lc_time_names = "fr_FR";
+SELECT ENAME, dayname(HIREDATE) AS jour_inscription
+FROM EMP;
+
+
+
 
 -- 14. Donner, pour chaque employé, le nombre de mois qui s'est écoulé entre leur date d'embauche et ladate actuelle.
-
+SELECT ENAME, timestampdiff(month,HIREDATE,now()) AS "Ancienneté en nb de mois "
+FROM EMP; 
 
 
 -- 15. Afficher la liste des employés ayant un M et un A dans leur nom.
@@ -271,18 +295,43 @@ WHERE ENAME LIKE "%M%A%"  OR ename like "%A%M%";
 SELECT *
 FROM emp
 WHERE ENAME LIKE "%A%A%";
+-- 17. Afficher les employés embauchés avant tous les employés du département 10.
+
+SELECT * 
+FROM EMP 
+WHERE HIREDATE < all(SELECT HIREDATE
+FROM EMP 
+WHERE DEPTNO = "10");
+
+-- 18. Sélectionner le métier où le salaire moyen est le plus faible.
+SELECT avg(SAL) ,JOB from emp  GROUP BY job 
+having avg(SAL) <=ALL(SELECT avg(SAL)
+FROM EMP 
+GROUP BY JOB) ;
+
+-- 19. Sélectionner le département ayant le plus d'employés.
+SELECT count(EMPNO), DEPTNO
+FROM EMP 
+GROUP BY DEPTNO HAVING count(EMPNO) >= ALL
+(SELECT count(EMPNO)
+FROM EMP 
+GROUP BY DEPTNO);
+
+-- 20. Donner la répartition en pourcentage du nombre d'employés par département selon le modèle ci-dessous Département Répartition en % 
+----------- ---------------- 
+-- 10          21.43 
+-- 20          35.71 
+-- 30          42.86
+
+SELECT DEPTNO, 
+	count(*) AS 'Nombre employés',
+    round((count(*) * 100.0 / (SELECT count(*) FROM EMP)),2) AS 'pourcentage'  -- round(2) Arrondir à 2 chiffres après la virgules
+FROM EMP
+GROUP BY DEPTNO;
+
+
 
 /*
-
-17. Afficher les employés embauchés avant tous les employés du département 10.
-18. Sélectionner le métier où le salaire moyen est le plus faible.
-19. Sélectionner le département ayant le plus d'employés.
-20. Donner la répartition en pourcentage du nombre d'employés par département selon le modèle ci-dessous
-Département Répartition en % 
------------ ---------------- 
-10          21.43 
-20          35.71 
-30          42.86
 
 Quelques Fonctions SQL Server
 CONVERT: Effectue des conversion de types de données. Permet notamment le formatage de dates
