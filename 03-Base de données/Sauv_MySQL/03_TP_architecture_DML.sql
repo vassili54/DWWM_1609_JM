@@ -16,13 +16,19 @@ WHERE type_clients.type_client_libelle = 'Particulier';
 SELECT client_ref, client_nom, type_client_libelle
 FROM clients
 NATURAL JOIN type_clients
-WHERE type_client_libelle != 'Particulier';
+WHERE type_client_libelle = 'Particulier';
 
 -- 3. Sélectionner l'identifiant, le nom et le type de tous les clients qui ne sont pas des particuliers
 SELECT clients.client_ref, clients.client_nom, type_clients.type_client_libelle
 FROM clients
 JOIN type_clients ON clients.type_client_id = type_clients.type_client_id
 WHERE type_clients.type_client_libelle <> 'Particulier';
+
+SELECT client_ref, client_nom, type_client_libelle
+FROM clients
+NATURAL JOIN type_clients
+WHERE type_client_libelle != 'Particulier';
+
 
 -- 4. Sélectionner les projets qui ont été livrés en retard
 SELECT *
@@ -95,7 +101,7 @@ FROM type_projets tp
 LEFT JOIN projets p ON tp.type_projet_id = p.type_projet_id
 GROUP BY tp.type_projet_libelle;
 
- SELECT tp.type_projet_libelle AS "Type de projet", COUNT(p.projet_ref) AS "Nombre de projets", IFNULL(AVG(p.projet_prix), 0) AS "Prix moyen"
+SELECT tp.type_projet_libelle AS "Type de projet", COUNT(p.projet_ref) AS "Nombre de projets", IFNULL(AVG(p.projet_prix), 0) AS "Prix moyen"
 FROM type_projets tp
 LEFT JOIN projets p ON tp.type_projet_id = p.type_projet_id
 GROUP BY tp.type_projet_libelle;
@@ -138,12 +144,63 @@ JOIN type_projets tp ON p.type_projet_id = tp.type_projet_id;
 /* 1 Sélectionner les projets avec leurs adresses
 -- 2 Sélectionner les clients avec leurs adresses
 -- 3 jointures et comparer les adresses de clients et projets*/
-SELECT projet_ref, adresse_ville,client_ref, adresse_ville
-FROM projets
-JOIN adresses
-ON projets.adresse_id = adresses.adresse_id;
 
-SELECT client_ref, adresse_ville
+
+SELECT 
+    p.projet_ref,
+    a.adresse_code_postal,
+    a.adresse_ville,
+    a.adresse_num_voie,
+    a.adresse_voie
+FROM projets p
+JOIN clients c ON p.client_ref = c.client_ref
+JOIN adresses a ON p.adresse_id = a.adresse_id
+WHERE p.adresse_id = c.adresse_id;
+
+
+SELECT projet_ref, client_nom
+FROM projets p
+JOIN clients c ON p.client_ref = c.client_ref
+JOIN adresses a ON c.adresse_id = a.adresse_id
+WHERE p.adresse_id = c.adresse_id;
+
+-- 1. Sélectionner l'identifiant, le nom de tous les clients dont le numéro de téléphone commence par '04'
+SELECT type_client_id, client_nom, client_telephone
 FROM clients
-JOIN adresses
-ON clients.adresse_id = adresses.adresse_id;
+WHERE client_telephone like "04%";
+
+-- 2. Sélectionner l'identifiant, le nom et le type de tous les clients qui sont des particuliers
+SELECT clients.type_client_id, clients.client_nom, type_clients.type_client_libelle
+FROM clients
+JOIN type_clients ON clients.type_client_id = type_clients.type_client_id
+WHERE type_clients.type_client_libelle = 'Particulier';
+
+-- 3. Sélectionner l'identifiant, le nom et le type de tous les clients qui ne sont pas des particuliers
+SELECT type_client_id, client_nom, type_client_libelle
+FROM clients
+NATURAL JOIN type_clients
+WHERE type_client_libelle <> 'Particulier';
+
+-- 4. Sélectionner les projets qui ont été livrés en retard
+SELECT projet_ref
+FROM projets
+WHERE projet_date_fin_prevue < projet_date_fin_effective;
+
+-- 5. Sélectionner la date de dépôt, la date de fin prévue, les superficies, 
+-- le prix de tous les projets avec le nom du client et le nom de l'architecte associés au projet
+SELECT  projet_ref, projet_date_depot, projet_date_fin_prevue, projet_superficie_totale, projet_superficie_batie, projet_prix, client_nom, emp_nom, fonction_nom
+FROM projets
+JOIN clients ON projets.client_ref = clients.client_ref
+JOIN employes ON projets.emp_matricule = employes.emp_matricule
+JOIN fonctions ON fonctions.fonction_id = employes.fonction_id
+WHERE fonction_nom = 'Architecte';
+
+-- 6. Sélectionner tous les projets (dates, superficies, prix) avec le nombre d'intervenants autres que le client et l'architecte 
+SELECT projets.projet_ref, projet_date_depot, projet_date_fin_prevue, projet_date_fin_effective,projet_superficie_totale, projet_superficie_batie, projet_prix, count(participer.emp_matricule) AS intervenants
+FROM projets
+LEFT JOIN participer ON projets.projet_ref = participer.projet_ref
+LEFT JOIN employes ON participer.emp_matricule = employes.emp_matricule
+LEFT JOIN fonctions ON fonctions.fonction_id = employes.fonction_id
+WHERE fonction_nom != 'Architecte'
+GROUP BY projets.projet_ref;
+
