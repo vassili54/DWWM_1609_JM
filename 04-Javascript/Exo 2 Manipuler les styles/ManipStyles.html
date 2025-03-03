@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-fr">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Changer la taille du texte</title>
-    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./JS/script.js" async></script>
 </head>
 <body>
     <h1>Changer la taille du texte</h1>
@@ -11,43 +12,12 @@
     <button onclick="decreaseTextSize()">Diminuer la taille du texte</button>
     <span>Saisie manuelle :</span>
     <input type="number" id="textSizeInput" min="8" max="48" value="16" onchange="setTextSize()"> px
-    <p id="text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-    <script>
-        let currentSize = 16;
-        function increaseTextSize() {
-            if (currentSize < 48) {
-                currentSize++;
-            } else {
-                currentSize = 16;
-            }
-            updateTextSize();
-        }
-
-        function decreaseTextSize() {
-            if (currentSize > 8) {
-                currentSize--;
-            } else {
-                currentSize = 16;
-            }
-            updateTextSize();
-        }
-
-        function setTextSize() {
-            let inputSize = parseInt(document.getElementById('textSizeInput').value);
-            if (inputSize >= 8 && inputSize <= 48) {
-                currentSize = inputSize;
-            } else {
-                currentSize = 16;
-            }
-            updateTextSize();
-        }
-
-        function updateTextSize() {
-            document.getElementById('text').style.fontSize = currentSize + 'px';
-            document.getElementById('textSizeInput').value = currentSize;
-            document.getElementById('currentSize').innerText = 'Taille actuelle : ' + currentSize + ' px';
-        }
-    </script>
+    <p id="textParagraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
+        Nulla consequat, metus a posuere volutpat, arcu libero tempus quam, sit amet malesuada eros dui ut urna. 
+        Integer fringilla sollicitudin tortor, nec rhoncus odio ultrices nec. 
+        Curabitur facilisis, mauris non elementum fermentum, lacus lectus malesuada risus, nec suscipit lorem quam sit amet urna. 
+        Donec fringilla leo nulla, non gravida ex sodales non. 
+        Praesent bibendum malesuada est, nec varius dui vehicula ut. 
+        Duis varius, libero ac dignissim lacinia, arcu quam auctor erat, nec pulvinar tortor risus ac orci.</p>
 </body>
 </html>
