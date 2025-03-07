@@ -1,0 +1,42 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+label {
+    margin-right: 10px;
+}
+
+input[type="text"], input[type="number"] {
+    margin-right: 10px;
+    padding: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 5px 10px;
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#result {
+    margin-top: 20px;
+    font-size: 18px;
+    color: black;
+}
+
+.error {
+    color: red;
+}
+

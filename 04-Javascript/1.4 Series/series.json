@@ -1,0 +1,32 @@
+{"series":[
+    {
+        "Série Id": 1,
+        "Série Nom": "Squid Game",
+        "Série Genre": "Thriller",
+        "Série Origine": "Corée du Sud"
+    },
+    {
+        "Série Id": 2,
+        "Série Nom": "Bridgerton",
+        "Série Genre": "Romance",
+        "Série Origine": "Royaume-Uni"
+    },
+    {
+        "Série Id": 3,
+        "Série Nom": "Stranger Things",
+        "Série Genre": "Science-fiction",
+        "Série Origine": "États-Unis"
+    },
+    {
+        "Série Id": 4,
+        "Série Nom": "Money Heist (La Casa de Papel)",
+        "Série Genre": "Thriller",
+        "Série Origine": "Espagne"
+    },
+    {
+        "Série Id": 5,
+        "Série Nom": "The Witcher",
+        "Série Genre": "Fantastique",
+        "Série Origine": "Pologne"
+    }
+]}

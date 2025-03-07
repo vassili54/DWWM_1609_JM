@@ -1,0 +1,33 @@
+body {
+    font-family: Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center; /* Alignement horizontal */
+    align-items: center; /* Alignement vertical */
+    height: 100vh;
+    background-color: white; /* Couleur de fond de la page */
+}
+/* Conteneur Principal */
+.container {
+    border: 2px solid blue; /* Bordure bleue de 2px */
+    width: 800px; /* Largeur du cadre */
+    background-color: white; /* Couleur de fond bleu clair */
+    padding: 20px; /* Marge intérieure */
+
+}
+
+input {
+    border: 2px solid blue; /* Bordure bleue de 2px */
+   
+}
+
+button {
+    border:  2px solid blue; /* Bordure bleue de 2px */
+    color: blue; /* Couleur du texte */
+}
+
+.blue-text {
+    color: blue; /* Couleur du texte */
+    font-weight: bold; /* Texte en gras */
+}

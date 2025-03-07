@@ -1,0 +1,36 @@
+{"users":[ {
+    "id": 1,
+    "username": "Hannibal",
+    "last_name": "John",
+    "fist_name": "Smith",
+    "birthdate": "1928-10-01"
+  },
+  {
+    "id": 2,
+    "username": "Futé",
+    "last_name": "Templeton",
+    "fist_name": "Peck",
+    "birthdate": "1945-03-01"
+  },
+  {
+    "id": 3,
+    "username": "Looping",
+    "last_name": "Henry",
+    "fist_name": "Murdock",
+    "birthdate": "1947-11-24"
+  },
+  {
+    "id": 4,
+    "username": "Barracuda",
+    "last_name": "Bosco Albert",
+    "fist_name": "Baracus",
+    "birthdate": "1952-05-21"
+  },
+  {
+    "id": 5,
+    "username": " Triple A",
+    "last_name": "Amy",
+    "fist_name": "Amanda",
+    "birthdate": "1955-05-05"
+  }
+]}

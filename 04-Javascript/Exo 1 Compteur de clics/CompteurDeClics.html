@@ -1,32 +1,20 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr-fr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./styles/styles.css">
     <title>Compteur de clics</title>
+    <script src="./JS/script.js"  async></script>
 </head>
 <body>
-    <h1>Compteur de clics</h1> 
-    <button onclick="incrementCounter()">Cliquez-moi</button>
-    <button onclick="resetCounter()">Réinitialiser</button>
-    <p id="message">Vous avez cliqué 0 fois</p>
+    <h1>Compteur de clics</h1>
+    <input type="button" value="Ajouter 1" id="btnajout"> 
+    <input type="reset" value="Réinitialiser" id="btnreset">
+ 
+    <p >Vous avez cliqué <span id="compteur">0</span> fois</p>
     
-    <script> 
-        let count = 0;
-        function incrementCounter() { 
-            count++; 
-            document.getElementById('message').innerText = `Vous avez cliqué ${count} fois`;
-
-        } 
-        
-        function resetCounter() { 
-            count = 0;
-            document.getElementById('message').innerText = `Vous avez cliqué ${count} fois`; 
-        
-        } 
-        
-    </script>
+  
 
 </body>
 </html>

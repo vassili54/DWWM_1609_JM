@@ -1,0 +1,41 @@
+body {
+    font-family: verdana, sans-serif;
+    background-color: #536B78;
+    margin-top: 0;
+    padding: 0;
+}
+.container {
+    border: 2px solid #ACCBE1;
+    width: 800px;
+    background-color: #536B78;
+    padding: 10px;
+    margin: 30px 15px 15px 15px;
+    box-sizing: border-box;
+}
+h1 {
+    color: #ACCBE1;
+    margin-top: 0;
+}
+
+ul {
+    color: #AEC5D2;
+}
+
+li::before {
+    font-weight: bold;
+    display: inline-block;
+    width: 1em;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ACCBE1;
+    padding: 8px;
+    text-align: left;
+}
+
