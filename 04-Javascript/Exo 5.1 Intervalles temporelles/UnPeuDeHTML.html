@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Un peu de HTML</title>
+    <script src="./JS/script.js" async></script>
+    <link rel="stylesheet" href="./Style/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gestion des dates et des intervalles</h1>
+        <form id="myForm">
+            <label for="CurrentDate">Date actuelle :</label>
+            <input type="date" id="CurrentDate" name="CurrentDate">
+            <label for="CurrentTime">Heure actuelle :</label>
+            <input type="time" id="CurrentTime" name="CurrentTime">
+            <button type="button" onclick="showCurrentDate()"> Afficher date du jour</button>
+            <hr>
+            <p id="dateTimeDisplay"></p>
+            <hr>
+        </form>
+    </div>
+    
+</body>
+</html>

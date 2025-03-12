@@ -1,0 +1,36 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+  }
+  
+  .profile-header {
+    border: 2px solid green; /* Bordure bleue de 2px */
+    width: 900px; /* Largeur du cadre */
+
+  }
+  h1 {
+    margin-left: 20px;
+    text-align: left;
+    color: green;
+  }
+  
+  table {
+    width: 70%; /* Ajustement de la largeur */
+    max-width: 1200px; /* Ajout d'une largeur maximale */
+    margin: 20px auto;
+    
+  }
+  
+  th {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    background-color: #90EE90
+  }
+  
+  td {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: left;
+    background-color: #90EE90
+  }
