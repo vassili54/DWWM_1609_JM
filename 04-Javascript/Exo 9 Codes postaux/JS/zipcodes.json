@@ -1,0 +1,32 @@
+[
+    {
+        "codePostal": "59000",
+        "nom": "Lille",
+        "departement": "Nord",
+        "region": "Hauts-de-France"
+    },
+    {
+        "codePostal": "59100",
+        "nom": "Roubaix",
+        "departement": "Nord",
+        "region": "Hauts-de-France"
+    },
+    {
+        "codePostal": "59200",
+        "nom": "Tourcoing",
+        "departement": "Nord",
+        "region": "Hauts-de-France"
+    },
+    {
+        "codePostal": "75001",
+        "nom": "Paris 1er",
+        "departement": "Paris",
+        "region": "Île-de-France"
+    },
+    {
+        "codePostal": "13001",
+        "nom": "Marseille 1er",
+        "departement": "Bouches-du-Rhône",
+        "region": "Provence-Alpes-Côte d'Azur"
+    }
+]
