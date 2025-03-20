@@ -1,0 +1,87 @@
+:root {
+    --color1: darkblue;
+    --color4: lightcyan;
+    --color5: darkgrey;
+    --color6: #FFFFFF33;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+body {
+    font-size: 1.6rem;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color4);
+    color: var(--color1);
+}
+
+header {
+    color: var(--color1);
+    padding: 2rem;
+    text-align: center;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem; 
+}
+
+label {
+    text-align: center;
+}
+
+/* Styles pour le formulaire */
+form {
+    display: flex;
+    flex-direction: column; /* Alignement vertical des éléments */
+    gap: 1.5rem; /* Espacement entre les éléments */
+    align-items: center; /* Centrer les éléments horizontalement */
+}
+
+/* Styles pour le conteneur du label et de l'input */
+form div {
+    display: flex;
+    flex-direction: column; /* Alignement vertical */
+    gap: 0.5rem; /* Espacement entre le label et l'input */
+    width: 100%; /* Prendre toute la largeur disponible */
+    max-width: 300px; /* Limiter la largeur maximale */
+}
+
+/* Styles pour le label */
+label {
+    font-weight: bold;
+    color: var(--color1);
+}
+
+/* Styles pour l'input */
+input[type="search"] {
+    padding: 1rem;
+    border: 1px solid var(--color5);
+    font-size: 1.6rem;
+    background-color: var(--color4);
+    color: var(--color1);
+    width: 100%; /* Prendre toute la largeur du conteneur */
+    max-width: 300px; /* Limiter la largeur maximale */
+    text-align: center; /* Centrer le texte à l'intérieur de l'input */
+}
+
+/* Styles pour le bouton */
+button {
+    background-color: var(--color4);
+    color: var(--color1);
+    border: 1px solid var(--color5);
+    padding: 1rem;
+    font-size: 1.6rem;
+    width: 100%; /* Prendre toute la largeur du conteneur */
+    max-width: 300px; /* Limiter la largeur maximale */
+    text-align: center; /* Centrer le texte à l'intérieur de l'input */
+    
+}

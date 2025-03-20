@@ -1,0 +1,31 @@
+:root {
+    --color1: #30343F;
+    --color2: #FAFAFF;
+    --color3: #E4D9FF;
+    --color4: #374479;
+    --color5: #6E7799;
+    --color6: #C490D1;
+}
+
+body {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #30343F;
+}
+
+/* Style pour l'encadré (le div que nous avons créé) */
+div {
+    border: 1px solid #FAFAFF; /* Ajoute une bordure noire de 1 pixel */
+    padding: 20px; /* Ajoute un espace intérieur de 20 pixels autour du contenu */
+    margin-bottom: 20px; /* Ajoute une marge en bas pour séparer de tout autre contenu */
+  }
+
+  h1 {
+    color: var(--color3)
+    
+  }
+
+  table {
+    color: var(--color3);
+  }
