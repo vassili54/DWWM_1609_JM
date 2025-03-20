@@ -36,9 +36,6 @@ monBouton.addEventListener('click', function(event) {
                 <p><strong>ID:</strong> ${car.car_id}</p>
                 <p><strong>Nom:</strong> ${car.car_name}</p>
                 <p><strong>Modèle:</strong> ${car.car_model}</p>
-                <p><strong>Cylindres:</strong> ${car.car_cylinders}</p>
-                <p><strong>Puissance:</strong> ${car.car_horsepower} HP</p>
-                <p><strong>Poids:</strong> ${car.car_weight} lbs</p>
                 <p><strong>Origine:</strong> ${car.car_origin}</p>
             </div>
             `).join('');
