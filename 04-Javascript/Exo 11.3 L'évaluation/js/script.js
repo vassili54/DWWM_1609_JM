@@ -23,9 +23,12 @@ document.addEventListener('DOMContentLoaded', function() {
     prenomHeader.textContent = "Prénom";
     const noteHeader = document.createElement('th');
     noteHeader.textContent = "Note";
+    const obtenuHeader = document.createElement('th')
+    obtenuHeader.textContent = "Obtenu"
     headerRow.appendChild(nomHeader);
     headerRow.appendChild(prenomHeader);
     headerRow.appendChild(noteHeader);
+    headerRow.appendChild(obtenuHeader)
     thead.appendChild(headerRow);
     tableau.appendChild(thead);
 
@@ -61,9 +64,22 @@ document.addEventListener('DOMContentLoaded', function() {
                 const noteCell = document.createElement('td');
                 noteCell.textContent = personne.grade;
 
+                // Ajouter une classe 'failed' si la note est inférieure à 12
+                if (personne.grade < 12) {
+                    row.classList.add('failed');
+                }
+
+                const resultatCell = document.createElement('td'); // Nouvelle cellule pour le résultat
+                if (personne.grade >=12) {
+                    resultatCell.textContent = "oui"
+                } else {
+                    resultatCell.textContent = "Non";
+                }
+
                 row.appendChild(prenomCell);
                 row.appendChild(nomCell);
                 row.appendChild(noteCell);
+                row.appendChild(resultatCell);
                 tbody.appendChild(row);
             });
 
@@ -94,10 +110,14 @@ document.addEventListener('DOMContentLoaded', function() {
             const nombreAuDessusMoyenneLi = document.createElement('li');
             nombreAuDessusMoyenneLi.textContent = `Nombre d’étudiants au dessus de la moyenne : ${nombreAuDessusMoyenne}`;
 
+            const noteEliminatoireLi = document.createElement('li');
+            noteEliminatoireLi.textContent = `Note éliminatoire : 12`;
+
             // Ajouter les éléments de liste à la liste non ordonnée
             statistiquesUl.appendChild(nombreEtudiantsLi);
             statistiquesUl.appendChild(noteMoyenneLi);
             statistiquesUl.appendChild(nombreAuDessusMoyenneLi);
+            statistiquesUl.appendChild(noteEliminatoireLi);
 
             // Ajouter la liste non ordonnée au cadreDiv, après le tableau
             cadreDiv.appendChild(statistiquesUl);
