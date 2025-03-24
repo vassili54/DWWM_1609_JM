@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter le titre à l'encadré
     cadreDiv.appendChild(titreH1);
 
-    // Ajouter le formulaire ici
+    // --- Ajouter le formulaire ici ---
     const etudiantForm = document.createElement('form');
     etudiantForm.id = 'etudiantForm';
 
@@ -20,16 +20,15 @@ document.addEventListener('DOMContentLoaded', function() {
     titreFormulaire.textContent = "Ajouter une note";
     etudiantForm.appendChild(titreFormulaire);
 
-    // Champ formulaire
     const labelNomPrenom = document.createElement('label');
     labelNomPrenom.textContent = 'Nom Prénom :';
     const inputNomPrenom = document.createElement('input');
     inputNomPrenom.type = 'text';
-    inputNomPrenom.id = 'fullname'; // Un ID unique pour identifier le champ
+    inputNomPrenom.id = 'fullname'; // ID unique pour le champ Nom Prénom
     inputNomPrenom.required = true;
 
     const labelNote = document.createElement('label');
-    labelNote.textContent = 'Note :';
+    labelNote.textContent = 'Note (sur 20) :';
     const inputNote = document.createElement('input');
     inputNote.type = 'number';
     inputNote.id = 'note';
@@ -39,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     const submitButton = document.createElement('button');
     submitButton.type = 'submit';
-    submitButton.textContent = 'Ajouter';
+    submitButton.textContent = 'Ajouter Étudiant';
 
     etudiantForm.appendChild(labelNomPrenom);
     etudiantForm.appendChild(inputNomPrenom);
@@ -49,9 +48,8 @@ document.addEventListener('DOMContentLoaded', function() {
     etudiantForm.appendChild(document.createElement('br')); // Saut de ligne
     etudiantForm.appendChild(submitButton);
 
-    // ---- Fin du Formulaire ----
     cadreDiv.appendChild(etudiantForm);
-
+    // --- Fin de l'ajout du formulaire ---
 
     // Créer l'élément de tableau
     const tableau = document.createElement('table');
@@ -84,10 +82,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Ajouter l'encadré au corps de la page
     document.body.appendChild(cadreDiv);
 
-    let dataEtudiants = ""; // Déclarer une variable pour stocker les données des étudiants
+    let dataEtudiants =; // Déclarer une variable pour stocker les données des étudiants
 
     fetch("./data/eval.json")
-        .then(response => response.json()) // Convertir la réponse en JSON
+        .then(response => response.json())
         .then(data => {
             dataEtudiants = data; // Initialiser la variable avec les données fetchées
             afficherTableau(dataEtudiants, tbody);
@@ -100,17 +98,12 @@ document.addEventListener('DOMContentLoaded', function() {
             cadreDiv.appendChild(erreurMessage);
         });
 
-
     // Fonction pour afficher le tableau
     function afficherTableau(data, tbodyElement) {
-        tbodyElement.innerHTML = '';  // Effacer le contenu précédent du tableau
-        // Trier le tableau 'data' par la note (grade) en ordre décroissant
+        tbodyElement.innerHTML = ''; // Effacer le contenu précédent du tableau
         data.sort((a, b) => b.grade - a.grade);
-
-        // Maintenant, 'data' contient votre tableau JSON
         data.forEach(personne => {
             const row = document.createElement('tr');
-            // Séparer le nom complet en prénom et nom
             const prenom = personne.fullname.split(' ')[0];
             const nom = personne.fullname.split(' ').slice(1).join(' ');
             const nomCell = document.createElement('td');
@@ -120,8 +113,7 @@ document.addEventListener('DOMContentLoaded', function() {
             const noteCell = document.createElement('td');
             noteCell.textContent = personne.grade;
             const obtenuCell = document.createElement('td');
-            obtenuCell.textContent = personne.grade >= 12 ? "oui" : "non";
-            // Ajouter une classe 'failed' si la note est inférieure à 12
+            obtenuCell.textContent = personne.grade >= 12 ? "oui" : "Non";
             if (personne.grade < 12) {
                 row.classList.add('failed');
             }
@@ -152,74 +144,52 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!statistiquesUl) {
             statistiquesUl = document.createElement('ul');
             statistiquesUl.id = 'statistiques';
-            cadreDiv.appendChild(statistiquesUl);
+            document.body.appendChild(statistiquesUl);
         }
         statistiquesUl.innerHTML = ''; // Effacer les statistiques précédentes
 
-        // Créer les éléments de liste pour chaque statistique
         const nombreEtudiantsLi = document.createElement('li');
         nombreEtudiantsLi.textContent = `Nombre d’étudiants affichés dans le tableau : ${nombreEtudiants}`;
         const noteMoyenneLi = document.createElement('li');
-        noteMoyenneLi.textContent = `Note moyenne : ${noteMoyenne.toFixed(2)}`; // Afficher avec 2 décimales
+        noteMoyenneLi.textContent = `Note moyenne : ${noteMoyenne.toFixed(2)}`;
         const nombreAuDessusMoyenneLi = document.createElement('li');
         nombreAuDessusMoyenneLi.textContent = `Nombre d’étudiants au dessus de la moyenne : ${nombreAuDessusMoyenne}`;
         const noteEliminatoireLi = document.createElement('li');
         noteEliminatoireLi.textContent = `Note éliminatoire : 12`;
 
-        // Ajouter les éléments de liste à la liste non ordonnée
         statistiquesUl.appendChild(nombreEtudiantsLi);
         statistiquesUl.appendChild(noteMoyenneLi);
         statistiquesUl.appendChild(nombreAuDessusMoyenneLi);
         statistiquesUl.appendChild(noteEliminatoireLi);
     }
 
-// Écouteur d'événement pour le formulaire d'ajout d'étudiant
-const etudiantFormulaire = document.getElementById('etudiantForm');
-if (etudiantFormulaire) {
-    etudiantFormulaire.addEventListener('submit', function(event) {
-        event.preventDefault(); // Empêcher la soumission par défaut du formulaire
+    // Écouteur d'événement pour le formulaire d'ajout d'étudiant
+    const etudiantFormulaire = document.getElementById('etudiantForm');
+    if (etudiantFormulaire) {
+        etudiantFormulaire.addEventListener('submit', function(event) {
+            event.preventDefault(); // Empêcher la soumission par défaut du formulaire
 
-        let fullname = document.getElementById('fullname').value.trim();
-        const note = parseFloat(document.getElementById('note').value);
+            const fullname = document.getElementById('fullname').value.trim();
+            const note = parseFloat(document.getElementById('note').value);
 
-        // Validation du nom et du prénom (insensible à la casse)
-        const parts = fullname.split(' ');
-        const nomValide = parts.length >= 2 && parts[0].toLowerCase().length >= 2; // Au moins deux parties et la première (prénom) a au moins 2 lettres
-        const prenomValide = parts.length >= 2 && parts[1].toLowerCase().length >= 2; // Au moins deux parties et la deuxième (nom) a au moins 2 lettres
+            if (fullname && !isNaN(note) && note >= 0 && note <= 20) {
+                const nouvelEtudiant = { fullname: fullname, grade: note };
+                dataEtudiants.push(nouvelEtudiant); // Ajouter le nouvel étudiant à notre tableau de données
+                afficherTableau(dataEtudiants, tbody); // Mettre à jour le tableau
+                calculerEtAfficherStatistiques(dataEtudiants); // Recalculer et afficher les statistiques
 
-        if (nomValide && prenomValide && !isNaN(note) && note >= 0 && note <= 20) {
-            // Formatter le nom et le prénom
-            const formattedParts = parts.map(part => {
-                const lowerPart = part.toLowerCase();
-                return lowerPart.charAt(0).toUpperCase() + lowerPart.slice(1);
-            });
-            fullname = formattedParts.join(' ');
-
-            const nouvelEtudiant = { fullname: fullname, grade: note };
-            dataEtudiants.push(nouvelEtudiant);  // Ajouter le nouvel étudiant à notre tableau de données
-            afficherTableau(dataEtudiants, tbody); // Mettre à jour le tableau
-            calculerEtAfficherStatistiques(dataEtudiants); // Recalculer et afficher les statistiques
-
-            // Réinitialiser le formulaire
-            document.getElementById('fullname').value = '';
-            document.getElementById('note').value = '';
-        } else {
-            let messageErreur = "Veuillez remplir correctement tous les champs du formulaire.\n";
-            if (!nomValide || !prenomValide) {
-                messageErreur += "Le nom et le prénom doivent contenir au minimum 2 lettres chacun.\n";
+                // Réinitialiser le formulaire
+                document.getElementById('fullname').value = '';
+                document.getElementById('note').value = '';
+            } else {
+                alert("Veuillez remplir correctement tous les champs du formulaire.");
             }
-            if (isNaN(note) || note < 0 || note > 20) {
-                messageErreur += "La note doit être un nombre entre 0 et 20.";
-            }
-            alert(messageErreur);
-        }
-    });
-}
+        });
+    }
 
     // Déplacer les statistiques en bas de page
     const statistiquesUl = document.getElementById('statistiques');
     if (statistiquesUl) {
         document.body.appendChild(statistiquesUl);
     }
-
 });
