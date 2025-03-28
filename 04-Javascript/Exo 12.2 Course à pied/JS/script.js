@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Utiliser fetch pour récupérer les données depuis data.json
-    fetch('./resultat10000metres.json')
+    fetch('./data/resultat10000metres.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
@@ -79,7 +79,21 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
+            allCourseData = data;
+
+            // Remplir les cases à cocher pour les pays
+            const countries.forEach(country => {
+                const checkbox = document.createElement('input');
+                checkbox.type = 'checkbox';
+                checkbox.value = country;
+                checkbox.id = `country-${country.replace(/\s+/g, '-')}`;
+            })
+
+
+
             populateTable(data);
+
+
 
             // Afficher le gagnant dans l'input "nomGagnant"
             const nomGagnantInput = document.getElementById('nomGagnant');

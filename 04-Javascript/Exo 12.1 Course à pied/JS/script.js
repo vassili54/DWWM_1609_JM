@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Utiliser fetch pour récupérer les données depuis data.json
-    fetch('./resultat10000metres.json')
+    fetch('./data/resultat10000metres.json')
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! status: ${response.status}`);
