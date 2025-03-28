@@ -18,6 +18,7 @@
                         <th>Nom</th>
                         <th>Prénom</th>
                         <th>Note</th>
+                        <th>Obtenu</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -25,6 +26,7 @@
                         <td>{{ personne.fullname.split(' ')[0] }}</td> <!-- :key attribut spécial utilisé avec v-for, permet de suivre l'identité de chaque élément rendu dans la liste. -->
                         <td>{{ personne.fullname.split(' ')[1] }}</td>
                         <td>{{ personne.grade }}</td>
+                        <td>{{ personne.grade >= 12 ? 'oui' : 'non' }}</td>
                     </tr>
                 </tbody>
             </table>
@@ -32,6 +34,7 @@
                 <li>Nombre d’étudiants affichés dans le tableau : {{ nombreEtudiants }}</li>
                 <li>Note moyenne : {{ noteMoyenne.toFixed(2) }}</li>
                 <li>Nombre d’étudiants au dessus de la moyenne : {{ nombreAuDessusMoyenne }}</li>
+                <li>Note éliminatoire : 12</li>
             </ul>
             <p v-if="erreurChargement" style="color: red;">{{ erreurChargement }}</p>
         </div>
