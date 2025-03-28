@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Evaluation</title>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titre }}</h1>
+        <div class="evaluation">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nom</th>
+                        <th>Prénom</th>
+                        <th>Note</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr v-for="personne in evaluations" :key="personne.fullname"> <!-- directive de Vue.js : Cette directive permet de boucler sur le tableau -->
+                        <td>{{ personne.fullname.split(' ')[1] }}</td> <!-- :key attribut spécial utilisé avec v-for, permet de suivre l'identité de chaque élément rendu dans la liste. -->
+                        <td>{{ personne.fullname.split(' ')[0] }}</td>
+                        <td>{{ personne.grade }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul v-if="!erreurChargement"> <!-- v-if permet de conditionner l'affichage d'un élément en fonction d'une expression -->
+                <li>Nombre d’étudiants affichés dans le tableau : {{ nombreEtudiants }}</li>
+                <li>Note moyenne : {{ noteMoyenne.toFixed(2) }}</li>
+                <li>Nombre d’étudiants au dessus de la moyenne : {{ nombreAuDessusMoyenne }}</li>
+            </ul>
+            <p v-if="erreurChargement" style="color: red;">{{ erreurChargement }}</p>
+        </div>
+    </div>
+</body>
+</html>
