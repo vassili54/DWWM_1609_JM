@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./JS/script.js" type="module"></script>
+    <title>Course à pied</title>
+</head>
+<body>
+    <div class="course">
+        <h1> {{ titrePage }}</h1>
+        <input type="text" id="nbParticipants" v-model="nbParticipantsInput" readonly>
+        <input type="text" id="nomGagnant" v-model="nomGagnantInput" placeholder=" Gagnant : " readonly>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pays</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Temps final</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="participant in formattedParticipants" :key="participant.nom">
+                    <td>{{ participant.pays }}</td>
+                    <td>{{ participant.nom }}</td>
+                    <td>{{ participant.prenom }}</td>
+                    <td>{{ participant.tempsFinal }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
