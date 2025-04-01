@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./CSS/style.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./JS/script.js" type="module"></script>
+    <title>Course à pied</title>
+</head>
+<body>
+    <div class="course">
+        <h1> {{ titrePage }}</h1>
+        <input type="text" id="nbParticipants" v-model="nbParticipantsInput" readonly>
+        <input type="text" id="nomGagnant" v-model="nomGagnantInput" placeholder=" Gagnant : " readonly>
+        <input type="text" id="tempsMoyen" :value="tempsMoyenCourse" placeholder=" Temps moyen : " readonly>
+        <div>
+            <h2>Filtrer</h2>
+            <div class="country-filter-container">
+                <div v-for="country in uniqueCountries" :key="country" class="country-filter-item">
+                    <input type="checkbox" :id="'country-' + country" :value="country" v-model="selectedCountries">
+                    <label :for="'country-' + country">{{ country }}</label>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Pays</th>
+                    <th>Nom</th>
+                    <th>Prénom</th>
+                    <th>Temps final</th>
+                    <th>Écart gagnant</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="participant in formattedParticipants" :key="participant.nom">
+                    <td>{{ participant.pays }}</td>
+                    <td>{{ participant.nom }}</td>
+                    <td>{{ participant.prenom }}</td>
+                    <td>{{ participant.tempsFinal }}</td>
+                    <td>{{ participant.ecartGagnant }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
