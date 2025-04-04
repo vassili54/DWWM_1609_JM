@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employés</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
+    integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+    <div id="app">
+        <h1>{{ titrePage }}</h1>
+        <p> {{ message }} </p>
+        <table>
+            <thead>
+                <tr>
+                    <th>EID</th>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>
+                        Monthly salary
+                        <button @click="sortBySalary">
+                            Trier
+                            <span v-if="sortBy === 'salary' && sortDirection === 'asc'">&#9650;</span>
+                            <span v-else-if="sortBy === 'salary' && sortDirection === 'desc'">&#9660;</span>
+                        </button>
+                    </th>
+                    <th>Year of birth</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-if="employes.length > 0" v-for="employe in employes" :key="employe.id">
+                    <td>{{ employe.id }}</td>
+                    <td>{{ employe.fullname }}</td>
+                    <td>{{ employe.email }}</td>
+                    <td>{{ employe.salary }}</td>
+                    <td>{{ employe.birth }}</td>
+                    <td class="actions-buttons">
+                        <button @click="duplicateEmployee(employe)" class="duplicate-button"><i class="fas fa-copy"></i> Duplicate </button>
+                        <button @click="deleteEmployee(employe.id)" class="delete-button"> <i class="fas fa-trash"></i> Delete</button>
+                    </td>
+                </tr>
+                <tr v-else>
+                    <td colspan="6" style="text-align: center;">Aucun employé trouvé dans la liste.</td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td colspan="3"></td>
+                    <th>Total:</th>
+                    <td></td>
+                    <td></td>
+                </tr>
+                <tr>
+                    <td colspan="3"></td>
+                    <td colspan="1">{{ totalSalairesMensuels }}</td>
+                    <td></td>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</body>
+</html>

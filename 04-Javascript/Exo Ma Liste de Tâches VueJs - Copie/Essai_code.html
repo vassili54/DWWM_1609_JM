@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <title>Ma Liste de Tâches</title>
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js" type="module"></script>
+</head>
+<body>
+    <template id="tache-item-template">
+        <li>
+            <input type="checkbox" v-model="tache.fait">
+            <span :class="{ 'tache-faite': tache.fait }">{{ tache.texte }}</span>
+            <button @click="$emit('supprimer', tache.id)">Supprimer</button>
+        </li>
+    </template>
+
+    <template id="app-template">
+        <div>
+            <h2>Ma Liste de Tâches</h2>
+            <input type="text" v-model="nouvelleTache" placeholder="Ajouter une tâche">
+            <button @click="ajouterTache" :disable="nouvelleTache.length > maxCaracteres">Ajouter</button>
+            <p v-if="nouvelleTache.length > maxCaracteres" style="color: red;">
+                Limite de caractères atteinte ({{ maxCaracteres }})
+            </p>
+
+            <div>
+                <label>
+                    <input type="radio" value="toutes" v-model="filtre"> Toutes
+                </label>
+                <label>
+                    <input type="radio" value="actives" v-model="filtre"> Actives
+                </label>
+                <label>
+                    <input type="radio" value="completes" v-model="filtre"> Complètes
+                </label>
+            </div>
+
+            <ul>
+                <tache-item
+                    v-for="tache in tachesFiltrees"
+                    :key="tache.id"
+                    :tache="tache"
+                    @supprimer="supprimerTache"
+                ></tache-item>
+            </ul>
+        </div>
+    </template>
+
+    <div id="app">
+        <app></app>
+    </div>
+</body>
+</html>
