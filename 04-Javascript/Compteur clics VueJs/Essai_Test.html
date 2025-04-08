@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Compteur de clics</title>
+    <link rel="stylesheet" href="./Essai_CSS.css">
+    <script src="./Essai_Script.js" type="module"></script>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+    <div id="app">
+        <h1>{{ message }}</h1>
+        <div>
+            <button id="monBouton" @click="incrementCounter">Ajouter 1</button>
+            <button id="resetBouton" @click="resetCounter">Réinitialiser</button>
+        </div>
+        <p id="monParagraphe">Vous avez cliqué : {{ count }} fois</p>
+    </div>
+</body>
+</html>

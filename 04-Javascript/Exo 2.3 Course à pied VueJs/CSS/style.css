@@ -32,13 +32,19 @@ input {
 }
 
 #nbParticipants {
-    width: 10%;
+    width: 6%;
     height: 20px;
 }
 
 #nomGagnant {
-    width: 17%;
+    width: 9%;
     height: 20px;
+}
+
+#tempsMoyen {
+    width: 15%;
+    height: 20px;
+    
 }
 h2 {
     color: var(--base-link);
@@ -85,7 +91,7 @@ table {
     border-collapse: separate;
     border-spacing: 0;
     margin-top: 20px;
-    width: 28%;
+    width: 450px;
     height: 77%; 
     max-height: 400px; /* Exemple de hauteur maximale - ajustez cette valeur */
     overflow-y: auto; /* Ajouter une barre de défilement vertical si le contenu dépasse la hauteur maximale */
@@ -104,7 +110,7 @@ td {
     
     color: var(--base-txt);
     /* border: 1px solid red; /* Ajout d'une bordure rouge temporaire */
-    padding-left: 8px;
+    padding-left: 15px;
     padding-top: 3px; /* Augmenter le padding en haut */
     padding-bottom: 3px; /* Augmenter le padding en bas */
 

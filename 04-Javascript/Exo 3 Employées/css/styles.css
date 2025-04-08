@@ -1,0 +1,78 @@
+table {
+    width: 100%; /* Le tableau prendra toute la largeur de son conteneur */
+    border-collapse: collapse; /* Fusionne les bordures des cellules et du tableau */
+    margin-top: 20px; /* Ajoute un peu d'espace au-dessus du tableau */
+  }
+  thead tr {
+    height: 60px;
+  }
+  th, td {
+    border: 1px solid #ddd; /* Ajoute une bordure grise claire aux cellules */
+    padding: 8px; /* Ajoute un peu d'espace à l'intérieur des cellules */
+    text-align: left; /* Aligne le texte à gauche par défaut */
+  }
+  
+  th {
+    background-color: #f2f2f2; /* Donne un fond gris clair à l'en-tête */
+    font-weight: bold; /* Met le texte de l'en-tête en gras */
+  }
+
+  th button {
+    height: 40px;
+    width: 60px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    margin-left: 20px;
+  }
+  
+  .actions-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap : 4px;
+  }
+
+  .duplicate-button {
+    background-color: #3298DC;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+
+  .delete-button {
+    background-color: #F14668;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  .duplicate-button i, .duplicate-button .material-icons {
+    margin-right: 5px; 
+  }
+  
+  .delete-button i, .delete-button .material-icons {
+    margin-right: 5px; 
+  }
+
+  tbody tr:nth-child(even) {
+    background-color: #f9f9f9; /* Ajoute une couleur de fond légèrement différente pour les lignes paires du corps (effet zébré) */
+  }
+
+  .duplicate-button:hover {
+    background-color: #0879c4;
+  }
+
+  .delete-button:hover {
+    background-color: #e00934;
+  }

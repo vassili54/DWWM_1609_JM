@@ -1,0 +1,28 @@
+/* Essai_CSS.css */
+
+/* Style pour le titre h1 */
+h1 {
+    color: blue;
+    text-align: center;
+}
+
+/* Style pour le bouton avec l'ID monBouton */
+#monBouton {
+    background-color: lightgreen;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer; 
+    margin-right: 10px;
+    margin-left: 10px;
+}
+
+#resetBouton {
+    background-color: red;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#monParagraphe {
+    margin-left: 10px;
+}
