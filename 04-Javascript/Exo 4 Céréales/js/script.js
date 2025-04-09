@@ -27,7 +27,7 @@ const app = createApp({
             }
         },
         
-        // Supprime une céréale par son ID
+        // Supprime de l'affichage une céréale par son ID
         supprimerCereale(id) {
             this.listeCereales = this.listeCereales.filter(cereale => cereale.id !== id);
         },
@@ -88,42 +88,47 @@ const app = createApp({
         cerealesCount() {
             return this.cerealesFiltrees.length;
         },
-        
+    
         // Calcule la moyenne des calories
         averageCalories() {
             if (this.cerealesCount === 0) return '-';
             const total = this.cerealesFiltrees.reduce((sum, c) => sum + (parseFloat(c.calories) || 0), 0);
             return Math.round(total / this.cerealesCount);
         },
-        
-        // Filtre les céréales selon les critères (à implémenter)
+    
+        // Filtre les céréales selon les critères
         cerealesFiltrees() {
             return this.listeCereales.filter(cereale => {
-                // Filtre par recherche
-                const matchSearch = cereale.name.toLowerCase().includes(
-                    this.recherche.toLowerCase()
-                );
-                
-                // Filtre par Nutriscore
-                const matchNutriscore = this.filtresNutriscore.length === 0 || 
-                    this.filtresNutriscore.includes(
-                        this.calculerNutriscore(cereale.rating)
-                    );
-                
-                let matchCategorie = true; // Par défaut, toutes les catégories correspondent
-
-                if (this.filtreCategorie === 'sans sucre') {
-                    matchCategorie = parseFloat(cereale.sugars) === 0;
-                } else if  (this.filtreCategorie === 'pauvre en sel') {
-                    matchCategorie = parseFloat(cereale.sodium) < 100;
-                } else if (this.filtreCategorie === 'Boost') {
-                    matchCategorie = parseFloat(cereale.protein) > 3;;
-                } else if (this.filtreCategorie !== 'Tous') {
-                    matchCategorie = true;
+                const matchSearch = cereale.name.toLowerCase().includes(this.recherche.toLowerCase());
+                const matchNutriscore = this.filtresNutriscore.length === 0 || this.filtresNutriscore.includes(this.calculerNutriscore(cereale.rating));
+        
+                let matchCategorie = true;
+        
+                if (this.filtreCategorie !== 'Tous') {
+                    matchCategorie = false;  // Initialiser à false
+        
+                    switch (this.filtreCategorie) {
+                        case 'Sans sucre':
+                            if (parseFloat(cereale.sugars) < 1) {
+                                matchCategorie = true;
+                            }
+                            break;
+                        case 'Pauvre en Sel':
+                            if (parseFloat(cereale.sodium) < 50)  {
+                                matchCategorie = true;
+                            }
+                            break;
+                        case 'Boost':
+                            if (parseFloat(cereale.vitamins) >= 25 && parseFloat(cereale.fiber) >= 10) {
+                                matchCategorie = true;
+                            }
+                            break;
+                    }
                 }
-
+        
                 return matchSearch && matchNutriscore && matchCategorie;
             });
         }
     }
+    
 }).mount('#app');
