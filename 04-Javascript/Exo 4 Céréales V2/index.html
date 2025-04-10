@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cereales</title>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div id="app">
+        <div class="header">
+            <h1>Cereals</h1>
+            <div class="controls">
+                <fieldset class="search-container">
+                    <legend> Recherche </legend>
+                    <div style="display: flex; align-items: center;">
+                        <input v-model="recherche" type="text" placeholder="Nom du céréale">
+                        <span v-if="recherche" @click="recherche = ''" class="clear-search-icon">
+                            &#10006;
+                        </span>
+                    </div>
+                </fieldset>
+                <fieldset class="filter-container">
+                    <legend> Filtrer</legend>
+                    <fieldset class="filter-options">
+                        <legend>Nutriscore</legend>
+                        <label>A <input type="checkbox" v-model="filtresNutriscore" value="A"></label>
+                        <label>B <input type="checkbox" v-model="filtresNutriscore" value="B"></label>
+                        <label>C <input type="checkbox" v-model="filtresNutriscore" value="C"></label>
+                        <label>D <input type="checkbox" v-model="filtresNutriscore" value="D"></label>
+                        <label>E <input type="checkbox" v-model="filtresNutriscore" value="E"></label>
+                    </fieldset>
+                    <fieldset class="filter-category">
+                        <legend>Catégorie</legend>
+                        <select v-model="filtreCategorie">
+                            <option>Tous</option>
+                            <option>Sans sucre</option>
+                            <option>Pauvre en Sel</option>
+                            <option>Boost</option>
+                        </select>
+                    </fieldset>
+                </fieldset>
+
+                <fieldset class="save-load-container">
+                    <legend> Sauvegarde / Export </legend>
+                    <button @click="saveData">Sauvegarder</button>
+                    <button @click="downloadData">Télécharger JSON</button>
+                    <button @click="resetData">Réinitialiser</button>
+                </fieldset>
+
+            </div> 
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th @click="sortBy('id')" style="width: 5%;">ID</th>
+                    <th @click="sortBy('name')" style="width: 15%;">NOM</th>
+                    <th @click="sortBy('calories')" style="width: 8%;">CALORIES</th>
+                    <th @click="sortBy('protein')">PROTÉINES</th>
+                    <th @click="sortBy('sodium')">SEL</th>
+                    <th @click="sortBy('fiber')">FIBRES</th>
+                    <th @click="sortBy('carbo')">GLUCIDES</th>
+                    <th @click="sortBy('sugars')">SUCRE</th>
+                    <th @click="sortBy('potass')">POTASSIUM</th>
+                    <th @click="sortBy('vitamins')">VITAMINES</th>
+                    <th @click="sortBy('rating')">ÉVALUATION</th>
+                    <th>NS</th>
+                    <th>DEL</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr v-for="cereale in cerealesFiltrees" :key="cereale.id">
+                    <td>{{ cereale.id }}</td>
+                    <td>{{ cereale.name }}</td>
+                    <td>{{ cereale.calories }}</td>
+                    <td>{{ cereale.protein }}</td>
+                    <td>{{ cereale.sodium }}</td>
+                    <td>{{ cereale.fiber }}</td>
+                    <td>{{ cereale.carbo }}</td>
+                    <td>{{ cereale.sugars }}</td>
+                    <td>{{ cereale.potass }}</td>
+                    <td>{{ cereale.vitamins }}</td>
+                    <td>{{ cereale.rating }}</td>
+                    <td :class="classNutriscore(calculerNutriscore(cereale.rating))">{{ calculerNutriscore(cereale.rating) }}</td>
+                    <td><button @click="supprimerCereale(cereale.id)">✖</button></td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <td></td>
+                    <td class="text-left">{{ cerealesCount }} éléments</td>
+                    <td class="text-left">Moyenne<br>calories<br>{{ averageCalories }}</td>
+                </tr>
+            </tfoot>
+        </table>
+        
+    </div>
+    
+</body>
+</html>
