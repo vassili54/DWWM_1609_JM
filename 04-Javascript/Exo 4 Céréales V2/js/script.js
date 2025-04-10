@@ -28,6 +28,10 @@ const app = createApp({
             }
         },
 
+        FormatData(value) {
+            return value === -1 ? '-' : value; // Gère les valeurs manquantes
+        },
+
         // Supprime de l'affichage une céréale par son ID
         supprimerCereale(id) {
             this.listeCereales = this.listeCereales.filter(cereale => cereale.id !== id);

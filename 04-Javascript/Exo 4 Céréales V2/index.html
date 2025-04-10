@@ -74,14 +74,14 @@
                 <tr v-for="cereale in cerealesFiltrees" :key="cereale.id">
                     <td>{{ cereale.id }}</td>
                     <td>{{ cereale.name }}</td>
-                    <td>{{ cereale.calories }}</td>
-                    <td>{{ cereale.protein }}</td>
-                    <td>{{ cereale.sodium }}</td>
-                    <td>{{ cereale.fiber }}</td>
-                    <td>{{ cereale.carbo }}</td>
-                    <td>{{ cereale.sugars }}</td>
-                    <td>{{ cereale.potass }}</td>
-                    <td>{{ cereale.vitamins }}</td>
+                    <td>{{ FormatData(cereale.calories) }}</td>
+                    <td>{{ FormatData(cereale.protein) }}</td>
+                    <td>{{ FormatData(cereale.sodium) }}</td>
+                    <td>{{ FormatData(cereale.fiber) }}</td>
+                    <td>{{ FormatData(cereale.carbo) }}</td>
+                    <td>{{ FormatData(cereale.sugars) }}</td>
+                    <td>{{ FormatData(cereale.potass) }}</td>
+                    <td>{{ FormatData(cereale.vitamins) }}</td>
                     <td>{{ cereale.rating }}</td>
                     <td :class="classNutriscore(calculerNutriscore(cereale.rating))">{{ calculerNutriscore(cereale.rating) }}</td>
                     <td><button @click="supprimerCereale(cereale.id)">✖</button></td>
