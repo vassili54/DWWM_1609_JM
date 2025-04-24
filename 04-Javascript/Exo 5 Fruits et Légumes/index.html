@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fruits et Légumes</title>
+    <script  src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <script src="./js/script.js" type="module"></script>
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <img src="./img/legumos.jpg" alt="Bannière de fruits et légumes">
+        </header>
+        <section class="action-bar">
+            <form class="action-form-line">
+    
+                    <h3 class="sales-title">Ventes</h3>
+                    <button type="button"class="new-sla-button" @click="openNewSaleForm">Nouvelle Vente</button>
+
+                    <span class="separator"></span>
+
+                    <h3 class="veg-title">Légumes</h3>
+                    <button type="button" class="new-veg-button" @click="openNewVegForm">Nouveau Légume</button>
+
+            </form>
+        </section>
+
+
+        <div id="app">
+    
+        </div>
+    </div>
+
+    
+</body>
+</html>

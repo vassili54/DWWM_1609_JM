@@ -96,7 +96,7 @@ tbody th {
     color: yellowgreen;
     padding: 8px;
     text-align: center;
-    min-width: 100%;
+    min-width: 100%; /* Empêcher l'élément de devenir trop petit */ 
 }
 
 thead th:nth-child(2),
