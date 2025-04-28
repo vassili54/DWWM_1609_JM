@@ -1,4 +1,5 @@
 <?php
+//-------------------Serie 6A-------------------
 /**
  * Retourne et affiche la date du jour au format j/m/Y
  * 
