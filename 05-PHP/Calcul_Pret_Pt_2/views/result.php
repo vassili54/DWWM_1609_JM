@@ -25,7 +25,7 @@
     console.log('Données du tableau d\'amortissement:', amortissementData);
 
     // Exemple d'utilisation des données
-    document.addEventListener('DOMContentLoaded' function() {
+    document.addEventListener('DOMContentLoaded', function() {
 
     }); 
 </script>
