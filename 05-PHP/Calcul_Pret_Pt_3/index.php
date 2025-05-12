@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -99,7 +98,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['envoi'])) {
         </div>
     </div>
     <?php endif; ?>
-
+    
+    <?php if (!empty($tab)): ?>
+    <div class="container mt-3">
+        <div class="row justify-content-center">
+            <div class="col-md-10">
+                <form action="export_json.php" method="post" class="text-center">
+                    <input type="hidden" name="montant_pret" value="<?= htmlspecialchars($donnees['montant']) ?>">
+                    <input type="hidden" name="taux_interet" value="<?= htmlspecialchars($donnees['taux']) ?>">
+                    <input type="hidden" name="duree_pret_annees" value="<?= htmlspecialchars($donnees['duree']) ?>">
+                    <button type="submit" class="btn btn-secondary">Exporter le tableau en JSON</button>
+                </form>
+            </div>
+        </div>
+    </div>
+    <?php endif; ?>
+        
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
