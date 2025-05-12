@@ -92,7 +92,7 @@ class Pret {
      * ]
      */
     public function getTableauAmortissement(): array {
-        $data = [];
+        $data = []; // Ou $data = array();
         $mensualite = $this->calculMensualite();
         $tauxMensuel = $this->tauxAnnuel / 100 / 12;
         $capitalRestant = $this->capital;
