@@ -1,0 +1,23 @@
+        .card {
+            transition: all 0.3s ease;
+            margin-bottom: 20px;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .badge-rating {
+            background-color: #ffc107;
+            color: #000;
+        }
+        .price-tag {
+            font-weight: bold;
+            color: #28a745;
+        }
+        .restaurant-header {
+            background: linear-gradient(135deg, #6a11cb 0%, #2575fc 100%);
+            color: white;
+            padding: 3rem 0;
+            margin-bottom: 2rem;
+            border-radius: 0 0 10px 10px;
+        }

@@ -1,0 +1,16 @@
+.card {
+  transition: transform 0.2s;
+  margin-bottom: 20px;
+}
+.card:hover {
+  transform: scale(1.02);
+}
+.note-high {
+  color: #28a745;
+}
+.note-medium {
+  color: #ffc107;
+}
+.note-low {
+  color: #dc3545;
+}
