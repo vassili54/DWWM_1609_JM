@@ -1,197 +1,215 @@
 <?php
+require_once './Connection.php';
+
 class RestoRepository
 {
-    private $db;
+    private PDO $db;
 
     public function __construct()
     {
-        $this->connect();
-    }
-
-    private function connect()
-    {
-        try {
-            $this->db = new PDO(
-                'mysql:host=localhost;dbname=Guide;charset=utf8mb4',
-                'root',
-                '',
-                [
-                    PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
-                    PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC,
-                ]
-            );
-        } catch (PDOException $e) {
-            throw new Exception("Erreur de connexion à la base de données: " . $e->getMessage());
-        }
+        $this->db = Connection::getInstance();
     }
 
     /**
      * Récupère tous les restaurants de la base de données
      * @return array Tableau associatif des restaurants
-     * @throws Exception Si la requête échoue
      */
     public function searchAll(): array
     {
-        $stmt = $this->db->prepare("SELECT * FROM restaurants ORDER BY nom");
+        $stmt = $this->db->prepare("SELECT * FROM restaurants ORDER BY id ASC");
         $stmt->setFetchMode(PDO::FETCH_ASSOC);
         if ($stmt->execute()) {
-            $tab = $stmt->fetchAll();
-            return $tab;
+            return $stmt->fetchAll();
         } else {
-            return [];
+            return []; // Retourne un tableau vide en cas d'échec
         }
     }
+
     /**
      * Récupère un restaurant par son ID
      * @param int $id L'identifiant du restaurant
-     * @return array Les données du restaurant
+     * @return array|false Les données du restaurant ou false si non trouvé
      */
-    public function searchById($_id): array
+    public function searchById(int $id)
     {
-        if (!is_numeric($_id)) {
-            throw new Exception("L'identifiant doit être un nombre entier.");
-        }
         $stmt = $this->db->prepare("SELECT * FROM restaurants WHERE id=:id");
-        $stmt->setFetchMode(PDO::FETCH_ASSOC);
-        $stmt->bindParam(':id', $_id, PDO::PARAM_INT);
+        $stmt->bindParam(':id', $id, PDO::PARAM_INT);
         $stmt->execute();
-        if ($stmt->rowCount() == 0) {
-            return [];
-        }
-        return $stmt->fetch();
+        return $stmt->fetch(PDO::FETCH_ASSOC); // Retourne le tableau associatif ou false
     }
-    /**
-     * Récupère les noms des colonnes de la table choisie et la clé primaire
-     * @param string $tableName Le nom de la table
-     * @return array Tableau associatif contenant les noms des colonnes et la clé primaire
-     */
-    private function info_table($tableName): array {
-        // Requête pour obtenir les colonnes
-        $stmt = $this->db->prepare("DESCRIBE $tableName");
-        $stmt->execute();
-        $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        // Extraction juste des noms de colonnes
-        $columnNames = array_column($columns, 'Field');
-
-        // Identification de la clé primaire
-        $primaryKey = '';
-        foreach ($columns as $column) {
-            if ($column['Key'] === 'PRI') {
-                $primaryKey = $column['Field'];
-                break;
-            }
-        }
-
-        return [
-            'columns' => $columnNames,
-            'primary_key' => $primaryKey
-        ];
-    }
     /**
      * Génère un tableau HTML5 avec les données de la table
      * @param string $tableName Le nom de la table
      * @return string HTML du tableau
      */
-    public function rendre_html($tableName): string {
-    $tableInfo = $this->info_table($tableName);
-    $columns = $tableInfo['columns'];
-    $primaryKey = $tableInfo['primary_key'];
-    $data = $this->searchAll();
+    public function rendre_html($tableName): string
+    {
+        $tableInfo = $this->info_table($tableName);
+        $columns = $tableInfo['columns'];
+        $primaryKey = $tableInfo['primary_key'];
+        $data = $this->searchAll();
 
-    $html = '<div class="table-responsive">';
-    $html .= '<table class="table table-striped table-bordered">';
-    $html .= '<thead class="table-dark"><tr>';
+        $html = '<div class="table-responsive">';
+        $html .= '<table class="table table-striped table-bordered">';
+        $html .= '<thead class="table-dark"><tr>';
 
-    // Ajouter les noms des colonnes
-    foreach ($columns as $column) {
-        $html .= '<th>' . htmlspecialchars($column);
-        if ($column === $primaryKey) {
-            $html .= ' <i class="bi bi-key" title="Clé primaire"></i>';
-        }
-        $html .= '</th>';
-    }
-    $html .= '<th>Modifier</th>'; // Ajouter une colonne pour le bouton Modifier
-    $html .= '<th>Supprimer</th>'; // Ajouter une colonne pour le bouton Supprimer
-
-    $html .= '</tr></thead><tbody>';
-
-    // Ajouter des données
-    foreach ($data as $row) {
-        $html .= '<tr>';
         foreach ($columns as $column) {
-            $html .= '<td';
+            if (empty($column)) continue;
+            $html .= '<th>' . htmlspecialchars($column);
             if ($column === $primaryKey) {
-                $html .= ' class="fw-bold"';
+                $html .= ' <i class="bi bi-key" title="Clé primaire"></i>';
             }
-            $html .= '>' . htmlspecialchars($row[$column] ?? '') . '</td>';
+            $html .= '</th>';
         }
 
-        // Ajouter le bouton de modification
-        $html .= '<td>';
-        $html .= '<a href="fichedetail.php?id=' . $row[$primaryKey] . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Modifier</a>';
-        $html .= '</td>';
+        /* $html .= '<th>Ajouter</th>'; */
+        $html .= '<th>Modifier</th>';
+        $html .= '<th>Supprimer</th>';
+        $html .= '</tr></thead><tbody>';
 
-        // Ajouter le bouton de suppression
-        $html .= '<td>';
-        $html .= '<form method="POST" action="fichedetail.php" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet enregistrement ?\')">';
-        $html .= '<input type="hidden" name="id" value="' . $row[$primaryKey] . '">';
-        $html .= '<input type="hidden" name="action" value="delete">';
-        $html .= '<button type="submit" name="delete" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Supprimer</button>';
-        $html .= '</form>';
-        $html .= '</td>';
+        foreach ($data as $row) {
+            $html .= '<tr>';
+            foreach ($columns as $column) {
+                if (empty($column)) continue;
+                $html .= '<td';
+                $noteClass = '';
+                if ($column === 'Note' && is_numeric($row[$column])) {
+                    if ($row[$column] >= 7.5) {
+                        $noteClass = 'note-high';
+                    } elseif ($row[$column] >= 5) {
+                        $noteClass = 'note-medium';
+                    } else {
+                        $noteClass = 'note-low';
+                    }
+                }
+                if (!empty($noteClass)) {
+                    $html .= ' class="' . $noteClass . '"';
+                } elseif ($column === $primaryKey) {
+                    $html .= ' class="fw-bold"';
+                }
+                $html .= '>' . htmlspecialchars($row[$column] ?? '') . '</td>';
+            }
+            /*
+            // Bouton "Ajouter" qui va vers le formulaire vierge
+            $html .= '<td>';
+            $html .= '<a href="fichedetail.php" class="btn btn-primary btn-sm"><i class="bi bi-plus"></i> Ajouter</a>';
+            $html .= '</td>';
+            */    
+            // Bouton de modification
+            $html .= '<td>';
+            $html .= '<a href="fichedetail.php?id=' . $row[$primaryKey] . '" class="btn btn-warning btn-sm"><i class="bi bi-pencil"></i> Modifier</a>';
+            $html .= '</td>';
 
-        $html .= '</tr>';
+            // Bouton de suppression (formulaire POST)
+            $html .= '<td>';
+            $html .= '<form method="POST" action="fichedetail.php" onsubmit="return confirm(\'Êtes-vous sûr de vouloir supprimer cet enregistrement ?\')">';
+            $html .= '<input type="hidden" name="id" value="' . $row[$primaryKey] . '">';
+            $html .= '<input type="hidden" name="action" value="delete">';
+            $html .= '<button type="submit" class="btn btn-danger btn-sm"><i class="bi bi-trash"></i> Supprimer</button>';
+            $html .= '</form>';
+            $html .= '</td>';
+
+            $html .= '</tr>';
+        }
+
+        $html .= '</tbody></table>';
+        $html .= '</div>';
+        return $html;
     }
-
-    $html .= '</tbody></table>';
-    $html .= '</div>';
-    return $html;
-}
 
     /**
-     * Modifie un enregistrement dans la table
+     * Récupère les noms des colonnes de la table choisie et la clé primaire
      * @param string $tableName Le nom de la table
-     * @param int $id L'identifiant de l'enregistrement
-     * @param array $data Les données à mettre à jour
-     * @return bool True si la mise à jour a réussi, false sinon
+     * @return array Tableau associatif contenant les noms des colonnes et la clé primaire
      */
-    public function modifyRow($tableName, $id, $data): bool {
-        $tableInfo = $this->info_table($tableName);
-        $primaryKey = $tableInfo['primary_key'];
+    private function info_table($tableName): array
+    {
+        $stmt = $this->db->prepare("DESCRIBE $tableName");
+        $stmt->execute();
+        $columns = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
-        $setParts = [];
-        foreach ($data as $key => $value) {
-            $setParts[] = "$key = :$key";
+        $columnNames = array_column($columns, 'Field');
+        $primaryKey = '';
+        foreach ($columns as $column) {
+            if (isset($column['Key']) && $column['Key'] === 'PRI') {
+                $primaryKey = $column['Field'];
+                break;
+            }
         }
-        $setClause = implode(', ', $setParts);
+        return [
+            'columns' => $columnNames,
+            'primary_key' => $primaryKey
+        ];
+    }
 
-        $sql = "UPDATE $tableName SET $setClause WHERE $primaryKey = :id";
-        $stmt = $this->db->prepare($sql);
-
-        foreach ($data as $key => $value) {
-            $stmt->bindValue(":$key", $value);
+    /**
+     * Ajoute un nouveau restaurant dans la base de données
+     * @param array $data Les données du restaurant
+     * @return int L'ID du nouveau restaurant inséré
+     * @throws Exception Si l'insertion échoue ou si des données sont manquantes
+     */
+    public function ajouter(array $data): int
+    {
+        $requiredFields = ['nom', 'adresse', 'prix'];
+        foreach ($requiredFields as $field) {
+            if (empty($data[$field])) {
+                throw new Exception("Le champ '$field' est obligatoire.");
+            }
         }
+
+        $stmt = $this->db->prepare("
+            INSERT INTO restaurants (nom, adresse, prix, Commentaire, Note, visite)
+            VALUES (:nom, :adresse, :prix, :commentaire, :note, :visite)");
+
+        $stmt->bindValue(':nom', $data['nom'], PDO::PARAM_STR);
+        $stmt->bindValue(':adresse', $data['adresse'], PDO::PARAM_STR);
+        $stmt->bindValue(':prix', $data['prix'], PDO::PARAM_STR);
+        $stmt->bindValue(':commentaire', $data['Commentaire'] ?? null, PDO::PARAM_STR);
+        $stmt->bindValue(':note', $data['Note'] ?? null, PDO::PARAM_STR);
+        $stmt->bindValue(':visite', $data['visite'] ?? null, PDO::PARAM_STR);
+
+        if (!$stmt->execute()) {
+            throw new Exception("Erreur lors de l'ajout du restaurant : " . implode(', ', $stmt->errorInfo()));
+        }
+
+        return $this->db->lastInsertId();
+    }
+
+    /**
+     * Met à jour un restaurant existant
+     * @param int $id L'identifiant du restaurant
+     * @param array $data Les nouvelles données
+     * @return bool True si la mise à jour a réussi, false sinon
+     * @throws Exception En cas d'échec de la modification
+     */
+    public function modifier(int $id, array $data): bool
+    {
+        $stmt = $this->db->prepare("
+            UPDATE restaurants SET
+            nom = :nom,
+            adresse = :adresse,
+            prix = :prix,
+            Commentaire = :commentaire,
+            Note = :note,
+            visite = :visite
+            WHERE id = :id
+        ");
+
         $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+        $stmt->bindValue(':nom', $data['nom'], PDO::PARAM_STR);
+        $stmt->bindValue(':adresse', $data['adresse'], PDO::PARAM_STR);
+        $stmt->bindValue(':prix', $data['prix'], PDO::PARAM_STR);
+        $stmt->bindValue(':commentaire', $data['Commentaire'] ?? null, PDO::PARAM_STR);
+        $stmt->bindValue(':note', $data['Note'] ?? null, PDO::PARAM_STR);
+        $stmt->bindValue(':visite', $data['visite'] ?? null, PDO::PARAM_STR);
 
-        return $stmt->execute();
+        if (!$stmt->execute()) {
+            throw new Exception("Erreur lors de la modification du restaurant : " . implode(', ', $stmt->errorInfo()));
+        }
+
+        return $stmt->rowCount() > 0;
     }
-
-
-    public function insertRow($tableName, $data): bool {
-    $columns = implode(', ', array_keys($data));
-    $placeholders = ':' . implode(', :', array_keys($data));
-    
-    $sql = "INSERT INTO $tableName ($columns) VALUES ($placeholders)";
-    $stmt = $this->db->prepare($sql);
-    
-    foreach ($data as $key => $value) {
-        $stmt->bindValue(":$key", $value);
-    }
-    
-    return $stmt->execute();
-    }
-
 
     /**
      * Supprime un enregistrement de la table
@@ -199,25 +217,63 @@ class RestoRepository
      * @param int $id L'identifiant de l'enregistrement
      * @return bool True si la suppression a réussi, false sinon
      */
+    public function deleteRow($tableName, $id): bool
+    {
+        if (!is_numeric($id)) {
+            throw new InvalidArgumentException("L'ID doit être numérique");
+        }
 
-    public function deleteRow($tableName, $id): bool {
-    if (!is_numeric($id)) {
-        throw new InvalidArgumentException("L'ID doit être numérique");
-    }
-    
-    $tableInfo = $this->info_table($tableName);
-    $primaryKey = $tableInfo['primary_key'];
-    
-    $sql = "DELETE FROM $tableName WHERE $primaryKey = :id";
-    $stmt = $this->db->prepare($sql);
-    $stmt->bindValue(':id', $id, PDO::PARAM_INT);
-    
-    return $stmt->execute();
+        $tableInfo = $this->info_table($tableName);
+        $primaryKey = $tableInfo['primary_key'];
+
+        $sql = "DELETE FROM $tableName WHERE $primaryKey = :id";
+        $stmt = $this->db->prepare($sql);
+        $stmt->bindValue(':id', $id, PDO::PARAM_INT);
+
+        if (!$stmt->execute()) {
+            throw new Exception("Erreur lors de la suppression de l'enregistrement : " . implode(', ', $stmt->errorInfo()));
+        }
+        return $stmt->rowCount() > 0;
     }
 
     public function __destruct()
     {
-        $this->db = null;
+        unset($this->db);
+    }
+    /**
+     * Écrit la collection de restaurants dans un fichier JSON
+     * @param string $filename Nom du fichier (sans extension)
+     * @return void
+     * @throws Exception Si l'écriture échoue
+     */
+    public function chercherCollection(string $filename = 'restaurants'): void
+    {
+        try {
+            $directory = __DIR__ .'/dataobjet';
+            if (!file_exists($directory)) {
+                mkdir($directory, 0777, true);
+            }
+
+            // Chemin complet du fichier
+            $filepath = $directory . '/' . $filename . '.json';
+
+            // Recupérer les données
+            $restaurants = $this->searchAll();
+            $jsonData = json_encode($restaurants, JSON_PRETTY_PRINT | JSON_UNESCAPED_UNICODE);
+
+            if ($jsonData === false) {
+                throw new Exception("Erreur lors de la conversion en JSON");
+            }
+            
+            // Écrire dans le fichier (mode 'w' pour écraser)
+            $result = file_put_contents($filepath, $jsonData);
+
+            if ($result === false) {
+                throw new Exception("Erreur lors de l'écriture dans le fichier");
+            }
+            
+        } catch (Exception $e) {
+            throw new Exception("Erreur dans chercherCollection: " . $e->getMessage());
+        }
     }
 }
-?>

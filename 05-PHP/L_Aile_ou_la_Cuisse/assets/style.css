@@ -1,16 +1,39 @@
-.card {
-  transition: transform 0.2s;
-  margin-bottom: 20px;
+/* Style général */
+body {
+    padding-top: 20px;
 }
-.card:hover {
-  transform: scale(1.02);
-}
+
+/* Styles des notes */
 .note-high {
-  color: #28a745;
+    color: #28a745;
+    font-weight: bold;
 }
 .note-medium {
-  color: #ffc107;
+    color: #ffc107;
 }
 .note-low {
-  color: #dc3545;
+    color: #dc3545;
 }
+
+/* Animation des boutons */
+.btn {
+    transition: all 0.2s;
+}
+.btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+/* Responsive table */
+.table-responsive {
+    overflow-x: auto;
+}
+
+/* Style du footer */
+footer {
+    margin-top: 50px;
+    padding: 20px 0;
+    background-color: #f8f9fa;
+    border-top: 1px solid #dee2e6;
+}
+
