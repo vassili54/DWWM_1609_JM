@@ -29,7 +29,7 @@ VALUES (
     '17 Rue de la Poissonnerie, 68000 Colmar',
     50.00,
     'Le JY\'S est un restaurant différent des autres avec un décor cosy et résolument contemporain qui attire une très belle clientèle cosmopolite. Jean-Yves Schillinger est un chef doublement étoilé créatif qui vous entraînera dans une ronde dépaysante à souhait où la cuisine du monde est à l\'honneur. Le chef décline la cuisine fusion à sa façon. Une carte régulièrement renouvelée s\'égaye de créations audacieuses et de plats revisités avec modernité et pertinence.',
-    9.0,
+   9.0,
     '2019-12-05'
 );
 
