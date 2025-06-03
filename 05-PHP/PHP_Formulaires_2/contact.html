@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="fr-FR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulaire de contact</title>
+    <link rel="stylesheet" href="./asset/css/style.css">
+</head>
+<body>
+    <div class="container">
+        <form class="formulaire" action="traitement-contact.php" method="post">
+            <h2>Contactez-nous</h2>
+            
+            <div class="form-group">
+                <label for="monNom">Votre Nom :</label> 
+                <input type="text" id="monNom" name="nom" required> 
+            </div>
+            
+            <div class="form-group">
+                <label for="maDate">Votre Date de naissance :</label> 
+                <input type="date" id="maDate" name="dateDeNaissance" required>  
+            </div>
+            
+            <div class="form-group">
+                <label for="monEmail">Votre Adresse email :</label> 
+                <input type="email" id="monEmail" name="email" required>  
+            </div>
+            
+            <div class="form-group">
+                <label for="monMessage">Votre message :</label> 
+                <textarea id="monMessage" name="message" required></textarea>    
+            </div>
+
+            <button type="submit" class="btn">Envoyer</button>
+        </form>
+    </div>
+</body>
+</html>

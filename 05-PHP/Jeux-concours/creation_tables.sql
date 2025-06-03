@@ -38,10 +38,7 @@ CREATE TABLE IF NOT EXISTS departements (
 -- Cela garantit que chaque département renseigné pour un candidat existe bien dans notre liste de départements.
 -- C'est pourquoi la table 'departements' DOIT exister AVANT d'ajouter cette contrainte.
 
--- ALTER TABLE candidats
--- ADD CONSTRAINT fk_departement_user
--- FOREIGN KEY (departement_user)
--- REFERENCES departements(id_dep);
+ALTER TABLE candidats ADD CONSTRAINT fk_departement_user FOREIGN KEY (departement_user) REFERENCES departements(id_dep);
 
 -- SELECT COUNT(*) FROM departements; -- Doit retourner 95
 -- SELECT * FROM departements LIMIT 10; -- Voir les 10 premiers départements
