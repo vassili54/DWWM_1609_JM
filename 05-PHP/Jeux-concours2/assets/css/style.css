@@ -1,0 +1,148 @@
+.form-container {
+  max-width: 450px; /* Légère réduction de la largeur maximale pour un look plus compact */
+  margin: 1.5rem auto; /* Réduit la marge au-dessus et en dessous du conteneur */
+  padding: 1.2rem; /* Réduit encore le padding interne du conteneur (était 1.5rem) */
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #2c3e50;
+  margin-bottom: 1rem; /* Réduit encore la marge sous le titre (était 1.5rem) */
+  font-size: 1.6rem; /* Optionnel: Réduire légèrement la taille du titre */
+}
+
+.form-group {
+  margin-bottom: 0.8rem; /* Réduit significativement la marge entre chaque groupe de formulaire (était 1rem) */
+}
+
+label {
+  display: block;
+  margin-bottom: 0.3rem; /* Petite réduction de la marge sous les labels (était 0.4rem) */
+  font-weight: 600;
+  color: #34495e;
+}
+
+input,
+select {
+  width: 100%;
+  padding: 0.6rem; /* Réduit encore le padding interne des inputs et selects (était 0.65rem) */
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 0.9rem; /* Optionnel: Réduire légèrement la taille de la police des inputs */
+  transition: border-color 0.3s;
+}
+
+input:focus,
+select:focus {
+  border-color: #3498db;
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+button {
+  width: 100%;
+  padding: 0.75rem; /* Réduit un peu le padding du bouton (était 0.85rem) */
+  background: #2ecc71;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.95rem; /* Réduit légèrement la taille de la police du bouton */
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+  margin-top: 0.8rem; /* Réduit la marge au-dessus du bouton (était 1rem) */
+}
+
+button:hover {
+  background: #27ae60;
+}
+
+.error,
+.success {
+  padding: 0.7rem 0.9rem; /* Réduit le padding interne des messages (était 0.8rem 1rem) */
+  margin-bottom: 1rem; /* Réduit la marge sous les messages (était 1.2rem) */
+  color: #e74c3c;
+  background: #fadbd8;
+  border-radius: 4px;
+  border-left: 4px solid #e74c3c;
+}
+
+.success {
+  color: #27ae60;
+  background: #d5f5e3;
+  border-left: 4px solid #27ae60;
+}
+
+@media (max-width: 640px) {
+  .form-container {
+    padding: 0.8rem; /* Réduit le padding sur mobile */
+    margin: 0.8rem auto; /* Réduit la marge sur mobile */
+  }
+}
+
+/* Nouveau style pour le conteneur de l'input et de l'icône */
+.password-input-container {
+  position: relative; /* C'est la base : le conteneur est le référentiel pour les éléments positionnés absolument */
+  display: flex; /* Utilisez flexbox pour aligner l'input et l'icône */
+  align-items: center; /* Centre verticalement les éléments dans le conteneur */
+  width: 100%;
+}
+
+/* Style de l'input à l'intérieur du conteneur de mot de passe */
+.password-input-container input {
+  flex-grow: 1; /* L'input prendra tout l'espace disponible */
+  padding-right: 40px; /* Laisse de l'espace pour l'icône sur la droite (ajustez si l'icône est plus grande) */
+  /* Assurez-vous que le padding-top et padding-bottom sont cohérents avec le positionnement de l'icône */
+  padding-top: 0.6rem; /* Conserver le padding vertical défini précédemment */
+  padding-bottom: 0.6rem; /* Conserver le padding vertical défini précédemment */
+}
+
+/* Style de l'icône "œil" */
+.password-toggle {
+  position: absolute; /* L'icône est positionnée absolument par rapport à .password-input-container */
+  right: 15px; /* Décalage à partir du bord droit du conteneur */
+  /* top: 50%; et transform: translateY(-50%); sont déjà gérés par align-items: center; avec display: flex; */
+  /* Vous pouvez les garder pour une double sécurité, mais flexbox s'en occupe */
+  top: 50%; /* Garder pour une compatibilité maximale */
+  transform: translateY(-50%); /* Garder pour une compatibilité maximale */
+  cursor: pointer;
+  color: #6c757d;
+  font-size: 1rem; /* Ajustez si l'icône est trop grande ou trop petite */
+  z-index: 2; /* S'assure que l'icône est au-dessus de l'input */
+}
+
+.password-toggle:hover {
+  color: #343a40;
+}
+
+/* Styles pour la barre de progression Bootstrap */
+.progress {
+  height: 3px; /* Réduit encore la hauteur de la barre de progression (était 4px) */
+  margin-top: 3px; /* Réduit la marge au-dessus de la barre (était 4px) */
+  background-color: #e9ecef;
+  border-radius: 3px;
+}
+
+/* Feedback textuel */
+.form-text {
+  font-size: 0.75rem; /* Réduit la taille de la police du feedback (était 0.8rem) */
+  margin-top: 0.15rem; /* Réduit la marge au-dessus du feedback (était 0.2rem) */
+  display: block;
+}
+
+/* Couleurs spécifiques */
+.text-danger {
+  color: #dc3545 !important;
+}
+.text-warning {
+  color: #fd7e14 !important;
+}
+.text-info {
+  color: #0dcaf0 !important;
+}
+.text-success {
+  color: #198754 !important;
+}

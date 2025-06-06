@@ -12,3 +12,6 @@ CREATE TABLE tbl_contact (
     message TEXT NOT NULL,
     date_creation DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+
+-- requête SQL pour voir l'inscription du formulaire
+-- SELECT * FROM db_contact.tbl_contact LIMIT 5;
