@@ -1,0 +1,103 @@
+/* Style de base pour le formulaire et les résultats */
+body {
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+  margin: 0;
+  padding: 20px;
+  color: #333;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Styles du formulaire */
+.formulaire {
+  background: #f9f9f9;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+.formulaire h2 {
+  margin-top: 0;
+  color: #2c3e50;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="date"],
+.form-group textarea {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group textarea {
+  height: 120px;
+}
+
+.btn {
+  background: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.btn:hover {
+  background: #2980b9;
+}
+
+/* Styles pour les résultats */
+.resultat {
+  background: #e8f5e9;
+  padding: 20px;
+  border: 1px solid #a5d6a7;
+  border-radius: 5px;
+}
+
+.resultat h2 {
+  margin-top: 0;
+  color: #2e7d32;
+}
+
+/* Styles pour les erreurs */
+.erreur {
+  background: #ffebee;
+  padding: 20px;
+  border: 1px solid #ef9a9a;
+  border-radius: 5px;
+  color: #c62828;
+}
+
+.retour-lien {
+  display: inline-block;
+  margin-top: 15px;
+  color: #3498db;
+  text-decoration: none;
+}
+
+.retour-lien:hover {
+  text-decoration: underline;
+}
+
+.retour-lien::before {
+  content: "< ";
+}
