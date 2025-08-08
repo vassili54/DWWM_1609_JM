@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS agence;
+
+CREATE DATABASE IF NOT EXISTS agence;
+
+USE agence;

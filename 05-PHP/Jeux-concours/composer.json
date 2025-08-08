@@ -1,0 +1,10 @@
+{
+    "name": "jmatz/jeux-concours",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Jeux-concours\\dao\\": "src/"
+        }
+    },
+    "require": {}
+}

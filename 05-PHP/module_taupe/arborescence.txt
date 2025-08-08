@@ -1,0 +1,12 @@
+ avec l'arborescence du dossier module_taupe.
+
+
+module_taupe/
+├── excavator.sql
+├── index.php
+├── taupe.php
+└── img/
+    ├── excavatrice_taupe.png
+    ├── localisation1.png
+    ├── localisation2.png
+    └── plan_taupe_v1.jpg

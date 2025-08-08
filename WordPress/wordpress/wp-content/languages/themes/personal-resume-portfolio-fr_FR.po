@@ -1,0 +1,78 @@
+# Translation of Themes - Personal Resume Portfolio in French (France)
+# This file is distributed under the same license as the Themes - Personal Resume Portfolio package.
+msgid ""
+msgstr ""
+"PO-Revision-Date: 2025-05-29 06:09:09+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: GlotPress/4.0.1\n"
+"Language: fr\n"
+"Project-Id-Version: Themes - Personal Resume Portfolio\n"
+
+#. Description of the theme
+#: style.css
+#, gp-priority: high
+msgid "Showcase your professional profile with the Personal Resume Portfolio child theme — a simple, digital resume template designed to elevate your personal brand. Whether you're a graphic designer, writer, or freelancer, this creative layout helps you present your career summary, CV, and work history with clarity and style. Perfect for blogger profiles, curriculum vitae, and cover letters, this theme offers a clean space to highlight your skills, experience, and achievements. With sections for a skillset showcase and portfolio display, it's ideal for photographers, illustrators, marketers, and remote professionals looking to make an online impression."
+msgstr "Mettez en valeur votre profil professionnel avec le thème enfant Personal Resume Portfolio — un modèle de CV numérique simple conçu pour renforcer votre marque personnelle. Que vous soyez graphiste, rédacteur ou travailleur indépendant, cette mise en page créative vous aide à présenter votre résumé de carrière, votre CV et votre parcours professionnel avec clarté et élégance. Parfait pour les profils de blogueurs, les curriculums vitæ et les lettres de motivation, ce thème offre un espace épuré pour mettre en avant vos compétences, votre expérience et vos réalisations. Avec ses sections dédiées à la présentation de vos compétences et à l’exposition de votre portfolio, il est idéal pour les photographes, illustrateurs, spécialistes du marketing et professionnels à distance souhaitant faire bonne impression en ligne."
+
+#. Theme Name of the theme
+#: style.css
+#, gp-priority: high
+msgid "Personal Resume Portfolio"
+msgstr "Personal Resume Portfolio"
+
+#: functions.php:139
+msgid "Show comment count"
+msgstr "Afficher le nombre de commentaires"
+
+#: functions.php:128
+msgid "Show categories"
+msgstr "Afficher les catégories"
+
+#: functions.php:117
+msgid "Show post date"
+msgstr "Afficher la date de publication"
+
+#: functions.php:106
+msgid "Show author name"
+msgstr "Afficher le nom de l’auteur/autrice"
+
+#: functions.php:94
+msgid "Show post excerpt?"
+msgstr "Afficher l’extrait de la publication ?"
+
+#: functions.php:85
+msgid "These options control how posts are displayed on blog, archive, and category pages."
+msgstr "Ces options contrôlent l’affichage des publications sur les pages de blog, d’archives et de catégories."
+
+#: functions.php:83
+msgid "Content Display Options"
+msgstr "Options d’affichage du contenu"
+
+#: functions.php:70
+msgid "Skip to content"
+msgstr "Aller au contenu"
+
+#: functions.php:24
+msgid "Default Header Image"
+msgstr "Image d’entête par défaut"
+
+#. Author URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://athemeart.com/"
+msgstr "https://athemeart.com/"
+
+#. Author of the theme
+#: style.css
+#, gp-priority: low
+msgid "aThemeArt"
+msgstr "aThemeArt"
+
+#. Theme URI of the theme
+#: style.css
+#, gp-priority: low
+msgid "https://athemeart.com/downloads/resume-portfolio/"
+msgstr "https://athemeart.com/downloads/resume-portfolio/"

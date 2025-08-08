@@ -1,0 +1,5 @@
+DROP DATABASE IF EXISTS yoga_db;
+
+CREATE DATABASE IF NOT EXISTS yoga_db;
+
+USE yoga_db;

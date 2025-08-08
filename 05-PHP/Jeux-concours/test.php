@@ -1,7 +1,7 @@
 <?php
-require_once __DIR__.'/src/Dbconnect.php';
-require_once __DIR__.'/src/Repositories/CandidateRepository.php';
-require_once __DIR__.'/src/Repositories/DepartementRepository.php';
+require_once __DIR__.'/dao/Dbconnect.php';
+require_once __DIR__.'/dao/CandidateRepository.php';
+require_once __DIR__.'/dao/DepartementRepository.php';
 
 class JeuConcoursTest {
     private $candidateRepo;

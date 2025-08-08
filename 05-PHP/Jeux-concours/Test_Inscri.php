@@ -1,7 +1,11 @@
 <?php
-require_once __DIR__.'/src/Dbconnect.php';
-require_once __DIR__.'/src/Repositories/CandidateRepository.php';
-require_once __DIR__.'/src/Repositories/DepartementRepository.php';
+// require_once __DIR__.'/dao/Dbconnect.php';
+// require_once __DIR__.'/dao/CandidateRepository.php';
+// require_once __DIR__.'/dao/DepartementRepository.php';
+require_once "./vendor/autoload.php";
+use Dao\CandidateRepository;
+use Dao\DepartementRepository;
+use Dao\Dbconnect;
 
 // Fonction pour afficher les candidats dans un tableau HTML
 function displayCandidatesTable($candidates) {

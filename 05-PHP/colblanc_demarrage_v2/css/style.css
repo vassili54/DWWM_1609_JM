@@ -1,0 +1,339 @@
+@charset "utf-8";
+
+/* CSS Document */
+
+body {
+    background-color: #EEEDED;
+    margin-top: 0px;
+    padding: 0px;
+}
+
+#tab {
+    background-repeat: repeat-y;
+}
+
+table .colonne {
+    text-align: right;
+}
+
+#page {
+    position: relative;
+    background-color: #FFF;
+    height: 100%;
+    width: 980px;
+    margin: 0 auto;
+    padding-top: 20px; /* Conserve le padding haut */
+}
+
+#header {
+    position: relative;
+    left: 0px;
+    margin-left: 0px;
+    margin: 0px;
+    padding: 0px;
+    width: 980px;
+}
+
+#nav {
+    float: left;
+    width: 15%;
+    height: 380px;
+    padding: 10px;
+}
+
+#section {
+    float: right;
+    width: 80%;
+}
+
+footer {
+    text-align: center;
+    width: 980px; /* Assurez-vous que le footer couvre la même largeur que #page */
+    padding: 20px 0; /* Padding vertical, 0 padding horizontal pour correspondre à #page width */
+    height: auto;
+    background-color: #EEEDED;
+    clear: both; /* Important pour que le footer ne flotte pas à côté des éléments */
+}
+
+div#menu {
+    list-style-type: none;
+    position: relative;
+    left: 0px;
+    border-bottom: 1px solid #5F6076;
+    border-top: 1px solid #5F6076;
+    border-left: 0px;
+    border-right: 1px solid #5F6076;
+    width: 980px;
+    background-color: #EEE;
+    margin-top: 0;
+    font-family: Tahoma, Geneva, sans-serif;
+    font-size: 0.8em;
+    z-index: 10;
+    float: left; /* Conserve le float original de votre menu */
+}
+
+#menu a {
+    display: block;
+    background-color: #EEE;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    color: #364670;
+    text-decoration: none;
+}
+
+#menu a:hover {
+    background-color: #D9D9D9;
+}
+
+#menu ul {
+    list-style-type: none;
+    margin: 0px;
+    display: inline;
+}
+
+#menu ul li:first-child {
+    border-left: 1px solid #5F6076;
+}
+
+#menu ul li {
+    position: relative;
+    border-right: 1px solid #5F6076;
+    float: left;
+    list-style-type: none;
+}
+
+#menu ul li:hover {
+    background-color: #D9D9D9;
+}
+
+#menu ul li ul {
+    left: -41px;
+    margin: 0;
+    position: absolute;
+    width: 135px;
+    display: none;
+}
+
+#menu ul li:hover ul {
+    display: block;
+}
+
+#menu ul li:hover ul li ul {
+    display: none;
+}
+
+#menu ul li ul:hover li {
+    display: block;
+}
+
+#menu ul li ul li:first-child {
+    border-top: 1px solid #5F6076;
+}
+
+#menu ul li ul li {
+    width: 100%;
+    border-left: 1px solid #5F6076;
+    border-bottom: 1px solid #5F6076;
+    border-right: 1px solid #5F6076;
+}
+
+#menu ul li ul li:hover ul {
+    display: block;
+    position: absolute;
+    top: -1px;
+    left: 95px;
+}
+
+#menu ul li ul li ul {
+    float: right;
+    display: none;
+}
+
+#entreprise {
+    font-family: Arial, Helvetica, sans-serif;
+    size: 10px;
+}
+
+.impair {
+    background-color: #D5FFD5;
+}
+
+.pair {
+    background-color: #FFFFFF;
+}
+
+
+/* --- Styles spécifiques pour le formulaire de recherche (AJOUTS / REMPLACEMENTS CI-DESSOUS) --- */
+
+/* Conteneur principal qui gère le layout des filtres et du titre */
+main form {
+    position: relative; /* Base pour le positionnement absolu du titre */
+    padding: 3px; /* Padding interne autour de tout le contenu du formulaire */
+    display: flex; /* Active Flexbox pour aligner la colonne de filtres et le titre */
+    justify-content: flex-start; /* Aligne les éléments au début du conteneur */
+    align-items: flex-start; /* Aligne les éléments en haut */
+    gap: 50px; /* Espace entre la colonne des filtres et le titre des résultats */
+}
+
+/* Conteneur pour tous les éléments de filtre (département, type, bouton Valider) */
+.filter-column {
+    display: flex; /* Active Flexbox pour les éléments à l'intérieur de cette colonne */
+    flex-direction: column; /* Les empile verticalement */
+    flex-shrink: 0; /* Empêche cette colonne de rétrécir */
+    width: 500px; /* Définissez une largeur pour cette colonne, ajustez si besoin */
+    /* background-color: #f0f0f0; */ /* Temporaire pour visualisation */
+    /* padding: 10px; Padding interne pour cette colonne */
+}
+
+/* Styles pour les groupes de formulaire génériques */
+.form-group {
+    margin-bottom: 20px; /* Espace sous chaque groupe de formulaire */
+}
+
+/* Groupe du département */
+.department-group {
+    display: flex; /* Aligne le label et le select horizontalement */
+    align-items: center; /* Centre verticalement */
+    justify-content: space-between; /* Pousse le select vers la droite */
+    width: 100%; /* S'assure que le flexbox prend toute la largeur disponible dans .filter-column */
+    max-width: 450px; /* Largeur maximale pour ce bloc si vous voulez aligner, ajustez */
+}
+
+.department-group label {
+    margin-right: 10px; /* Espace entre le label et le select */
+    font-size: 1.05em; /* Taille de police */
+    white-space: nowrap; /* Empêche le label de passer à la ligne */
+    font-weight: normal;
+}
+
+.department-group select {
+    width: 168px; /* Largeur minimale pour la liste déroulante, ajustez pour l'alignement */
+    padding: 5px;
+}
+
+/* Groupe du type d'établissement (checkboxes) */
+.establishment-type-group h3 {
+    margin-top: 0;
+    margin-bottom: 10px; /* Espace sous le titre des types d'établissement */
+    font-size: 1.05em;
+    font-weight: normal;
+}
+
+.checkbox-list {
+    /* Conteneur pour toutes les checkboxes */
+    margin-left: 290px;
+}
+
+.checkbox-item {
+    display: flex; /* Aligne la checkbox et son label sur la même ligne */
+    align-items: center; /* Centre verticalement la checkbox avec le label */
+    margin-bottom: 5px; /* Espace entre chaque paire checkbox/label */
+}
+
+.checkbox-item input[type="checkbox"] {
+    margin-right: 5px; /* Espace entre la checkbox et son label */
+}
+
+.checkbox-item label {
+    font-size: 0.95em; /* Ajustez la taille du texte si besoin */
+}
+
+/* Conteneur commun pour les boutons Valider et Imprimer */
+.action-buttons-container {
+    display: flex; /* Active Flexbox pour les boutons à l'intérieur */
+    flex-direction: column; /* Empile les boutons verticalement */
+    align-items: flex-start; /* Aligne les boutons à gauche du conteneur */
+    margin-top: 20px; /* Espace au-dessus du groupe de boutons */
+    margin-left: 20px; /* <--- AJUSTEMENT CLÉ : Déplace le bloc entier de boutons vers la gauche */
+    /* background-color: lightblue; */ /* Temporaire pour visualisation de ce conteneur */
+}
+
+.action-buttons-container button {
+    padding: 8px 15px; /* Padding générique pour les deux boutons */
+    font-size: 1em; /* Taille de police générique */
+    cursor: pointer;
+    margin-bottom: 10px; /* Espace entre les boutons si stacked verticalement */
+}
+
+/* Vous pouvez ajouter des styles spécifiques si un bouton doit être différent */
+.action-buttons-container button:last-child {
+    margin-bottom: 0; /* Pas de marge sous le dernier bouton */
+}
+
+/* Si vous voulez que les boutons soient sur la même ligne (côte à côte) : */
+
+.action-buttons-container {
+    display: flex;
+    flex-direction: row; 
+    justify-content: space-between;
+    margin-top: 20px;
+    margin-left: 20px; 
+}
+.action-buttons-container button {
+    margin-right: 15px; 
+    padding: 8px 15px;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+
+
+/* Conteneur du titre des résultats */
+.results-title-column {
+    /* Positionnement absolu pour le placer précisément */
+    position: absolute;
+    top: 20px; /* Position verticale par rapport au haut du formulaire */
+    right: 130px; /* <--- MODIFIÉ : Augmentez cette valeur pour le déplacer vers la gauche */
+    /* width: 250px; Largeur pour le titre, ajustez si le texte dépasse */
+    text-align: right; /* Aligne le texte du titre à droite */
+    /* background-color: #e0e0e0; */ /* Temporaire pour visualisation */
+}
+
+.results-page-title {
+    font-size: 1.8em;
+    color: #333;
+    margin: 0;
+}
+
+/* --- Styles pour le tableau de résultats --- */
+
+.results-table {
+    width: 98%; /* Prend presque toute la largeur disponible */
+    border-collapse: collapse; /* Fusionne les bordures des cellules */
+    margin-top: 30px; /* <--- Espace au-dessus du tableau. Ajustez cette valeur si nécessaire. */
+    font-family: Arial, sans-serif;
+    font-size: 0.9em;
+    margin-left: auto; /* Centre le tableau */
+    margin-right: auto; /* Centre le tableau */
+}
+
+.results-table th, .results-table td {
+    border: 1px solid #ccc; /* Bordure légère */
+    padding: 8px;
+    text-align: left;
+}
+
+.results-table th {
+    background-color: #f2f2f2;
+    font-weight: bold;
+    color: #333;
+}
+
+.results-table tr:nth-child(even) { /* Lignes paires */
+    background-color: #f9f9f9; /* Couleur de fond légèrement différente */
+}
+
+.results-table tr:hover {
+    background-color: #e0e0e0; /* Effet au survol */
+}
+
+.results-table a {
+    color: #007bff; /* Couleur des liens dans le tableau */
+    text-decoration: none;
+}
+
+.results-table a:hover {
+    text-decoration: underline;
+}

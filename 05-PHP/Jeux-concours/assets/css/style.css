@@ -1,4 +1,4 @@
-.container {
+.form-container {
   max-width: 450px; /* Légère réduction de la largeur maximale pour un look plus compact */
   margin: 1.5rem auto; /* Réduit la marge au-dessus et en dessous du conteneur */
   padding: 1.2rem; /* Réduit encore le padding interne du conteneur (était 1.5rem) */
@@ -77,7 +77,7 @@ button:hover {
 }
 
 @media (max-width: 640px) {
-  .container {
+  .form-container {
     padding: 0.8rem; /* Réduit le padding sur mobile */
     margin: 0.8rem auto; /* Réduit la marge sur mobile */
   }
