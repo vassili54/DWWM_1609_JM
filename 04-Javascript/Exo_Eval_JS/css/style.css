@@ -1,0 +1,111 @@
+/* Couleurs de base (Thème bleu) */
+:root {
+  --couleurs-fond-principale: #00008b;
+  --couleurs-fond-secondaire: #3333a2;
+  --couleur-bordure: #ff8c00;
+  --couleurs-police: #ffff00;
+  --couleurs-input: #5c5cb5;
+  --couleurs-texte-bouton: #e0ffff;
+}
+/* Couleurs du thème valide (Thème vert) */
+.valide-theme {
+  --couleurs-fond-principale: #006400;
+  --couleurs-fond-secondaire: #338333;
+  --couleurs-input: #5c9c5c;
+  --couleurs-police: #ffff00;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--couleurs-fond-principale);
+  color: var(--couleurs-police);
+  font-family: Verdana, sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  transition: background-color 0.5s ease; /* Ajout d'une transition pour un effet fluide */
+}
+
+h1 {
+  margin-bottom: 30px;
+  font-size: 2em;
+}
+
+.form {
+  width: 800px;
+  padding: 40px;
+  border: 2px solid var(--couleur-bordure);
+  border-radius: 10px;
+  background: var(--couleurs-fond-secondaire);
+  margin: 20px auto;
+  transition: background-color 0.5s ease;
+}
+
+/* On applique les variables CSS du thème valide sur le formulaire */
+.form.valide-theme {
+  background-color: var(--couleurs-fond-secondaire);
+}
+
+/* Pour le pied de page et le texte d'erreur, on utilise la couleur de police */
+.texte_erreur,
+footer {
+  color: var(--couleurs-police);
+}
+
+.form-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+label {
+  width: 240px;
+  font-weight: bold;
+  white-space: nowrap;
+  text-align: left;
+}
+
+.couleurs {
+  width: 300px;
+  padding: 10px;
+  border: 2px solid var(--couleur-bordure);
+  background: var(--couleurs-input);
+  color: var(--couleurs-texte-bouton);
+  box-sizing: border-box;
+  font-size: 20px;
+}
+
+/* On applique la couleur d'input du thème valide sur les inputs */
+.valide-theme .couleurs {
+  background: var(--couleurs-input);
+}
+
+button.couleurs {
+  width: 200px;
+  margin: 10px auto 0;
+  display: block;
+  cursor: pointer;
+}
+
+button.couleurs:hover {
+  background: var(--couleurs-fond-principale);
+}
+
+.container {
+  text-align: center;
+}
+
+footer {
+  margin-top: 20px;
+}
+.texte_erreur {
+  color: var(--couleurs-police);
+  margin-top: 25px;
+}
